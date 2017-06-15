@@ -1,0 +1,19 @@
+pane	alfa	0	:~/Hacking/malta	1	:*	0	:/home/netsamir/Hacking/malta	1	zsh	:
+pane	alfa	0	:~/Hacking/malta	1	:*	1	:/home/netsamir/Hacking/malta	0	zsh	:
+pane	alfa	0	:~/Hacking/malta	1	:*	2	:/home/netsamir/Hacking/malta	0	zsh	:
+pane	alfa	1	:~/Hacking/malta	0	:-	0	:/home/netsamir/dotfiles/vimwiki	0	vim	:vim kismet.wiki
+pane	alfa	1	:~/Hacking/malta	0	:-	1	:/home/netsamir/Hacking/malta	1	zsh	:
+pane	autoscout	0	:..roject/source	0	:-	0	:/home/netsamir/Webfactional/webapps/rammotors_project/source/rammotors	1	vim	:vim
+pane	autoscout	0	:..roject/source	0	:-	1	:/home/netsamir/Webfactional/webapps/rammotors_project/source	0	python	:python ./manage.py shell --settings=rammotors.settings.local
+pane	autoscout	0	:..roject/source	0	:-	2	:/home/netsamir/Webfactional/webapps/rammotors_project/source	0	zsh	:
+pane	autoscout	1	:..roject/source	1	:*	0	:/home/netsamir/Webfactional/webapps/rammotors_project/source	0	zsh	:
+pane	autoscout	1	:..roject/source	1	:*	1	:/home/netsamir/Webfactional/webapps/rammotors_project/source	0	zsh	:
+pane	autoscout	1	:..roject/source	1	:*	2	:/home/netsamir/Webfactional/webapps/rammotors_project/source	1	python	:python ./manage.py runserver --settings=rammotors.settings.local
+pane	ninja	0	:~/Odoo	1	:*	0	:/home/netsamir/Odoo	1	vim	:vim e83.md
+pane	ninja	0	:~/Odoo	1	:*	1	:/home/netsamir/Odoo	0	zsh	:
+window	alfa	0	1	:*	f601,180x50,0,0{90x50,0,0,56,89x50,91,0[89x9,91,0,55,89x40,91,10,49]}
+window	alfa	1	0	:-	8302,180x50,0,0{89x50,0,0,47,90x50,90,0,53}
+window	autoscout	0	0	:-	43ae,180x50,0,0[180x37,0,0,0,180x12,0,38{90x12,0,38,40,89x12,91,38,44}]
+window	autoscout	1	1	:*	48d5,180x50,0,0{110x50,0,0[110x25,0,0,27,110x24,0,26,45],69x50,111,0,7}
+window	ninja	0	1	:*	3112,180x50,0,0[180x25,0,0,3,180x24,0,26,34]
+state	alfa	autoscout

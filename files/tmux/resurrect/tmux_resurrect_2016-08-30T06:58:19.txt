@@ -1,0 +1,51 @@
+pane	0	0	:~/Perl	0	:-	0	:/home/netsamir/Perl	1	zsh	:
+pane	0	2	:~/Downloads/t1	1	:*Z	0	:/home/netsamir/Downloads/t1	1	zsh	:
+pane	0	2	:~/Downloads/t1	1	:*Z	1	:/home/netsamir/Perl	0	zsh	:
+pane	0	2	:~/Downloads/t1	1	:*Z	2	:/home/netsamir/Perl	0	zsh	:
+pane	0	3	:~/LI	0	:	0	:/home/netsamir/LI	1	zsh	:
+pane	9	0	:~	1	:*	0	:/home/netsamir	1	zsh	:
+pane	9	0	:~	1	:*	1	:/home/netsamir	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	0	:/home/netsamir	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	1	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	2	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	3	:/home/netsamir/Hacking	1	zsh	:
+pane	css	0	:vi	1	:*	0	:/home/netsamir/CSS/CSS_Missing_Manual_David_McFarland/11	1	vim	:vim form/form.html form/global.css
+pane	haskell	0	:~/Haskell	1	:*	0	:/home/netsamir/Haskell	1	ghc	:/usr/lib/ghc/bin/ghc -B/usr/lib/ghc --interactive
+pane	haskell	0	:~/Haskell	1	:*	1	:/home/netsamir/Haskell	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	0	:/home/netsamir	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	1	:/home/netsamir/Documents/Officiels	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	2	:/home/netsamir/dotfiles	1	zsh	:
+pane	mercyl	0	:..rc/mercyl_com	1	:*	0	:/home/netsamir/Python/Mercyl/src/mercyl_com	1	zsh	:
+pane	mercyl	1	:..atic_dirs/css	0	:-	0	:/home/netsamir/Python/Mercyl/src	0	zsh	:
+pane	mercyl	1	:..atic_dirs/css	0	:-	1	:/home/netsamir/Python/Mercyl/static/static_dirs/css	1	zsh	:
+pane	ninja	0	:..ownloads/test	1	:*	0	:/home/netsamir/Downloads/test	1	zsh	:
+pane	ninja	0	:..ownloads/test	1	:*	1	:/home/netsamir	0	zsh	:
+pane	ninja	1	:vi	0	:-	0	:/home/netsamir/Downloads/test	0	vim	:vim surround.vim
+pane	ninja	1	:vi	0	:-	1	:/home/netsamir/dotfiles/vim/bundle/vim-indent-guides/plugin	1	vim	:vim indent_guides.vim
+pane	popcorn	0	:telnet	1	:*	0	:/home/netsamir	1	telnet	:telnet 192.168.1.157
+pane	popcorn	0	:telnet	1	:*	1	:/home/netsamir	0	zsh	:
+pane	popcorn	0	:telnet	1	:*	2	:/apps	0	zsh	:
+pane	popcorn	1	:~	0	:-	0	:/home/netsamir	1	zsh	:
+pane	python	0	:..StackOverflow	1	:*	0	:/home/netsamir/Python/StackOverflow	1	python	:/usr/local/bin/python /usr/local/bin/ipython
+pane	python	0	:..StackOverflow	1	:*	1	:/home/netsamir/Python/StackOverflow	0	zsh	:
+pane	vim	0	:~/Vim	1	:*	0	:/home/netsamir/Vim	0	zsh	:
+pane	vim	0	:~/Vim	1	:*	1	:/home/netsamir/Vim	0	zsh	:
+pane	vim	0	:~/Vim	1	:*	2	:/home/netsamir/Perl	0	zsh	:
+pane	vim	0	:~/Vim	1	:*	3	:/home/netsamir/Perl	1	zsh	:
+window	0	0	0	:-	6ae8,272x69,0,0,19
+window	0	2	1	:*Z	123e,272x69,0,0{135x69,0,0,3,136x69,136,0[136x54,136,0,4,136x14,136,55,20]}
+window	0	3	0	:	d562,272x69,0,0,5
+window	9	0	1	:*	a989,272x69,0,0{136x69,0,0,36,135x69,137,0,39}
+window	Hacking	0	1	:*	0ee5,272x69,0,0{121x69,0,0,6,150x69,122,0[150x33,122,0,7,150x17,122,34,8,150x17,122,52,9]}
+window	css	0	1	:*	eae5,272x69,0,0,26
+window	haskell	0	1	:*	a984,272x69,0,0{136x69,0,0,32,135x69,137,0,33}
+window	health	0	1	:*	626e,272x69,0,0{173x69,0,0,10,98x69,174,0[98x25,174,0,11,98x43,174,26,12]}
+window	mercyl	0	1	:*	6ae2,272x69,0,0,13
+window	mercyl	1	0	:-	80a9,272x69,0,0{111x69,0,0,14,160x69,112,0,15}
+window	ninja	0	1	:*	145d,272x69,0,0{186x69,0,0,37,85x69,187,0,17}
+window	ninja	1	0	:-	2986,272x69,0,0{136x69,0,0,43,135x69,137,0,44}
+window	popcorn	0	1	:*	83b8,272x69,0,0{146x69,0,0,45,125x69,147,0[125x19,147,0,46,125x49,147,20,47]}
+window	popcorn	1	0	:-	eae8,272x69,0,0,48
+window	python	0	1	:*	a982,272x69,0,0{136x69,0,0,30,135x69,137,0,31}
+window	vim	0	1	:*	1ac9,272x69,0,0{151x69,0,0[151x66,0,0,21,151x2,0,67,25],120x69,152,0[120x14,152,0,22,120x54,152,15,23]}
+state	css	ninja

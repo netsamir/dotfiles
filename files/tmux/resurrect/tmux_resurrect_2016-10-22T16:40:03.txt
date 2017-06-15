@@ -1,0 +1,76 @@
+pane	as_law	0	:vi	1	:*	0	:/home/netsamir/AS_Law/as_law_v4.0	1	vim	:vim templates.html _layout.ejs
+pane	as_law	0	:vi	1	:*	1	:/home/netsamir/AS_Law/as_law_v4.0	0	zsh	:
+pane	as_law	0	:vi	1	:*	2	:/home/netsamir/AS_Law/as_law	0	vim	:vim index.ejs
+pane	as_law	0	:vi	1	:*	3	:/home/netsamir/Wrapbootstrap/Unify/Unify-v1.9.6/HTML	0	zsh	:
+pane	as_law	1	:harp	0	:-	0	:/home/netsamir/AS_Law	1	node	:node /usr/local/bin/harp server as_law_v4.0
+pane	as_law	1	:harp	0	:-	1	:/home/netsamir/Wrapbootstrap/Unify/Unify-v1.9.6/HTML/One-Pages	0	zsh	:
+pane	bash	0	:~/Perl	0	:-	0	:/home/netsamir/Perl	1	zsh	:
+pane	bash	2	:~/Python/Study	1	:*	0	:/home/netsamir/Bootstrap/ExtendBoot/wiki/sources	1	python	:/usr/local/bin/python /usr/local/bin/ipython
+pane	bash	2	:~/Python/Study	1	:*	1	:/home/netsamir/Haskell	0	zsh	:
+pane	bash	2	:~/Python/Study	1	:*	2	:/home/netsamir/Haskell	0	ghc	:/usr/lib/ghc/bin/ghc -B/usr/lib/ghc --interactive
+pane	bash	2	:~/Python/Study	1	:*	3	:/home/netsamir/Haskell	0	zsh	:
+pane	bash	2	:~/Python/Study	1	:*	4	:/home/netsamir/Python/Study	0	zsh	:
+pane	bash	3	:~/LI	0	:	0	:/home/netsamir/LI	1	zsh	:
+pane	bootstrap	0	:%	0	:-	0	:/home/netsamir/AS_Law/as_law	1	vim	:vim js/main.js
+pane	bootstrap	1	:~/AS_Law	1	:*	0	:/home/netsamir/AS_Law/as_law/fonts	1	zsh	:
+pane	bootstrap	1	:~/AS_Law	1	:*	1	:/home/netsamir/fonts/simple-line-icons/css	0	zsh	:
+pane	bootstrap	1	:~/AS_Law	1	:*	2	:/home/netsamir/AS_Law	0	zsh	:
+pane	css	1	:..rc/mercyl_com	0	:-	0	:/home/netsamir/Python/Mercyl/src/mercyl_com	1	zsh	:
+pane	css	2	:~/usr/bin	1	:*	0	:/home/netsamir/usr/bin	0	zsh	:
+pane	css	2	:~/usr/bin	1	:*	1	:/home/netsamir/usr/bin	0	zsh	:
+pane	css	2	:~/usr/bin	1	:*	2	:/home/netsamir/CSS/Ayn/source/css_16/templates/css_16	1	zsh	:
+pane	elem83	0	:~/Element83	1	:*	0	:/home/netsamir	0	zsh	:
+pane	elem83	0	:~/Element83	1	:*	1	:/home/netsamir/Element83/Odoo	0	zsh	:
+pane	elem83	0	:~/Element83	1	:*	2	:/home/netsamir/Element83	1	zsh	:
+pane	hacking	0	:~/Hacking	1	:*	0	:/home/netsamir	0	zsh	:
+pane	hacking	0	:~/Hacking	1	:*	1	:/home/netsamir/Hacking	0	zsh	:
+pane	hacking	0	:~/Hacking	1	:*	2	:/home/netsamir/Hacking	0	zsh	:
+pane	hacking	0	:~/Hacking	1	:*	3	:/home/netsamir/Hacking	1	zsh	:
+pane	haskell	0	:~/Haskell	1	:*	0	:/home/netsamir/Haskell	0	zsh	:
+pane	haskell	0	:~/Haskell	1	:*	1	:/home/netsamir/Haskell	1	zsh	:
+pane	health	0	:~/dotfiles	1	:*	0	:/home/netsamir	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	1	:/home/netsamir/Documents/Officiels	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	2	:/home/netsamir/dotfiles	1	zsh	:
+pane	latex	0	:~	1	:*	0	:/home/netsamir	1	zsh	:
+pane	malta	0	:..cuments/Malta	1	:*	0	:/home/netsamir/Documents/Malta	1	zsh	:
+pane	mercyl	0	:..l/src/scripts	1	:*	0	:/home/netsamir/Python/Mercyl/src/scripts	1	zsh	:
+pane	mercyl	0	:..l/src/scripts	1	:*	1	:/home/netsamir/Python/Mercyl/src	0	python	:python ./manage.py runserver
+pane	mercyl	1	:..atic_dirs/css	0	:-	0	:/home/netsamir/Python/Mercyl/src	0	zsh	:
+pane	mercyl	1	:..atic_dirs/css	0	:-	1	:/home/netsamir/Python/Mercyl/static/static_dirs/css	1	zsh	:
+pane	ninja	0	:~/Dillinger	1	:*	0	:/home/netsamir/Dillinger	1	zsh	:
+pane	ninja	0	:~/Dillinger	1	:*	1	:/media	0	zsh	:
+pane	ninja	1	:..guides/plugin	0	:-	0	:/home/netsamir/Downloads/test	0	zsh	:
+pane	ninja	1	:..guides/plugin	0	:-	1	:/home/netsamir/dotfiles/vim/bundle/vim-indent-guides/plugin	1	zsh	:
+pane	popcorn	0	:~	1	:*	0	:/home/netsamir	0	zsh	:
+pane	popcorn	0	:~	1	:*	1	:/home/netsamir	0	zsh	:
+pane	popcorn	0	:~	1	:*	2	:/home/netsamir	1	zsh	:
+pane	popcorn	1	:~	0	:-	0	:/home/netsamir	1	zsh	:
+pane	python	0	:..StackOverflow	1	:*	0	:/home/netsamir/Python/StackOverflow	0	zsh	:
+pane	python	0	:..StackOverflow	1	:*	1	:/home/netsamir/Python/StackOverflow	1	zsh	:
+pane	vim	0	:..cuments/Gamut	1	:*	0	:/home/netsamir/Vim	0	zsh	:
+pane	vim	0	:..cuments/Gamut	1	:*	1	:/home/netsamir/Documents/Gamut	0	zsh	:
+pane	vim	0	:..cuments/Gamut	1	:*	2	:/home/netsamir/Documents/Gamut	1	zsh	:
+window	as_law	0	1	:*	4374,272x69,0,0{161x69,0,0,52,110x69,162,0[110x28,162,0,53,110x27,162,29,58,110x12,162,57,55]}
+window	as_law	1	0	:-	ed84,272x69,0,0{96x69,0,0,54,175x69,97,0,56}
+window	bash	0	0	:-	d55e,272x69,0,0,1
+window	bash	2	1	:*	d31f,272x69,0,0{135x69,0,0,2,136x69,136,0[136x19,136,0,3,136x15,136,20,48,136x2,136,36,49,136x30,136,39,50]}
+window	bash	3	0	:	d561,272x69,0,0,4
+window	bootstrap	0	0	:-	d562,272x69,0,0,5
+window	bootstrap	1	1	:*	a346,272x69,0,0{135x69,0,0,6,136x69,136,0[136x50,136,0,7,136x18,136,51,8]}
+window	css	1	0	:-	d566,272x69,0,0,9
+window	css	2	1	:*	1133,272x69,0,0[272x43,0,0{98x43,0,0,10,173x43,99,0,11},272x25,0,44,12]
+window	elem83	0	1	:*	d7d9,272x69,0,0{135x69,0,0,13,136x69,136,0[136x35,136,0,14,136x33,136,36,15]}
+window	hacking	0	1	:*	5d75,272x69,0,0{121x69,0,0,16,150x69,122,0[150x33,122,0,17,150x17,122,34,18,150x17,122,52,19]}
+window	haskell	0	1	:*	2982,272x69,0,0{136x69,0,0,20,135x69,137,0,21}
+window	health	0	1	:*	a283,272x69,0,0{173x69,0,0,22,98x69,174,0[98x25,174,0,23,98x43,174,26,24]}
+window	latex	0	1	:*	d55d,272x69,0,0,0
+window	malta	0	1	:*	eae4,272x69,0,0,25
+window	mercyl	0	1	:*	e985,272x69,0,0{136x69,0,0,26,135x69,137,0,51}
+window	mercyl	1	0	:-	00ad,272x69,0,0{111x69,0,0,27,160x69,112,0,28}
+window	ninja	0	1	:*	71b6,272x69,0,0{138x69,0,0,29,133x69,139,0,30}
+window	ninja	1	0	:-	a983,272x69,0,0{136x69,0,0,31,135x69,137,0,32}
+window	popcorn	0	1	:*	431d,272x69,0,0{146x69,0,0,33,125x69,147,0[125x25,147,0,34,125x43,147,26,35]}
+window	popcorn	1	0	:-	6ae6,272x69,0,0,36
+window	python	0	1	:*	a989,272x69,0,0{136x69,0,0,37,135x69,137,0,38}
+window	vim	0	1	:*	13cd,272x69,0,0{116x69,0,0[116x8,0,0,39,116x60,0,9,40],155x69,117,0,42}
+state	as_law	elem83

@@ -1,0 +1,27 @@
+pane	0	0	:~	0	:	0	:/home/netsamir	1	zsh	:
+pane	0	1	:~	0	:-	0	:/home/netsamir	1	zsh	:
+pane	0	2	:~/Perl	1	:*	0	:/home/netsamir/Perl	1	zsh	:
+pane	0	2	:~/Perl	1	:*	1	:/home/netsamir/Perl	0	zsh	:
+pane	0	3	:vim	0	:	0	:/home/netsamir/LI	1	vim	:vim index.html
+pane	Hacking	0	:~/Hacking	1	:*	0	:/home/netsamir	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	1	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	2	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:~/Hacking	1	:*	3	:/home/netsamir/Hacking	1	zsh	:
+pane	health	0	:~/dotfiles	1	:*	0	:/home/netsamir	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	1	:/home/netsamir/Documents/Officiels	0	zsh	:
+pane	health	0	:~/dotfiles	1	:*	2	:/home/netsamir/dotfiles	1	zsh	:
+pane	mercyl	0	:~/Python/Mercyl	1	:*	0	:/home/netsamir/Python/Mercyl	1	zsh	:
+pane	mercyl	1	:..atic_dirs/css	0	:-	0	:/home/netsamir/Python/Mercyl/src	0	zsh	:
+pane	mercyl	1	:..atic_dirs/css	0	:-	1	:/home/netsamir/Python/Mercyl/static/static_dirs/css	1	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	0	:/home/netsamir/Downloads/test	0	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	1	:/home/netsamir/dotfiles	1	zsh	:
+window	0	0	0	:	d55e,272x69,0,0,1
+window	0	1	0	:-	d55f,272x69,0,0,2
+window	0	2	1	:*	8a2d,272x69,0,0{135x69,0,0,3,136x69,136,0,4}
+window	0	3	0	:	d562,272x69,0,0,5
+window	Hacking	0	1	:*	0ee5,272x69,0,0{121x69,0,0,6,150x69,122,0[150x33,122,0,7,150x17,122,34,8,150x17,122,52,9]}
+window	health	0	1	:*	626e,272x69,0,0{173x69,0,0,10,98x69,174,0[98x25,174,0,11,98x43,174,26,12]}
+window	mercyl	0	1	:*	6ae2,272x69,0,0,13
+window	mercyl	1	0	:-	80a9,272x69,0,0{111x69,0,0,14,160x69,112,0,15}
+window	ninja	0	1	:*	80ab,272x69,0,0{111x69,0,0,16,160x69,112,0,17}
+state	ninja	0

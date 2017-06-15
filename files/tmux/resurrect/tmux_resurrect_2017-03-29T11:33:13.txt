@@ -1,0 +1,3 @@
+pane	css	0	:~/CSS/Ex/sketch	1	:*	0	:/home/netsamir/CSS/Ex/sketch	1	zsh	:
+window	css	0	1	:*	ae7d,180x50,0,0,0
+state	css	

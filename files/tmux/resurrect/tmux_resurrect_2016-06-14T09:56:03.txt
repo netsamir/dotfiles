@@ -1,0 +1,12 @@
+pane	Hacking	0	:airodump-ng	1	:*	0	:/home/netsamir	1	vim	:vim
+pane	Hacking	0	:airodump-ng	1	:*	1	:/home/netsamir/Hacking	0	sudo	:sudo airodump-ng wlp3s0b1
+pane	Hacking	0	:airodump-ng	1	:*	2	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:airodump-ng	1	:*	3	:/home/netsamir/Hacking	0	zsh	:
+pane	mercyl	0	:~	1	:*	0	:/home/netsamir	1	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	0	:/home/netsamir	0	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	1	:/home/netsamir/dotfiles/tmux	0	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	2	:/home/netsamir/dotfiles	1	zsh	:
+window	Hacking	0	1	:*	71ac,272x69,0,0{121x69,0,0,2,150x69,122,0[150x41,122,0,4,150x2,122,42,17,150x24,122,45,16]}
+window	mercyl	0	1	:*	6ae7,272x69,0,0,18
+window	ninja	0	1	:*	258d,272x69,0,0{111x69,0,0,8,160x69,112,0[160x34,112,0,9,160x34,112,35,10]}
+state	mercyl	

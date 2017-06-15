@@ -1,0 +1,17 @@
+pane	boot	0	:~	0	:-	0	:/home/netsamir/Harp	1	vim	:vim initializr
+pane	boot	1	:..4_boilerplate	1	:*	0	:/home/netsamir/Harp/b4_boilerplate	0	node	:node /usr/local/bin/harp server --port=9002
+pane	boot	1	:..4_boilerplate	1	:*	1	:/home/netsamir/Harp/b4_boilerplate	1	zsh	:
+pane	bootstrap	0	:vi	0	:-	0	:/home/netsamir/Bootstrap/LearningBootstrap4_Matt_Lambert/beta	1	vim	:vim _data.json
+pane	bootstrap	1	:.._Lambert/beta	1	:*	0	:/home/netsamir/Bootstrap/LearningBootstrap4_Matt_Lambert/beta	0	node	:node /usr/local/bin/harp server
+pane	bootstrap	1	:.._Lambert/beta	1	:*	1	:/home/netsamir/Bootstrap/LearningBootstrap4_Matt_Lambert/beta	1	zsh	:
+pane	mercyl	0	:vi	1	:*	0	:/home/netsamir/Webfactional/webapps/mercyl_2017	1	vim	:vim strategy.jade
+pane	mercyl	1	:..s/mercyl_2017	0	:-	0	:/home/netsamir/Webfactional/webapps/mercyl_2017	0	node	:node /usr/local/bin/harp server --port=9010
+pane	mercyl	1	:..s/mercyl_2017	0	:-	1	:/home/netsamir/Webfactional/webapps/mercyl_2017	1	zsh	:
+pane	mercyl	1	:..s/mercyl_2017	0	:-	2	:/home/netsamir/Webfactional/webapps/mercyl_2017	0	zsh	:
+window	boot	0	0	:-	5770,180x50,0,0,11
+window	boot	1	1	:*	a697,180x50,0,0[180x5,0,0,13,180x44,0,6,14]
+window	bootstrap	0	0	:-	ae7d,180x50,0,0,0
+window	bootstrap	1	1	:*	c81d,180x50,0,0[180x9,0,0,1,180x40,0,10,9]
+window	mercyl	0	1	:*	5774,180x50,0,0,15
+window	mercyl	1	0	:-	265d,180x50,0,0[180x14,0,0,16,180x17,0,15,17,180x17,0,33,19]
+state	mercyl	boot

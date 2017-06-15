@@ -1,0 +1,3 @@
+pane	viz	0	:~	1	:*	0	:/home/netsamir	1	zsh	:
+window	viz	0	1	:*	ae7d,180x50,0,0,0
+state	viz	

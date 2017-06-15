@@ -1,0 +1,14 @@
+pane	0	0	:vim	1	:*	0	:/home/netsamir	1	vim	:vim
+pane	Hacking	0	:../tmux/plugins	1	:*	0	:/home/netsamir	0	vim	:vim
+pane	Hacking	0	:../tmux/plugins	1	:*	1	:/home/netsamir	0	zsh	:
+pane	Hacking	0	:../tmux/plugins	1	:*	2	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:../tmux/plugins	1	:*	3	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:../tmux/plugins	1	:*	4	:/home/netsamir/Hacking	0	zsh	:
+pane	Hacking	0	:../tmux/plugins	1	:*	5	:/home/netsamir/dotfiles/tmux/plugins	1	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	0	:/home/netsamir	0	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	1	:/home/netsamir/dotfiles/tmux	0	zsh	:
+pane	ninja	0	:~/dotfiles	1	:*	2	:/home/netsamir/dotfiles	1	zsh	:
+window	0	0	1	:*	d55d,272x69,0,0,0
+window	Hacking	0	1	:*	cd3b,272x69,0,0{121x69,0,0[121x66,0,0,1,121x2,0,67,9],150x69,122,0[150x3,122,0,2,150x2,122,4,7,150x2,122,7,3,150x59,122,10,8]}
+window	ninja	0	1	:*	0a47,272x69,0,0{111x69,0,0,4,160x69,112,0[160x34,112,0,5,160x34,112,35,6]}
+state	Hacking	ninja
