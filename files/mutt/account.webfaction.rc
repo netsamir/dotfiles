@@ -1,0 +1,15 @@
+set imap_user = "ssadek"
+set imap_pass = "15novY2K08"
+set smtp_url = "smtp://ssadek@smtp.webfaction.com:587/"
+set smtp_pass = "15novY2K08"
+
+set from = "samir.sadek@mercyl.com"
+set realname = "Samir Sadek"
+
+#set hostname = "webfaction.com"
+set folder = "imaps://mail.webfaction.com:993"
+set spoolfile = "+INBOX"
+
+set header_cache = "~/.mutt/com.webfaction/cache/headers"
+set message_cachedir = "~/.mutt/com.webfaction/cache/bodies"
+set certificate_file = "~/.mutt/com.webfaction/certificates"

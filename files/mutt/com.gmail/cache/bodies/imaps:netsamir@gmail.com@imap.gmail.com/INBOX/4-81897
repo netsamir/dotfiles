@@ -1,0 +1,552 @@
+Delivered-To: netsamir@gmail.com
+Received: by 10.200.9.48 with SMTP id t45csp554717qth;
+        Sat, 17 Jun 2017 07:09:43 -0700 (PDT)
+X-Received: by 10.107.9.160 with SMTP id 32mr14158493ioj.212.1497708583840;
+        Sat, 17 Jun 2017 07:09:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1497708583; cv=none;
+        d=google.com; s=arc-20160816;
+        b=oZo4nwbQA2a8VcnA0zrMzrYp6RtL+aJupt+LGpE5lpsfW9MRIg+4DlQqv8ZKQNgHE6
+         UzjRV+tcY2kYzuyr8Ayuu9fQNxyIGS0ic51kzfxuCE1gBHhT1VMu/UestVmjVFqhENZc
+         jo2e13exSauB9hlJPflfpgL2vz4eOred+OxXIw/MTfQO4aKv0A+1Js8TVfGiQ4qST8hN
+         hFPKkwTzJUXdG1QKFv++WEZM7z54+MlJNseXNzJ3/JHOOFEAogAPCvKGr9MmYGwlLwP3
+         pLKOyE1lgQDsoPKZ8EoWX/NwAtquJrwE7zQOO0uNTJlAN1byvSh9UBOO+ab55s8MVPrY
+         R6sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=feedback-id:message-id:list-id:reply-to:mime-version
+         :list-unsubscribe:date:subject:to:from:dkim-signature
+         :arc-authentication-results;
+        bh=y6b2/2WysupMEtB+9bGZz4GUnqiQWSK+1LBttF7VRtQ=;
+        b=KQS4TnplV3dxQ6AWYyXRKsH7F8cpGcrLnfAttq6WaBwxD3lTrk5zWPaU8LftG8gLdB
+         jWy1CGzzfODN8KUO7zWvH2FJjCu1wx463hmtAzuwZL2i0FoTYBA+pgybyA/Z5iukRMBi
+         XlJAne4tqY1mdk3/P8oUp6QEoElNIQeayD0hKBVD+fplRLNkQdgNiuHW+pJvohU2PXxP
+         wevNzxhz8irBmE8D7ZyMMWPMPBC4kasiRKUsqxZ+a7MX/5seRt+t0JdvUBDbLvlf1Ev3
+         +Z4Afl3TpgTsO6pQQm7k6vKHN7cDETrKFnF8mpxmMUQoscAf7kUWY329/fynwKMKB//K
+         SijQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@exct.caseyresearch.com header.b=EaNwZycf;
+       spf=pass (google.com: domain of bounce-37250_html-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com designates 13.111.50.49 as permitted sender) smtp.mailfrom=bounce-37250_HTML-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=caseyresearch.com
+Return-Path: <bounce-37250_HTML-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com>
+Received: from mta.exct.caseyresearch.com (mta.exct.caseyresearch.com. [13.111.50.49])
+        by mx.google.com with ESMTPS id g129si4808333ioa.244.2017.06.17.07.09.43
+        for <netsamir@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 17 Jun 2017 07:09:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-37250_html-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com designates 13.111.50.49 as permitted sender) client-ip=13.111.50.49;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@exct.caseyresearch.com header.b=EaNwZycf;
+       spf=pass (google.com: domain of bounce-37250_html-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com designates 13.111.50.49 as permitted sender) smtp.mailfrom=bounce-37250_HTML-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=caseyresearch.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=200608; d=exct.caseyresearch.com;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:List-ID:Message-ID:Content-Type; i=subscribers@exct.caseyresearch.com;
+ bh=S1YQDE2wlum9Gee8XJwydwGdxCE=;
+ b=EaNwZycf1SDVSorQU7s/hPb3LTPxQFBJo9FLlYkVwo48OaflL4TX3YFh9aby2PGCRE6s04FhS2un
+   mCM0SyNAshwytpPTP5Etwp55LIgRgxKzzNE9FCZaDUfYXgckVzl1Qk93gaoueDeCpVT5EVdewLUI
+   9r5FXC1H4OJg42C/Pz8=
+Received: by mta.exct.caseyresearch.com id h8ks2k163hse for <netsamir@gmail.com>; Sat, 17 Jun 2017 14:03:42 +0000 (envelope-from <bounce-37250_HTML-285982039-2421227-7299727-80@bounce.exct.caseyresearch.com>)
+From: "Casey Daily Dispatch" <subscribers@exct.caseyresearch.com>
+To: <netsamir@gmail.com>
+Subject: This Week's Best-Selling Research
+Date: Sat, 17 Jun 2017 08:03:39 -0600
+List-Unsubscribe: <mailto:leave-fcea1777776104122d502d29-fe211678706d0c7f751779-fe9b16747765067f72-fe8413727c6d037f72-ff971c70@leave.exct.caseyresearch.com>
+MIME-Version: 1.0
+Reply-To: "Casey Daily Dispatch Reader" <reply-fe9b16747765067f72-37250_HTML-285982039-7299727-80@exct.caseyresearch.com>
+List-ID: <7299727_2421227.xt.local>
+X-CSA-Complaints: whitelistcomplaints@eco.de
+x-job: 7299727_2421227
+Message-ID: <8f2354d3-a29f-4616-aa64-eec0c3cd2891@atl1s07mta1549.xt.local>
+Feedback-ID: 7299727:2421227:13.111.50.49:sfmktgcld
+Content-Type: multipart/alternative;
+	boundary="nhl6PHB0IIAs=_?:"
+
+This is a multi-part message in MIME format.
+
+--nhl6PHB0IIAs=_?:
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+On The Radar
+
+This Week&#39;s Best-Selling Research
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10 
+BREAKING: Legendary Investor Rick Rule Just Revealed His Personal Portfolio (Seven Deals Worth a Fortune) 
+For the first time ever, one of the world&#39;s richest men &ndash; responsible for inking some of the biggest gains in history &ndash; publicly revealed what&#39;s in his personal portfolio: seven lucrative deals he&#39;s personally negotiated. We&#39;re projecting small stakes in these companies could deliver you a $492,120 windfall. Don&#39;t miss this.
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10 
+Go here to hear Rick&#39;s details on all seven of them 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d 
+US Gov&rsquo;t to Require &ldquo;Vaccine&rdquo; for All Americans 
+By the end of 2017, a new law is expected to pass that will require a "vaccine" for all Americans. This preventive treatment could prevent 90% of all deaths related to America&#39;s most feared disease.
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d 
+Find out how to get this cure as soon as it&#39;s available 
+
+
+ 
+
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28 
+&ldquo;Buy This Stock Now&rdquo; 
+Since 2004, Chris Mayer has been one of the best-performing analysts in Bill Bonner&#39;s network &ndash; outperforming many of the top billionaire gurus in the world. Chris only recommends a handful of stocks every year, but very soon he will reveal a brand-new pick. If you click here right now, you could get in on it before Bill Bonner does.
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28 
+Details here 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22 
+Important Update for Men and Women Born Before 1969 
+During his 1986 tax reform, Ronald Reagan stumbled onto something that guarantees no American need run out of money in retirement. This IRS-approved tax-free income source could pay you up to $2,194 a month... Biden invests in this. Clinton does, too. Now so can you...
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22 
+Click here and we&#39;ll send you a starter kit for FREE 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f 
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f 
+Proof America Is Already Falling Apart
+Rancher details what most Americans &ndash; who live in cities and suburbs &ndash; don&#39;t know about a plot to devastate America...
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f 
+Get the full story here 
+
+(c) Casey Research, LLC
+
+55 NE 5th Avenue
+
+Delray Beach, FL 33483
+
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452cd5ed3c4a3d262ed517b9331af23a971e19d38606a1bcc3156be6467d3c58dee3da828e73b107bf920692f57333e1c56 
+www.caseyresearch.com 
+
+The email was sent to netsamir@gmail.com because you are subscribed to this service. To unsubscribe, click 
+http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bb7e2634e10bf33a4b86eec0f33e3eb2e5559c01b0bedcc547040627ce424e560bec03eeea8679da431d2a57526191c5 
+here .
+
+Customer Service
+
+Casey Research welcomes your feedback and questions. But please note: The law prohibits us from giving personalized advice.
+
+
+To contact us, call Toll Free: (888) 512-2739, International: (602) 445-2736, Monday&ndash;Friday, 9 a.m.&ndash;7 p.m. ET, or email us 
+mailto:subscribers@caseyresearch.com 
+here .
+
+
+Having trouble getting your emails? Add us to your address book.
+
+
+(c) 2017 Casey Research, 55 NE 5th Avenue Suite 100, Delray Beach, FL 33483, USA. All rights reserved. Any reproduction, copying, or redistribution, in whole or in part, is prohibited without written permission from the publisher.
+
+
+Information contained herein is obtained from sources believed to be reliable, but its accuracy cannot be guaranteed. It is not designed to meet your personal situation&mdash;we are not financial advisors nor do we give personalized advice. The opinions expressed herein are those of the publisher and are subject to change without notice. It may become outdated and there is no obligation to update any such information.
+
+
+Recommendations in Casey Research publications should be made only after consulting with your advisor and only after reviewing the prospectus or financial statements of the company in question. You shouldn&rsquo;t make any decision based solely on what you read here.
+
+
+Casey Research writers and publications do not take compensation in any form for covering those securities or commodities.
+
+
+Casey Research expressly forbids its writers from owning or having an interest in any security that they recommend to their readers. Furthermore, all other employees and agents of Casey Research and its affiliate companies must wait 24 hours before following an initial recommendation published on the Internet, or 72 hours after a printed publication is mailed.
+
+
+
+
+
+--nhl6PHB0IIAs=_?:
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" style="-webkit-text-size-adjust: none" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style type="text/css">div, p, a, li, td {
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+}
+table td {
+	border-collapse:collapse;
+}
+.ExternalClass {
+	width:100%;
+}
+.ExternalClass * {
+	line-height: 110%
+}
+a {
+	color:#000;
+	text-decoration:none;
+}
+p {
+	margin-bottom:20px;
+	margin-top:0px;
+}
+a:hover {
+	text-decoration:underline;
+}
+h1 {
+	color: #000000;
+	font-family: Arial;
+	font-size: 32px;
+	font-weight: bold;
+	line-height: 36px;
+	margin-top: 10px;
+	margin-bottom:15px;
+	letter-spacing:-1px;
+	text-align:center
+}
+h2 {
+	color: #000000;
+	font-family: Arial;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 30px;
+	margin-top: 0px;
+	margin-bottom:10px;
+}
+@media only screen and (max-device-width: 480px) {
+table[class="hide"], img[class="hide"], td[class="hide"], tr[class="hide"] {
+	display: none !important;
+}
+td[class="celltype"] {
+	font-family:Arial, sans-serif !important;
+	font-size:18px !important;
+	line-height:24px !important;
+}
+}
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+table[class="hide"], img[class="hide"], td[class="hide"], tr[class="hide"] {
+	display: none !important;
+}
+td[class="celltype"] {
+	font-family:Arial, sans-serif !important;
+	font-size:18px !important;
+	line-height:24px !important;
+}
+td[class="share_btn"] {
+	font-size:9px !important;
+}
+}
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+table[class="hide"], img[class="hide"], td[class="hide"], tr[class="hide"] {
+	display: none !important;
+}
+td[class="celltype"] {
+	font-family:Arial, sans-serif !important;
+	font-size:18px !important;
+	line-height:24px !important;
+}
+td[class="share_btn"] {
+	font-size:9px !important;
+}
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+table[class="hide"], img[class="hide"], td[class="hide"], tr[class="hide"] {
+	display: none !important;
+}
+td[class="celltype"] {
+	font-family:Arial, sans-serif !important;
+	font-size:18px !important;
+	line-height:24px !important;
+}
+td[class="share_btn"] {
+	font-size:9px !important;
+}
+}
+	</style>
+	<!--[if gte mso 9]>
+<style>
+#outlookholder {
+  width:600px;  
+}
+a{
+    padding:0;
+}
+<xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml>
+</style>
+<![endif]-->
+	<title>On The Radar</title>
+</head>
+<body bgcolor="#f1f1f1" marginleft="0" marginright="0" margintop="0" style="background: #f1f1f1; margin: 0; min-width: 100%; padding: 0; width: 100%">
+<style type="text/css">.ExternalClass {
+width: 100%;
+}
+</style>
+<table bgcolor="#f1f1f1" border="0" cellpadding="0" cellspacing="0" style="padding-top: 0px" width="100%">
+	<tbody>
+		<tr>
+			<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse">
+			<table align="center" border="0" cellpadding="0" cellspacing="0" class="wrapper" id="holder" style="max-width: 600px !important; width: 100%">
+				<tbody>
+					<tr>
+						<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse"><!--[if gte mso 9]>
+             <table id="outlookholder" border="0" cellspacing="0" cellpadding="0" align="center" style="width:600px;"><tr><td>
+  <![endif]--><!--[if (IE)]>
+             <table border="0" cellspacing="0" cellpadding="0" width="600" align="center"><tr><td>
+ <![endif]--></td>
+					</tr>
+					<tr>
+						<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif"><img alt="CASEY DAILY DISPATCH - Casey Research" src="http://d15s74raupkmp7.cloudfront.net/images/emails/cdd/cdd-header-update.png" style="height: auto; max-width: 600px; width: 100% !important" width="600" /></td>
+					</tr>
+					<tr>
+						<td bgcolor="#ffffff" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; background: #f1f1f1; border-collapse: collapse">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td align="center" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #005695; font-family: Arial,sans-serif; font-size: 20px; line-height: 24px; padding: 15px 5px; text-align: center"><strong>This Week&#39;s Best-Selling Research</strong></td>
+								</tr>
+							</tbody>
+						</table>
+						<!--MAIN RIVER ITEMS -->
+
+						<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%"><!--MAIN RIVER ITEMS -->
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#FFFFFF" class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif; font-size: 17px; line-height: 24px; padding: 25px">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><img align="left" alt="" src="https://d1w116sruyx1mf.cloudfront.net/ee-assets/channels/article_default/170617cddbs01.jpg" style="border: 0px solid; float: left; max-width: 550px; width: 100%" /></a></td>
+											</tr>
+											<tr>
+												<td class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; font-family: Arial,sans-serif; font-size: 17px; line-height: 24px">
+												<h1 align="center" style="color: #000000; font-family: Arial; font-size: 32px; font-weight: bold; letter-spacing: -1px; line-height: 36px; margin-bottom: 15px; margin-top: 10px; text-align: center"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank">BREAKING: Legendary Investor Rick Rule Just Revealed His Personal Portfolio (Seven Deals Worth a Fortune)</a></h1>
+
+												<p style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; margin-bottom: 20px; margin-top: 0px">For the first time ever, one of the world&#39;s richest men &ndash; responsible for inking some of the biggest gains in history &ndash; publicly revealed what&#39;s in his personal portfolio: seven lucrative deals he&#39;s personally negotiated. We&#39;re projecting small stakes in these companies could deliver you a $492,120 windfall. Don&#39;t miss this.</p>
+
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="260">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#0070c0" style="-khtml-border-radius: 4px; -moz-border-radius: 8px; -ms-text-size-adjust: none; -webkit-border-radius: 8px; -webkit-text-size-adjust: none; border-collapse: collapse; border-radius: 4px; color: #fff; font-family: Arial; font-size: 15px; letter-spacing: 0px; line-height: 17px; padding: 8px; text-align: center" valign="middle"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452aec8b0efe40fc6b2d53a43577e0a67156524e25d5ba919b6476af2864205e5c73bf83b9a66a90de66b9a046ddb5bad10" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #fff; text-decoration: none" target="_blank">Go here to hear Rick&#39;s details on all seven of them</a></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+						<!--MAIN RIVER ITEMS -->
+						<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#FFFFFF" class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif; font-size: 16px; line-height: 22px; padding: 25px">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; font-family: Arial,sans-serif; font-size: 15px; line-height: 20px">
+												<table align="right" border="0" cellpadding="0" cellspacing="0" width="40%">
+													<tbody>
+														<tr>
+															<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; padding-left: 5px"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><img alt="" src="https://d1w116sruyx1mf.cloudfront.net/ee-assets/channels/article_default/170617cddbs2.jpg" style="border: 0px solid; max-width: 230px; width: 100%" /></a></td>
+														</tr>
+													</tbody>
+												</table>
+
+												<h2 style="color: #000000; font-family: Arial; font-size: 28px; font-weight: bold; line-height: 30px; margin-bottom: 10px; margin-top: 0px"><strong><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank">US Gov&rsquo;t to Require &ldquo;Vaccine&rdquo; for All Americans</a></strong></h2>
+
+												<p style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; margin-bottom: 20px; margin-top: 0px">By the end of 2017, a new law is expected to pass that will require a &quot;vaccine&quot; for all Americans. This preventive treatment could prevent 90% of all deaths related to America&#39;s most feared disease.</p>
+
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="260">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#0070c0" style="-khtml-border-radius: 4px; -moz-border-radius: 8px; -ms-text-size-adjust: none; -webkit-border-radius: 8px; -webkit-text-size-adjust: none; border-collapse: collapse; border-radius: 4px; color: #fff; font-family: Arial; font-size: 15px; letter-spacing: 0px; line-height: 17px; padding: 8px; text-align: center" valign="middle"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452b1575de8cf278c3f98f47060644917cec60a85256f891eecc6892ccd7ff0dd38b3367aad8903408e1b3665b1d8ac764d" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #fff; text-decoration: none" target="_blank">Find out how to get this cure as soon as it&#39;s available</a></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						&nbsp;
+
+						<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#FFFFFF" class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif; font-size: 17px; line-height: 24px; padding: 25px">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><img align="left" alt="" src="https://d1w116sruyx1mf.cloudfront.net/ee-assets/channels/article_default/170617cddbs3.jpg" style="border: 0px solid; float: left; max-width: 550px; width: 100%" /></a></td>
+											</tr>
+											<tr>
+												<td class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; font-family: Arial,sans-serif; font-size: 17px; line-height: 24px">
+												<h1 align="center" style="color: #000000; font-family: Arial; font-size: 32px; font-weight: bold; letter-spacing: -1px; line-height: 36px; margin-bottom: 15px; margin-top: 10px; text-align: center"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank">&ldquo;Buy This Stock Now&rdquo;</a></h1>
+
+												<p style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; margin-bottom: 20px; margin-top: 0px">Since 2004, Chris Mayer has been one of the best-performing analysts in Bill Bonner&#39;s network &ndash; outperforming many of the top billionaire gurus in the world. Chris only recommends a handful of stocks every year, but very soon he will reveal a brand-new pick. If you click here right now, you could get in on it&nbsp;<em>before</em>&nbsp;Bill Bonner does.</p>
+
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="260">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#0070c0" style="-khtml-border-radius: 4px; -moz-border-radius: 8px; -ms-text-size-adjust: none; -webkit-border-radius: 8px; -webkit-text-size-adjust: none; border-collapse: collapse; border-radius: 4px; color: #fff; font-family: Arial; font-size: 15px; letter-spacing: 0px; line-height: 17px; padding: 8px; text-align: center" valign="middle"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b4523d5eb776c78c2df510d16a3f91fbf21d0d801182578a3ff146c2ad7e312d336dbe8a117b2963a622d68dff5ae88ffd28" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #fff; text-decoration: none" target="_blank">Details here</a></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+						<!--MAIN RIVER ITEMS -->
+						<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#FFFFFF" class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif; font-size: 16px; line-height: 22px; padding: 25px">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; font-family: Arial,sans-serif; font-size: 15px; line-height: 20px">
+												<table align="right" border="0" cellpadding="0" cellspacing="0" width="40%">
+													<tbody>
+														<tr>
+															<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; padding-left: 5px"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><img alt="" src="https://d1w116sruyx1mf.cloudfront.net/ee-assets/channels/article_default/170617cddbs4.jpg" style="border: 0px solid; max-width: 230px; width: 100%" /></a></td>
+														</tr>
+													</tbody>
+												</table>
+
+												<h2 style="color: #000000; font-family: Arial; font-size: 28px; font-weight: bold; line-height: 30px; margin-bottom: 10px; margin-top: 0px"><strong><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank">Important Update for Men and Women Born Before 1969</a></strong></h2>
+
+												<p style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; margin-bottom: 20px; margin-top: 0px">During his 1986 tax reform, Ronald Reagan stumbled onto something that guarantees no American need run out of money in retirement. This IRS-approved tax-free income source could pay you up to $2,194 a month...&nbsp;Biden invests in this. Clinton does, too. Now so can you...</p>
+
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="260">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#0070c0" style="-khtml-border-radius: 4px; -moz-border-radius: 8px; -ms-text-size-adjust: none; -webkit-border-radius: 8px; -webkit-text-size-adjust: none; border-collapse: collapse; border-radius: 4px; color: #fff; font-family: Arial; font-size: 15px; letter-spacing: 0px; line-height: 17px; padding: 8px; text-align: center" valign="middle"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b45218d4ea533ab8ca7de921a3ee7c1b54307012d0227707bc9e30d6280d06130a036fd5e4aca6c5cc3f3595e6554de6ac22" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #fff; text-decoration: none" target="_blank">Click here and we&#39;ll send you a starter kit for FREE</a></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+						<!--MAIN RIVER ITEMS -->
+						<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+							<tbody>
+								<tr>
+									<td align="left" bgcolor="#FFFFFF" class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #000; font-family: Arial,sans-serif; font-size: 16px; line-height: 22px; padding: 25px">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tbody>
+											<tr>
+												<td class="celltype" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; font-family: Arial,sans-serif; font-size: 15px; line-height: 20px">
+												<table align="right" border="0" cellpadding="0" cellspacing="0" width="40%">
+													<tbody>
+														<tr>
+															<td style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; padding-left: 5px"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><img alt="" src="https://d1w116sruyx1mf.cloudfront.net/ee-assets/channels/article_default/170513cddbs5.jpg" style="border: 0px solid; max-width: 230px; width: 100%" /></a></td>
+														</tr>
+													</tbody>
+												</table>
+
+												<h2 style="color: #000000; font-family: Arial; font-size: 28px; font-weight: bold; line-height: 30px; margin-bottom: 10px; margin-top: 0px"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank"><strong>Proof America Is Already Falling Apart</strong></a></h2>
+
+												<p style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; margin-bottom: 20px; margin-top: 0px">Rancher details what most Americans &ndash; who live in cities and suburbs &ndash; don&#39;t know about a plot to devastate America...</p>
+
+												<table align="center" border="0" cellpadding="0" cellspacing="0" width="260">
+													<tbody>
+														<tr>
+															<td align="center" bgcolor="#0070c0" style="-khtml-border-radius: 4px; -moz-border-radius: 8px; -ms-text-size-adjust: none; -webkit-border-radius: 8px; -webkit-text-size-adjust: none; border-collapse: collapse; border-radius: 4px; color: #fff; font-family: Arial; font-size: 15px; letter-spacing: 0px; line-height: 17px; padding: 8px; text-align: center" valign="middle"><a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bbcd13fe36d51f0a4be869e88117b47fce9fdf3c4ed1e348c5ee9a2db9a9210ce98d209d789c0fbcd7d141b027eef83f" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #fff; text-decoration: none" target="_blank">Get the full story here</a></td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!--MAIN RIVER ITEMS --><!--FOOTER -->
+
+						<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="100%">
+							<tbody>
+								<tr>
+									<td align="center" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-bottom-color: #dfdfdf; border-bottom-style: solid; border-bottom-width: 1px; border-collapse: collapse; padding-bottom: 15px; padding-top: 35px" valign="top">
+									<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border: none; mso-table-lspace: 0pt; mso-table-rspace: 0pt" width="90%">
+										<tbody>
+											<tr>
+												<td align="center" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; padding-left: 10px; padding-right: 10px" valign="top"><img src="http://d15s74raupkmp7.cloudfront.net/images/emails/otr/ft-best-logo.png" style="height: auto; max-width: 100%; width: 287px !important" /></td>
+												<td align="center" class="share_btn" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #505050; font-family: Arial,sans-serif; font-size: 12px; line-height: 15px; padding-left: 10px; padding-right: 10px" valign="middle">&copy; Casey Research, LLC<br />
+												55 NE 5th Avenue<br />
+												Delray Beach, FL 33483<br />
+												<a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452cd5ed3c4a3d262ed517b9331af23a971e19d38606a1bcc3156be6467d3c58dee3da828e73b107bf920692f57333e1c56" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none" target="_blank">www.caseyresearch.com</a></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+								<tr>
+									<td align="left" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #505050; font-family: Arial,sans-serif; font-size: 11px; line-height: 14px; padding: 20px 10px 10px" valign="top">The email was sent to <strong>netsamir@gmail.com</strong> because you are subscribed to this service. To unsubscribe, click <a href="http://click.exct.caseyresearch.com/?qs=e25113e986e7b452bb7e2634e10bf33a4b86eec0f33e3eb2e5559c01b0bedcc547040627ce424e560bec03eeea8679da431d2a57526191c5" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none">here</a>.</td>
+								</tr>
+								<tr>
+									<td align="left" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; border-collapse: collapse; color: #505050; font-family: Arial,sans-serif; font-size: 11px; line-height: 15px; padding: 10px 10px 20px" valign="top">
+									<p align="left" class="mobile-footer-text" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #666666; font-family: arial; font-size: 11px; line-height: 14px; margin-bottom: 0; margin-top: 0; padding: 0 0 18px; text-align: left"><strong>Customer Service</strong><br />
+									Casey Research welcomes your feedback and questions. But please note: The law prohibits us from giving personalized advice.<br />
+									<br />
+									To contact us, call Toll Free: (888) 512-2739, International: (602) 445-2736, Monday&ndash;Friday, 9 a.m.&ndash;7 p.m. ET, or email us <a href="mailto:subscribers@caseyresearch.com" style="-ms-text-size-adjust: none; -webkit-text-size-adjust: none; color: #000; text-decoration: none">here</a>.<br />
+									<br />
+									Having trouble getting your emails? Add us to your address book.<br />
+									<br />
+									&copy; 2017 Casey Research, 55 NE 5th Avenue Suite 100, Delray Beach, FL 33483, USA. All rights reserved. Any reproduction, copying, or redistribution, in whole or in part, is prohibited without written permission from the publisher.<br />
+									<br />
+									Information contained herein is obtained from sources believed to be reliable, but its accuracy cannot be guaranteed. It is not designed to meet your personal situation&mdash;we are not financial advisors nor do we give personalized advice. The opinions expressed herein are those of the publisher and are subject to change without notice. It may become outdated and there is no obligation to update any such information.<br />
+									<br />
+									Recommendations in Casey Research publications should be made only after consulting with your advisor and only after reviewing the prospectus or financial statements of the company in question. You shouldn&rsquo;t make any decision based solely on what you read here.<br />
+									<br />
+									Casey Research writers and publications do not take compensation in any form for covering those securities or commodities.<br />
+									<br />
+									Casey Research expressly forbids its writers from owning or having an interest in any security that they recommend to their readers. Furthermore, all other employees and agents of Casey Research and its affiliate companies must wait 24 hours before following an initial recommendation published on the Internet, or 72 hours after a printed publication is mailed.</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!--EOF FOOTER --><!--[if mso]>
+              </td></tr></table>
+              <![endif]--><!--[if gte mso 9]>
+               </td></tr></table>
+              <![endif]--></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body><img src="http://click.exct.caseyresearch.com/open.aspx?ffcb10-fe9b16747765067f72-fe271c7271620c7f731771-fe8413727c6d037f72-fefe1777776104-fe211678706d0c7f751779-ff971c70" width="1" height="1">
+</html>
+
+
+--nhl6PHB0IIAs=_?:--
+

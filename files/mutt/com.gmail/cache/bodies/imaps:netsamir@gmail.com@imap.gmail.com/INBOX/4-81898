@@ -1,0 +1,294 @@
+Delivered-To: netsamir@gmail.com
+Received: by 10.200.9.48 with SMTP id t45csp576842qth;
+        Sat, 17 Jun 2017 08:19:13 -0700 (PDT)
+X-Received: by 10.31.130.144 with SMTP id e138mr9206503vkd.91.1497712753050;
+        Sat, 17 Jun 2017 08:19:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1497712753; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=kELKQK4JJjoRrlLEWDMjjFoRyGChQvJqM7xcaS5Lk7VQb5WQXFf9i3gLoOYw0RSUPo
+         gClt1W0WT/CgRszDYmBD8oQNIddh45S8lWz8pTqHPdl2LnqGY6yFU3hVf4bYmFR/m70J
+         6qvnsXkJf00pCpAGxOyFiYsOpnKFplZAOMPbnyWoFwDIJEi3PpUifJ0XMU1uk3wQfZgH
+         w9J4WpLVJdsPKdE+Vo4ICtXQqwcTNXtMFZaW1C/xAhsrvvDJR89LY0X193R3gGO+ZtcY
+         /EIh4m5uibavSMFbwaQ6o0L0vuFvSi8bOeyb6M3teN12RYNZXAtFYNR6k+CuYkrK1SZM
+         OrqQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-id:feedback-id:list-unsubscribe:message-id
+         :reply-to:date:subject:to:from:dkim-signature
+         :arc-authentication-results:arc-message-signature:delivered-to
+         :arc-authentication-results;
+        bh=u5JlmSHfc65bex2uGdEFavsaVX4JNTGC45S2Tv4OTaE=;
+        b=tsuuAh2XxQplc0G7ObPvga/qDeVcI3cv8toqJic7hexLGicmDntRf+KzovmA3yD19M
+         8+BxI3gWHnNloTMZ2PzvTsHrheCSenSHmt0i+DNKVE8LwTWhv1qhm96/UWtWMUoZuC+3
+         1gx+MwX2eSRkaRTmb4yIsu0aiowiMsIHlWexM8C2nMsdcdAhWsqYd7vFzvAKIb6f2m6M
+         F9uuXDl396BQ23/LkfRLCN6XMYHY17M9kEGgXiOFBDBZDn61gmv+9Qeywi12RlWCbUWa
+         2LBHw7A/5O81kJfEfw9itraGOr4mAk1g78YjsXUsiZTU88KuNB+QgAFEqmfzdF3huYxQ
+         yuTQ==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@news.abaenglish.com header.b=e+jKOUBG;
+       arc=pass (i=1 spf=pass spfdomain=news.abaenglish.com dkim=pass dkdomain=news.abaenglish.com);
+       spf=pass (google.com: domain of netfatma+caf_=netsamir=gmail.com@gmail.com designates 2607:f8b0:400c:c08::22c as permitted sender) smtp.mailfrom=netfatma+caf_=netsamir=gmail.com@gmail.com
+Return-Path: <netfatma+caf_=netsamir=gmail.com@gmail.com>
+Received: from mail-ua0-x22c.google.com (mail-ua0-x22c.google.com. [2607:f8b0:400c:c08::22c])
+        by mx.google.com with ESMTPS id e93si321191uae.90.2017.06.17.08.19.12
+        for <netsamir@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 17 Jun 2017 08:19:13 -0700 (PDT)
+Received-SPF: pass (google.com: domain of netfatma+caf_=netsamir=gmail.com@gmail.com designates 2607:f8b0:400c:c08::22c as permitted sender) client-ip=2607:f8b0:400c:c08::22c;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@news.abaenglish.com header.b=e+jKOUBG;
+       arc=pass (i=1 spf=pass spfdomain=news.abaenglish.com dkim=pass dkdomain=news.abaenglish.com);
+       spf=pass (google.com: domain of netfatma+caf_=netsamir=gmail.com@gmail.com designates 2607:f8b0:400c:c08::22c as permitted sender) smtp.mailfrom=netfatma+caf_=netsamir=gmail.com@gmail.com
+Received: by mail-ua0-x22c.google.com with SMTP id m31so17385330uam.1
+        for <netsamir@gmail.com>; Sat, 17 Jun 2017 08:19:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:delivered-to:dkim-signature:from:to:subject:date
+         :reply-to:message-id:list-unsubscribe:feedback-id:list-id
+         :mime-version;
+        bh=u5JlmSHfc65bex2uGdEFavsaVX4JNTGC45S2Tv4OTaE=;
+        b=aZvI5K+Z0trIlC1SFr0JqxwUBSwfB1jEVMeGoJ6AqbXf6duZxzU1ldACV5BrPGK0tB
+         QuOKHDVQ0QftX77M24VpeqTf0bEMF9p5ssWfjpIHQslHCh9r86d+f1EUgiXjatQpQ7we
+         A7HrRt3pZZ68ZFXpn+ObEeFCrMV0ZZkVpX+CGYxuIMO+JsE0Fsa3R9PrDh5ZBhGVUPBL
+         GBZrGaYys0uC2ei3GVtV1k9I/mrL/AvD7VtUiTv5tX5kS0gWmwAvjsjDmYrc5854be3J
+         CRyV91vi70+r6eeQYiIzAwj6GR1rAun7bTC/YHkMd55APPDuX+YdlUNposT4pEQ9F5oY
+         v5iw==
+X-Gm-Message-State: AKS2vOwP9J8GhNO01utRzi/nemCGOs010sMDEveRryQwOoRlJQU4QyzQ
+	gUjL/PsarXFwU87iunB6KOBctbUZpSleL8Wqs0c86g==
+X-Received: by 10.159.39.99 with SMTP id a90mr10432186uaa.10.1497712752834;
+        Sat, 17 Jun 2017 08:19:12 -0700 (PDT)
+X-Forwarded-To: netsamir@gmail.com
+X-Forwarded-For: netfatma@gmail.com netsamir@gmail.com
+Delivered-To: netfatma@gmail.com
+Received: by 10.31.166.80 with SMTP id p77csp137195vke;
+        Sat, 17 Jun 2017 08:19:12 -0700 (PDT)
+X-Received: by 10.80.132.225 with SMTP id 88mr10719199edq.80.1497712751973;
+        Sat, 17 Jun 2017 08:19:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1497712751; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Ap0odOzK5brD8AjW4pYeY9CpPgdgr4skC8tNGL54cNCHIWMLxnWmAdIoEttzgoVbtz
+         KvY9x2rbFHTbz22gwXmDdvOExP0MSLmR6Xbh7jlNt1rP2p7BD148OjQDwb5USyGGyB4M
+         4S9P7c/LCthewYFImuXtkgPzghv83nNP2I6rNwp+YXvk43WNUMPyi8S8WHqQdkYZgLiD
+         o3zvILyWK4iUQT8AVCoTRle5sMUDDgD39zVpBC/hrcnAaLmNX/DcClamrBWN3y2FJNsg
+         vGFIBIRQLi0BRKeSBKEm7o48e96pauPHSFr9zuPEEPFK7WMYZ2wV0zRH/uab51rr3v0Y
+         DEPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-id:feedback-id:list-unsubscribe:message-id
+         :reply-to:date:subject:to:from:dkim-signature
+         :arc-authentication-results;
+        bh=u5JlmSHfc65bex2uGdEFavsaVX4JNTGC45S2Tv4OTaE=;
+        b=uGqSDdqoDY6nfbE6GcK1ILToB5bJR27g5FNWFqyz7xOk4mUCCk590usJd+4OYSLrZk
+         UINq763c0IFOsJ6yyBBZcu/R0LQL9GA8njmK1vYC5IchWrPWh4WNaZb1D3MUCRBziIwT
+         n3icUfAudIVQPTL2GBcNDEx0nMfJPyAg52ykFBXJoX4g7kWZZhWqE/ArDZiUE20mz9gV
+         chqLgacacODaIbBR+wvGs1+2HskkivzWf2vVBDLZocbiTB6pvQbaxl1WFOC4wGvWYLRM
+         +H8gX4A7KAYqV8VqMtOIYbk1gNmU0bbFncA+cFeMYmR20RNIyBW1aJTD5yd/u8S5QddP
+         knFA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@news.abaenglish.com header.b=e+jKOUBG;
+       spf=pass (google.com: domain of info@news.abaenglish.com designates 91.230.170.147 as permitted sender) smtp.mailfrom=info@news.abaenglish.com
+Return-Path: <info@news.abaenglish.com>
+Received: from webgridd147.emsecure.net (webgridd147.emsecure.net. [91.230.170.147])
+        by mx.google.com with UTF8SMTPS id i19si3804593edg.100.2017.06.17.08.19.11
+        for <netfatma@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sat, 17 Jun 2017 08:19:11 -0700 (PDT)
+Received-SPF: pass (google.com: domain of info@news.abaenglish.com designates 91.230.170.147 as permitted sender) client-ip=91.230.170.147;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=news.abaenglish.com; s=sim2; x=1498317551;
+	i=@news.abaenglish.com; h=from:to:subject:date:reply-to:
+	message-id:list-unsubscribe:feedback-id:list-id:mime-version:
+	content-type; bh=u5JlmSHfc65bex2uGdEFavsaVX4JNTGC45S2Tv4OTaE=;
+	b=e+jKOUBGWYJyfUzly8rRMsvvDG6WzwwR9ufYqejnPiPa2DmdD9p9Ca8r/MwPkH
+	NW9yoblJdlwHy2EZzWC/FkiWyU5PKZSAY3GWAuZaRahiwpk71hjWzmP0Nhymq3Re
+	ttGzmqsZrpbAdBvIfYViFNh8N8vjcwZLZc2ATsoQi2XEs=
+From: =?utf-8?B?QUJBIEVuZ2xpc2g=?= <info@news.abaenglish.com>
+To: =?utf-8?B?T21hem9venk=?= <netfatma@gmail.com>
+Subject: =?utf-8?B?T21hem9venksIHRoaXMgaXMgaG93IA==?=
+ =?utf-8?B?eW91IGNhbiBsZWFybiBFbmdsaXNoIA==?=
+ =?utf-8?B?YXQgeW91ciBvd24gcGFjZSDwn4+D?=
+Date: Sat, 17 Jun 2017 15:13:44 +0000
+Reply-To: =?utf-8?B?QUJBIEVuZ2xpc2g=?= <info@abaenglish.com>
+Message-ID: <PATT3L56_12886422_gqAs2Dd3UGpbYNoi3V6ojQ==.8A66@webgridd147.emsecure.net>
+X-GRID-REF: 8A66B7582E9A48E5AC85DC32E810B6FA.PATT3L56_12886422_gqAs2Dd3UGpbYNoi3V6ojQ==
+X-GRID-QID: 461087
+List-Unsubscribe: <http://news.abaenglish.com/optiext/optiextension.dll?ID=dHGdNKOMgylsvSdWHy%2B1ppzzfxBoMyy2867JX_Vl_6yJnCEZkhrHXu9lIomyKRdsw7JyE3vektxaFNyWolMJvBGuAI_Bf>, <mailto:unsubscribe@grid.emsecure.net?subject=UNSUB.8A66B7582E9A48E5AC85DC32E810B6FA.PATT3L56_12886422_gqAs2Dd3UGpbYNoi3V6ojQ==>
+X-MA-Reference: SIM_dMadHFmHteg3nNeJjWrPp0uZIfrFgX7IXPEsIxAObobn_IsJA
+X-MA-Instance: SIM_dMadHFmHteg3nNeJjWrPp0uZIfrFgX7IXPEsIxAObobn_IsJA.fb527deef8ce4ac5e2ff41c7c5ae0be4
+Feedback-ID: 56:16985:12886422:R1CHPATT3L
+List-ID: <4.16985.news.abaenglish.com>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="_NexPart_001_"
+
+--_NexPart_001_
+Content-Type: text/plain;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+We'll tell you about it here=21 =7C
+
+
+
+
+
+
+
+
+
+
+--_NexPart_001_
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<=21DOCTYPE html PUBLIC =22-//W3C//DTD XHTML 1.0 Transitional//EN=22 =22=
+http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd=22>
+<html><head><meta http-equiv=3D=22Content-Type=22 content=3D=22text/htm=
+l; charset=3Dutf-8=22 /><meta http-equiv=3D=22Content-Type=22 content=3D=
+=22text/html; charset=3Dutf-8=22 />
+<meta name=3D=22viewport=22 content=3D=22width=3Ddevice-width, initial-=
+scale=3D1.0=22/>
+<=21-- END DOCTYPE -->
+<=21-- CSS FOR RESPONSIVE DESIGN - ALWAYS INCLUDE -->
+<=21-- CHANGEME_TITLES -->
+<title> ABA English </title>
+<=21-- ENDCHANGEME_TITLES -->
+<style type=3D=22text/css=22>
+
+=23outlook a =7Bpadding:0;=7D
+=2EExternalClass =7Bwidth:100%;=7D
+=2EExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass=
+ font, .ExternalClass td, .ExternalClass div =7Bline-height: 142%;=7D
+body =7B-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margi=
+n:0 =21important; padding:0 =21important;=7D=09
+body, p =7Bmargin:0; padding:0; margin-bottom:0; -webkit-text-size-adju=
+st:none; -ms-text-size-adjust:none;=7D
+p =7Bmargin: 1em 0;=7D
+table td =7Bborder-collapse: collapse;=7D=20
+img =7Boutline:0;=7D
+a img =7Bborder:none;=7D
+=2EappleLinksGrey a =7Bcolor:=23ffffff =21important; text-decoration:no=
+ne =21important=7D
+
+
+=40media only screen and (max-device-width: 480px), only screen and (ma=
+x-width: 480px) =7B
+=09 =20
+table=5Bclass=3D=22320-wide=22=5D, td=5Bclass=3D=22320-wide=22=5D =7Bwi=
+dth:320px =21important; min-width:320px =21important=7D
+table=5Bclass=3D=22300-wide=22=5D, td=5Bclass=3D=22300-wide=22=5D =7Bwi=
+dth:300px =21important; min-width:300px =21important; text-align: cente=
+r =21important;=7D
+td=5Bclass=3D=22preheader=22=5D =7Bfont-size:1px =21important; width:32=
+0px =21important; min-width:320px =21important=7D
+td=5Bclass=3D=22head-logo=22=5D =7Bdisplay: none =21important;=7D
+td=5Bclass=3D=22head-text=22=5D =7Bpadding:10px 10px 10px 10px =21impor=
+tant;text-align:center =21important=7D
+td=5Bclass=3D=22title-text=22=5D =7Bpadding:15px 10px 15px 10px =21impo=
+rtant; font-size:20px =21important=7D
+td=5Bclass=3D=22title-2-text=22=5D =7Bpadding:15px 10px 15px 10px =21im=
+portant; font-size:16px =21important=7D
+td=5Bclass=3D=22solo-text=22=5D =7Bpadding:15px 10px 0px 10px =21import=
+ant; font-size:14px =21important=7D
+td=5Bclass=3D=22solo-text2=22=5D =7Bpadding:15px 10px 30px 10px =21impo=
+rtant; font-size:14px =21important=7D
+td=5Bclass=3D=22solo-text-grande=22=5D=7Bpadding:15px 10px 0px 10px =21=
+important; font-size:16px =21important=7D
+td=5Bclass=3D=22text-and-image=22=5D =7Bpadding:15px 10px 0px 10px =21i=
+mportant; font-size:14px =21important=7D
+td=5Bclass=3D=22image-with-text=22=5D =7Bpadding:0px 0px 0px 0px =21imp=
+ortant=7D
+td=5Bclass=3D=22full-width-button=22=5D =7Bpadding:5px 10px 5px 10px =21=
+important=7D
+td=5Bclass=3D=22bullets=22=5D =7Bpadding:15px 10px 15px 10px =21importa=
+nt=7D
+td=5Bclass=3D=22bullet-image=22=5D =7Bpadding:0px 0px 15px 0px =21impor=
+tant=7D
+td=5Bclass=3D=22bullet-text=22=5D =7Bpadding:0px 0px 10px 10px =21impor=
+tant; font-size:14px =21important=7D
+td=5Bclass=3D=22bullet-text-last=22=5D =7Bpadding:0px 0px 0px 10px =21i=
+mportant; font-size:14px =21important=7D
+td=5Bclass=3D=22solo-image=22=5D =7Bpadding:15px 10px 10px 10px =21impo=
+rtant=7D
+img=5Bid=3D=22solo_image=22=5D =7Bwidth:300px =21important; height:auto=
+ =21important;=7D
+td=5Bclass=3D=22share=22=5D =7Bpadding:15px 0px 15px 0px =21important=7D=
+
+td=5Bclass=3D=22share-text=22=5D =7Bpadding:12px 0px 12px 0px =21import=
+ant=7D
+td=5Bclass=3D=22share-image=22=5D =7Bpadding:0px 0px 0px 0px =21importa=
+nt=7D
+img=5Bid=3D=22share_icon=22=5D =7Bwidth:51px =21important; height:51px =
+=21important=7D
+td=5Bclass=3D=22preheadinv=22=5D =7B display: none =21important;=7D
+td=5Bclass=3D=22ocultar=22=5D=7B display:none =21important;=7D
+br=5Bclass=3D=22ocultar=22=5D=7B display:none =21important;=7D
+td=5Bclass=3D=2232-wide_padding=22=5D=7B padding:10px =21important;=7D
+br=5Bclass=3D=22ocultar=5D=7Bdisplay:none =21important;=7D
+div=5Bclass=3D=22table=22=5D=7B display:table =21important; table-layou=
+t: fixed =21important;=7D
+div=5Bclass=3D=22half=22=5D=7Bdisplay: table-cell =21important;   =7D
+img=5Bclass=3D=22flecha=22=5D=7Bdisplay: block =21important; border: 0p=
+x =21important; margin:0px =21important; padding:0px =21important; heig=
+ht: 60px =21important;=7D
+img=5Bclass=3D=22countdown=22=5D=7Bdisplay: inline =21important; paddin=
+g-top:10px =21important; padding-left:5px =21important; width:140px =21=
+important; height:auto =21important;  padding-right:30px =21important;=7D=
+
+
+table=5Bclass=3D=22countdown=22=5D=7B padding-top:10px =21important; pa=
+dding-left:10px =21important; width:140px =21important; height:auto =21=
+important; text-align:center =21important;=20
+=7D
+br=5Bclass=3D=22ocultar=22=5D=7Bdisplay:none =21important; =7D
+
+
+=7D
+
+</style></head><body ><span style=3D=22display: none =21important; font=
+-size:1px; mso-hide:all;=22></span><img width=3D=221=22 height=3D=221=22=
+ src=3D=22https://gridinbound.blob.core.windows.net/gic/i.png?h=3DG46Lp=
+Bb7DZrAnLPvPiKunteHjKXOL3hnwakynq3z0UDP2+fYQ0pU+RMT0R6GfzUo=22 style=3D=
+=22display:none; margin:0; padding:0; visibility:hidden; overflow:hidde=
+n; max-height:0;width:0px;height:0px;font-size:0;color:=23FFFFFF;mso-hi=
+de:all;float: left;line-height:0;=22 alt=3D=22=22><img width=3D=221=22 =
+height=3D=221=22 src=3D=22http://news.abaenglish.com/optiext/optiextens=
+ion.dll?ID=3DdHGdKgxNel4s__YI%2Bh%2BgAcEx_V7uFe1Ljfc_FqHdFPfxY6KtRQjysj=
+mk1bj0D8J2vomMtdVzUglJh%2Be_FooBIikmkzWPZNCmrO1jgsd6=22 style=3D=22disp=
+lay:none; margin:0; padding:0; visibility:hidden; overflow:hidden; max-=
+height:0;width:0px;height:0px;font-size:0;color:=23FFFFFF;mso-hide:all;=
+float: left;line-height:0;=22 alt=3D=22=22><div style=3D=22display:none=
+;font-size: 0px;color: =23ffffff;=22>We'll tell you about it here=21 =7C=
+ </div>
+<=21-- FRANCIA & ITALIA -->
+
+
+
+<=21-- OFERTA Brazil -->
+
+
+
+<=21-- Oferta Mexico -->
+
+
+
+<=21-- OFERTA Germany Test euro -->
+
+
+<=21-- OFERTA Germany Test euro 2 -->
+
+
+<=21-- ESP 30% -->
+
+
+<=21-- ESP 30% 2 -->
+
+
+<=21-- OFERTA Test Dollar -->
+
+
+<=21-- OFERTA Test Dollar 2 -->
+
+</body></html>
+
+--_NexPart_001_--
+

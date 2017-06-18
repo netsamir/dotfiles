@@ -1,0 +1,283 @@
+Delivered-To: netsamir@gmail.com
+Received: by 10.200.9.48 with SMTP id t45csp696332qth;
+        Sat, 17 Jun 2017 16:52:55 -0700 (PDT)
+X-Received: by 10.28.105.83 with SMTP id e80mr1953735wmc.108.1497743575228;
+        Sat, 17 Jun 2017 16:52:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1497743575; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Ru2wDS9gIw7qsZUb3fCX8gug+j7tJNrgPh1q9sBkR6rkzqzk+f8BNEAGwT1K2XPP0I
+         62ycxTbxSpm+eQx/flOIu+FjuqzLf8ozlFx7SlOI3eKKGD9wV6AKWHrQCgl+eIboi5d6
+         YWjmNs9TvGDO97qpt+O3h73sylQK5nSG76ExOXiibsBECx2HwUVVldaGY3+GPx0JlXyo
+         HmMrGU2OaF4c9YxncrFlMORdKRF8q+BbdlG2hujYmwUM/aUzK8FIYzGFIIu2kJZ1r022
+         5mdzglE6NnOFo4IynH9OHLx8Oj+2zviP0D9sTxnAZB4l74m46DG0vt2zrllBQkcs4FLd
+         QDoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-language:thread-index:mime-version:date:subject:in-reply-to
+         :references:to:from:message-id:dkim-signature
+         :arc-authentication-results;
+        bh=ONXBLBCRqvGzOUMANNGjbr35Ex7AL8aTK2PhFaK6zvI=;
+        b=jPnZ6u1xL0dAAjuHxYlyLEYOnkYVq3waTKZtDQ+SxoAPIa2pecizaDPWbeg9F2qN7L
+         imMehLtNEQIws+bsNBS/eDq34jvqwCfwAkkXCfEgNt102bm6oY0pg0hIiYGirg+FPIEl
+         IkmuM3YNwC3nCNrZTmO6WRd+raCk3EsRQ7h45oCe8+gEtYMR8v1DUdM9lvdJu+3QrzyD
+         ByuhUIySbsZouU2mPxDIDRp0/yK700BfrYm3FcEPhZRuDLmWVZGy2V9n3aW3RpPMJChI
+         km+gyYipuj3o9OR4RI2tw8So8cvQuQCoQtu+PbY+PUDcFl2YkIEh6cRRCjWfbVSVkV5f
+         ijag==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.b=CAf9/1t7;
+       spf=pass (google.com: domain of ab.berroua@gmail.com designates 2a00:1450:400c:c0c::22d as permitted sender) smtp.mailfrom=ab.berroua@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Return-Path: <ab.berroua@gmail.com>
+Received: from mail-wr0-x22d.google.com (mail-wr0-x22d.google.com. [2a00:1450:400c:c0c::22d])
+        by mx.google.com with ESMTPS id l126si3114514wmd.3.2017.06.17.16.52.54
+        for <netsamir@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 17 Jun 2017 16:52:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ab.berroua@gmail.com designates 2a00:1450:400c:c0c::22d as permitted sender) client-ip=2a00:1450:400c:c0c::22d;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.b=CAf9/1t7;
+       spf=pass (google.com: domain of ab.berroua@gmail.com designates 2a00:1450:400c:c0c::22d as permitted sender) smtp.mailfrom=ab.berroua@gmail.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=gmail.com
+Received: by mail-wr0-x22d.google.com with SMTP id 36so37800890wry.3
+        for <netsamir@gmail.com>; Sat, 17 Jun 2017 16:52:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=message-id:from:to:references:in-reply-to:subject:date:mime-version
+         :thread-index:content-language;
+        bh=ONXBLBCRqvGzOUMANNGjbr35Ex7AL8aTK2PhFaK6zvI=;
+        b=CAf9/1t7tiqsPIKjlvxjCO8y37Pv9GCbxtriqrI7DHQCX22BKgB+qaN+XF9D3W5rdS
+         /SgSQuNe/1ROGHOVvPxUDfHTy1kiVkVRpsv3x2dsPgS9La/JvMpzTCktZJoexTUIypRa
+         QDOH+v1GCzb2km217YFmweNwfiWNW2nJhMNSvg4T4FWMsQadWFBBM5sHkZ7Vvgb3hYvU
+         5a3qkeJes3lrgQLY8jFdZk47GXCNarfAdm9cTGhvCgz1kGodAbeyQZQyAFXSKXJS+ubO
+         Dep5RYjTQwbuVz5aATOeS5LJNfC13DhCIm9wr88/qe5DaODGmWK3n91VXgssdNlyVRl3
+         ZVXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:message-id:from:to:references:in-reply-to
+         :subject:date:mime-version:thread-index:content-language;
+        bh=ONXBLBCRqvGzOUMANNGjbr35Ex7AL8aTK2PhFaK6zvI=;
+        b=eO2KisELe9/trPpdqsnjN8AvfwDhTW4Cn2E6hR6FB++eVVtzhNijmEKeBiSAuBb7KP
+         65e3czaisfzF/rRSV/If8IzsH2IM0vWPkBLQEnQNRjmLu1vF53vXP9jJueNN09596htd
+         2Oo1cZX3R3LA8xRo6we+TGU1tTvA6aBJVW/cpAMNaTGubPp1kt8xW0wvhYnzVMVCeiq9
+         5ubPE+36BQRcahH9hvhifFgEhXUFKj3t/wiF8qXs3kufUJSXeesyMNeFf+g7BoW1VEO9
+         Z84UevCowWUQpq9fSYxj+woZ1TlCFXfyjEMlVxaA/YqSPVMLfNdnVgFhebG7Rlgs+08M
+         AbxQ==
+X-Gm-Message-State: AKS2vOw97mMQC93ozwoYjiGGzAwHLhZgKWu9HF9JBxn/wl3M6x3D5mGE
+	pN7FHBztLax+VhL6
+X-Received: by 10.223.160.248 with SMTP id n53mr12051656wrn.108.1497743574624;
+        Sat, 17 Jun 2017 16:52:54 -0700 (PDT)
+Return-Path: <ab.berroua@gmail.com>
+Received: from PC2 (bgn92-2-82-66-94-98.fbx.proxad.net. [82.66.94.98])
+        by smtp.gmail.com with ESMTPSA id 3sm342649wrs.18.2017.06.17.16.52.53
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sat, 17 Jun 2017 16:52:54 -0700 (PDT)
+Message-ID: <5945c0d6.0395df0a.acc12.23b7@mx.google.com>
+X-Google-Original-Message-ID: <000a01d2e7c4$d61bad30$82530790$@berroua@gmail.com>
+From: "Ab" <ab.berroua@gmail.com>
+To: "'Samir Sadek'" <netsamir@gmail.com>,
+	"'Rami Raad'" <rami_raad@yahoo.com>
+References: <CAKdEN_F1=-4NsL6Lk5eCD_Pr1c=2bckZy-v5MiZdnnz1yaoo7Q@mail.gmail.com> <592a2379.d2071c0a.11635.da7e@mx.google.com> <CAKdEN_FKo6PQV4n+Fz-KmJwzvFDtQRM+cdZxOTDh9RjS5vvnBA@mail.gmail.com>
+In-Reply-To: <CAKdEN_FKo6PQV4n+Fz-KmJwzvFDtQRM+cdZxOTDh9RjS5vvnBA@mail.gmail.com>
+Subject: RE: 
+Date: Sun, 18 Jun 2017 01:52:53 +0200
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_000B_01D2E7D5.99A47D30"
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: AdLXbAlSauwcIjFWR16NtsA5eZRPIAQWH+Dg
+Content-Language: fr
+X-Antivirus: Avast (VPS 170617-0, 17/06/2017), Outbound message
+X-Antivirus-Status: Clean
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_000B_01D2E7D5.99A47D30
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Au fait , on se disait qu=E2=80=99ils n=E2=80=99allaient pas tarder =
+=C3=A0 essayer de la faire taire :
+
+=20
+
+=20
+
+https://www.youtube.com/watch?v=3DUeLBaieTnAk
+
+=20
+
+https://www.youtube.com/watch?v=3Dtagg3MY764M
+
+=20
+
+=20
+
+c=E2=80=99est fait =E2=80=A6=20
+
+=20
+
+De : Samir Sadek [mailto:netsamir@gmail.com]=20
+Envoy=C3=A9 : dimanche 28 mai 2017 06:37
+=C3=80 : Ab; Rami Raad
+Objet : Re:
+
+=20
+
+On verra ou cela la mene... Des que tu sors de la pensee officielle ca =
+se passe mal.
+
+=20
+
+En plus les gens sont brainwasher, je n'ai vraiment plus aucun espoire =
+...
+
+=20
+
+On Sun, May 28, 2017 at 3:10 AM Ab <ab.berroua@gmail.com> wrote:
+
+Elle a du cran  la demoiselle ;-)
+
+=20
+
+https://www.youtube.com/watch?v=3DUdxEnsoc7oQ
+
+=20
+
+elle m=C3=A9riterait presque le prix Albert Londres pour =C3=A7a  =
+=E2=80=A6
+
+=20
+
+=20
+
+
+------=_NextPart_000_000B_01D2E7D5.99A47D30
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8"><meta =
+name=3DGenerator content=3D"Microsoft Word 12 (filtered =
+medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-reply;
+	font-family:"Calibri","sans-serif";
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DFR link=3Dblue =
+vlink=3Dpurple><div class=3DWordSection1><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>Au fait , on se disait qu=E2=80=99ils n=E2=80=99allaient pas tarder =
+=C3=A0 essayer de la faire taire&nbsp;:<o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><a =
+href=3D"https://www.youtube.com/watch?v=3DUeLBaieTnAk">https://www.youtub=
+e.com/watch?v=3DUeLBaieTnAk</a><o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><a =
+href=3D"https://www.youtube.com/watch?v=3Dtagg3MY764M">https://www.youtub=
+e.com/watch?v=3Dtagg3MY764M</a><o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>c=E2=80=99est fait =E2=80=A6 <o:p></o:p></span></p><p =
+class=3DMsoNormal><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><o:p>&nbsp;</o:p></span></p><div =
+style=3D'border:none;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0cm =
+0cm 0cm'><p class=3DMsoNormal><b><span =
+style=3D'font-size:10.0pt;font-family:"Tahoma","sans-serif"'>De&nbsp;:</s=
+pan></b><span =
+style=3D'font-size:10.0pt;font-family:"Tahoma","sans-serif"'> Samir =
+Sadek [mailto:netsamir@gmail.com] <br><b>Envoy=C3=A9&nbsp;:</b> dimanche =
+28 mai 2017 06:37<br><b>=C3=80&nbsp;:</b> Ab; Rami =
+Raad<br><b>Objet&nbsp;:</b> Re:<o:p></o:p></span></p></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><p class=3DMsoNormal>On =
+verra ou cela la mene... Des que tu sors de la pensee officielle ca se =
+passe mal.<o:p></o:p></p><div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><div><p =
+class=3DMsoNormal>En plus les gens sont brainwasher, je n'ai vraiment =
+plus aucun espoire ...<o:p></o:p></p></div></div><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p class=3DMsoNormal>On =
+Sun, May 28, 2017 at 3:10 AM Ab &lt;<a =
+href=3D"mailto:ab.berroua@gmail.com">ab.berroua@gmail.com</a>&gt; =
+wrote:<o:p></o:p></p></div><blockquote =
+style=3D'border:none;border-left:solid #CCCCCC 1.0pt;padding:0cm 0cm 0cm =
+6.0pt;margin-left:4.8pt;margin-right:0cm'><div><div><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>Elle a du cran &nbsp;la demoiselle&nbsp;;-)</span><o:p></o:p></p><p =
+class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>&nbsp;</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'><a href=3D"https://www.youtube.com/watch?v=3DUdxEnsoc7oQ" =
+target=3D"_blank">https://www.youtube.com/watch?v=3DUdxEnsoc7oQ</a></span=
+><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>&nbsp;</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>elle m=C3=A9riterait presque le prix Albert Londres pour =
+=C3=A7a&nbsp; =E2=80=A6</span><o:p></o:p></p><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'><span =
+style=3D'font-size:11.0pt;font-family:"Calibri","sans-serif";color:#1F497=
+D'>&nbsp;</span><o:p></o:p></p><div><p class=3DMsoNormal =
+style=3D'mso-margin-top-alt:auto;mso-margin-bottom-alt:auto'>&nbsp;<o:p><=
+/o:p></p></div></div></div></blockquote></div></div></body></html>
+------=_NextPart_000_000B_01D2E7D5.99A47D30--
+
