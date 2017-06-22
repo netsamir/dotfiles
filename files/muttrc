@@ -2,17 +2,6 @@ source ~/.mutt/config/muttcol
 source ~/.mutt/config/aliases.rc
 set alias_file = ~/.mutt/config/aliases.rc
 
-folder-hook 'gmail.com' 'source ~/.mutt/account.gmail.rc'
-folder-hook 'webfaction.com' 'source ~/.mutt/account.webfaction.rc'
-folder-hook 'fastmail.com' 'source ~/.mutt/account.fastmail.rc'
-source '~/.mutt/account.fastmail.rc' # switch to default account on startup
-
-macro index <space>1 '<sync-mailbox><enter-command>source ~/.mutt/account.gmail.rc<enter><change-folder>!<enter>'
-macro index <space>2 '<sync-mailbox><enter-command>source ~/.mutt/account.webfaction.rc<enter><change-folder>!<enter>'
-macro index <space>3 '<sync-mailbox><enter-command>source ~/.mutt/account.fastmail.rc<enter><change-folder>!<enter>'
-
-macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
-
 # General Settings
 set sort = threads # 'reverse-date'
 set sort_aux = reverse-last-date-received
@@ -24,7 +13,7 @@ set timeout = 10
 set move = no
 set imap_keepalive = 900
 set mail_check = "10"
-set mailcap_path = ~/.config/mutt/mailcap
+set mailcap_path = ~/.mutt/config/mailcap
 set date_format="%m/%d %I:%M"
 set index_format="%2C %Z %d %-15.15F %s (%-4.4c)"
 set pager_stop = yes # Don't move to the next message when paging past the bottom of a message.
@@ -32,9 +21,9 @@ set resolve = no # Don't auto-advance to the next message after every single op.
 set imap_list_subscribed = no
 set imap_check_subscribed = no
 # activate TLS
-set ssl_starttls=yes
+set ssl_starttls = yes
 # always use SSL
-set ssl_force_tls=yes
+set ssl_force_tls = yes
 
 auto_view text/html
 alternative_order text/plain text/enriched text/html
@@ -71,10 +60,10 @@ bind index R group-reply
 set sidebar_visible # Sidebar visible by default
 set mail_check_stats
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
-set sidebar_short_path
 set sidebar_delim_chars = "/"
 set sidebar_folder_indent
 set sidebar_indent_string = '  '
+set sidebar_short_path
 
 bind index,pager B sidebar-toggle-visible # Use 'B' to switch the Sidebar on and off
 bind index,pager \CP sidebar-prev
@@ -99,3 +88,15 @@ color sidebar_flagged   red     default
 # Red
 color sidebar_divider   color8  default
 # Dark grey
+
+folder-hook 'gmail.com' 'source ~/.mutt/account.gmail.rc'
+folder-hook 'webfaction.com' 'source ~/.mutt/account.webfaction.rc'
+folder-hook 'fastmail.com' 'source ~/.mutt/account.fastmail.rc'
+
+macro index <space>1 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.gmail.rc<enter><change-folder>!<enter>'
+macro index <space>2 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.webfaction.rc<enter><change-folder>!<enter>'
+macro index <space>3 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.fastmail.rc<enter><change-folder>!<enter>'
+
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+
+source '~/.mutt/account.webfaction.rc' # switch to default account on startup
