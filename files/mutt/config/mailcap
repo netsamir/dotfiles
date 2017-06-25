@@ -1,1 +1,2 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+image/*; /usr/bin/eog '%s' ; test=test -n "$DISPLAY";

@@ -94,9 +94,10 @@ folder-hook 'webfaction.com' 'source ~/.mutt/account.webfaction.rc'
 folder-hook 'fastmail.com' 'source ~/.mutt/account.fastmail.rc'
 
 macro index <space>1 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.gmail.rc<enter><change-folder>!<enter>'
-macro index <space>2 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.webfaction.rc<enter><change-folder>!<enter>'
-macro index <space>3 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.fastmail.rc<enter><change-folder>!<enter>'
+macro index <space>2 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.fastmail.rc<enter><change-folder>!<enter>'
+macro index <space>3 '<sync-mailbox><refresh><enter-command>source ~/.mutt/account.webfaction.rc<enter><change-folder>!<enter>'
 
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+macro pager,index A <save-message>=Archives<enter> "Saved message in Archives"
 
-source '~/.mutt/account.webfaction.rc' # switch to default account on startup
+source '~/.mutt/account.gmail.rc' # switch to default account on startup

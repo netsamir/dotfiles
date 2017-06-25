@@ -12,8 +12,10 @@ set hostname = "fastmail.com"
 set folder = "imaps://imap.fastmail.com:993"
 set spoolfile = +INBOX
 set postponed = +Drafts
+set record = "+Sent Items"
+set trash = "+Trash"
 
-mailboxes +INBOX +Drafts
+mailboxes +INBOX +Drafts +Archives "+Sent Items" +Trash
 
 set header_cache = "~/.mutt/com.fastmail/cache/headers"
 set message_cachedir = "~/.mutt/com.fastmail/cache/bodies"
