@@ -71,23 +71,23 @@ source $ZSH/oh-my-zsh.sh
 # ----------------------------------------------------------------------------
 
 export DEFAULT_USER="netsamir"
-#export MANPATH=/usr/local/man:$MANPATH
-#export PERL5LIB=$HOME/local/lib64
+export MANPATH=/usr/local/man:$MANPATH
+export PERL5LIB=$HOME/local/lib64
 export PYTHONSTARTUP=~/.pythonrc
 
 # You may need to manually set your language environment
 
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 set -o vi
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
-# export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 # Added for makevirtualenv under anaconda
 # export LD_LIBRARY_PATH=$HOME/local/anaconda3/lib:$LD_LIBRARY_PATH
 
