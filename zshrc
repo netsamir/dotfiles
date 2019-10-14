@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -43,13 +43,13 @@ ZSH_THEME="robbyrussell"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/dotfiles/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(chucknorris colorize colored-man-pages copybuffer copydir copyfile encode64 extract fzf nmap pipenv rand-quote rsync sudo git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,93 +87,96 @@ export EDITOR='vim'
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/local/bin:$PATH
 # Added for makevirtualenv under anaconda
 # export LD_LIBRARY_PATH=$HOME/local/anaconda3/lib:$LD_LIBRARY_PATH
 
-# Virtual Env
-export WORKON_HOME=$HOME/.virtualenvs
+# # ----------------------------------------------------------------------------
+# # System
+# # ----------------------------------------------------------------------------
+# alias vi="vim"
+# alias inst='sudo apt-get install'
+# alias gxt='tar zxvf '
+# alias xt='tar xvf'
+# alias l='ls -hlrt'
+# alias ll='ls -alrt'
+# alias t='tree'
+# alias p='pwd'
+# alias h='history | awk "{print \$2}" | sort | uniq -c |sort -rn | head -50'
+# alias hg='history| egrep'
+# alias bc='bc -l'
+# alias ag='alias | egrep -i'
+# alias copy='xclip -sel clip'
+# alias g='egrep -i'
+# alias trash='gvfs-trash'
 
-# ----------------------------------------------------------------------------
-# System
-# ----------------------------------------------------------------------------
-alias vi="vim"
-alias inst='sudo apt-get install'
-alias gxt='tar zxvf '
-alias xt='tar xvf'
-alias l='ls -hlrt'
-alias ll='ls -alrt'
-alias t='tree'
-alias p='pwd'
-alias h='history | awk "{print \$2}" | sort | uniq -c |sort -rn | head -50'
-alias hg='history| egrep'
-alias bc='bc -l'
-alias ag='alias | egrep -i'
-alias copy='xclip -sel clip'
-alias g='egrep -i'
-alias trash='gvfs-trash'
+# function c(){
+#     count_path=$pwd
+#     [ $# != 0 ] && count_path=$1
+#     printf "In : ll $count_path | wc -l\n"
+#     printf "Out: $(ll $count_path | wc -l)\n"
+# }
 
-function c(){
-    count_path=$pwd
-    [ $# != 0 ] && count_path=$1
-    printf "In : ll $count_path | wc -l\n"
-    printf "Out: $(ll $count_path | wc -l)\n"
-}
+# function gt(){
+#     tar zcvf $1.tgz --remove-files $1
+# }
+# # ----------------------------------------------------------------------------
+# # Expressvpn
+# # ----------------------------------------------------------------------------
 
-function gt(){
-    tar zcvf $1.tgz --remove-files $1
-}
-# ----------------------------------------------------------------------------
-# Expressvpn
-# ----------------------------------------------------------------------------
+# alias xc='expressvpn connect'
+# alias xs='expressvpn status'
 
-alias xc='expressvpn connect'
-alias xs='expressvpn status'
+# # ----------------------------------------------------------------------------
+# # Workaround
+# # ----------------------------------------------------------------------------
+# alias net='sudo service network-manager restart'
+# alias ssh-add='ssh-add ~/.ssh/id_rsa'
 
-# ----------------------------------------------------------------------------
-# Workaround
-# ----------------------------------------------------------------------------
-alias net='sudo service network-manager restart'
-alias ssh-add='ssh-add ~/.ssh/id_rsa'
+# # ----------------------------------------------------------------------------
+# # Browse
+# # ----------------------------------------------------------------------------
+# alias cDo='cd $HOME/Downloads'
+# alias cdo='cd $HOME/dotfiles'
+# alias cbi='cd $HOME/bin'
+# alias cco='cd $HOME/config'
+# alias cv='cd ~/dotfiles/files/vim'
 
-# ----------------------------------------------------------------------------
-# Browse
-# ----------------------------------------------------------------------------
-alias cDo='cd $HOME/Downloads'
-alias cdo='cd $HOME/dotfiles'
-alias cbi='cd $HOME/bin'
-alias cco='cd $HOME/config'
-alias cv='cd ~/dotfiles/files/vim'
+# # ----------------------------------------------------------------------------
+# # Edit quickly
+# # ----------------------------------------------------------------------------
+# alias sz='source ~/.zshrc'
+# alias z='vi $HOME/.zshrc && source ~/.zshrc'
+# alias v='vi ~/.vimrc'
+# alias i='view ~/Documents/Vault/identity.txt'
+# alias ii='vi ~/Documents/Vault/identity.txt'
 
-# ----------------------------------------------------------------------------
-# Edit quickly
-# ----------------------------------------------------------------------------
-alias sz='source ~/.zshrc'
-alias z='vi $HOME/.zshrc && source ~/.zshrc'
-alias v='vi ~/.vimrc'
-alias i='view ~/Documents/Vault/identity.txt'
-alias ii='vi ~/Documents/Vault/identity.txt'
+# # ----------------------------------------------------------------------------
+# # Django
+# # ----------------------------------------------------------------------------
+# alias dj='python $DJ_CUR_PROJECT/manage.py'
+# alias djc='python $DJ_CUR_PROJECT/manage.py collectstatic'
+# alias djr='python $DJ_CUR_PROJECT/manage.py runserver'
+# alias djm='python $DJ_CUR_PROJECT/manage.py makemigrations && \
+#             python $DJ_CUR_PROJECT/manage.py migrate'
 
-# ----------------------------------------------------------------------------
-# Django
-# ----------------------------------------------------------------------------
-alias dj='python $DJ_CUR_PROJECT/manage.py'
-alias djc='python $DJ_CUR_PROJECT/manage.py collectstatic'
-alias djr='python $DJ_CUR_PROJECT/manage.py runserver'
-alias djm='python $DJ_CUR_PROJECT/manage.py makemigrations && \
-            python $DJ_CUR_PROJECT/manage.py migrate'
+# # ----------------------------------------------------------------------------
+# # Python
+# # ----------------------------------------------------------------------------
+# alias pips='sudo -H pip'
+# alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
 
-# ----------------------------------------------------------------------------
-# Python
-# ----------------------------------------------------------------------------
-alias pips='sudo -H pip'
-alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
+# # ----------------------------------------------------------------------------
+# # Git
+# # ----------------------------------------------------------------------------
+# alias findgit='find ~/dotfiles -type f -exec egrep "git@git" {} \;'
+# function ignore(){
+#     echo $1 >> .gitignore
+#     cat .gitignore
+# }
 
-# ----------------------------------------------------------------------------
-# Git
-# ----------------------------------------------------------------------------
-alias findgit='find ~/dotfiles -type f -exec egrep "git@git" {} \;'
-function ignore(){
-    echo $1 >> .gitignore
-    cat .gitignore
-}
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc'; fi

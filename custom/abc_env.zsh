@@ -28,9 +28,6 @@ export LC_ALL=en_US.UTF-8
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# Virtual env:
-source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=$HOME/.virtualenvs
 
 # 20192501 - check a better way to work with the script : .env
 # source ~/.autoenv/activate.sh
@@ -39,4 +36,4 @@ eval $(dircolors -b $HOME/.dircolors)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-chuck
+#chuck
