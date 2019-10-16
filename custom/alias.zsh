@@ -1,17 +1,18 @@
 
 alias sa='alias | egrep -i'
-alias sz='source ~/.zshrc'
 alias vi="/usr/local/bin/vim"
 
 # ----------------------------------------------------------------------------
 # Quick edit
 # ----------------------------------------------------------------------------
 #
-alias ez='vi $HOME/.zshrc && source ~/.zshrc'
-alias ev='/usr/local/bin/vim ~/.vimrc'
-alias ek='vim /home/netsamir/dotfiles/oh-my-zsh/custom/key-bindings.zsh && source ~/.zshrc'
-alias ea='vim /home/netsamir/dotfiles/oh-my-zsh/custom/alias.zsh && source ~/.zshrc'
-alias ef='vim /home/netsamir/dotfiles/oh-my-zsh/custom/functions.zsh && source ~/.zshrc'
+alias s='source ~/.zshrc'
+alias dot='cd ~/dotfiles/custom/ && vim && source ~/.zshrc'
+alias z='vim $HOME/.zshrc && source ~/.zshrc'
+alias v='/usr/bin/vim ~/.vimrc'
+alias k='vim /home/netsamir/dotfiles/oh-my-zsh/custom/key-bindings.zsh && source ~/.zshrc'
+alias a='vim /home/netsamir/dotfiles/oh-my-zsh/custom/alias.zsh && source ~/.zshrc'
+alias f='vim /home/netsamir/dotfiles/oh-my-zsh/custom/functions.zsh && source ~/.zshrc'
 
 
 alias i='view ~/Documents/Vault/identity.txt'
@@ -98,6 +99,7 @@ alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
 alias -g pp="2>&1| pygmentize -l pytb"
 
+
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
 alias fd='find . -type d -name'
@@ -117,6 +119,8 @@ alias o='gvfs-open'
 
 alias zxt='tar zxvf '
 alias xt='tar xvf'
+
+alias run="python -m http.server 8790"
 
 # ----------------------------------------------------------------------------
 # Expressvpn
@@ -144,8 +148,7 @@ alias djm='python $DJ_CUR_PROJECT/manage.py makemigrations && \
 # ----------------------------------------------------------------------------
 # Python
 # ----------------------------------------------------------------------------
-alias pips='sudo -H pip3'
-alias ipy='/usr/local/bin/ipython --TerminalInteractiveShell.editing_mode=vi'
+alias ipy='/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi'
 
 # ----------------------------------------------------------------------------
 # Git

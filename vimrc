@@ -100,7 +100,7 @@ endfunction
 " }}}
 " Mappings settings {{{
 
-inoremap kj <esc>
+inoremap kj <esc> :w <CR>
 inoremap <esc> <nop>
 
 runtime macros/matchit.vim
