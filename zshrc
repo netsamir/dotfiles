@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/dotfiles/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(chucknorris catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract fzf nmap pipenv rand-quote rsync sudo git)
+plugins=(chucknorris catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract git-prompt fzf nmap pipenv rand-quote rsync sudo git)
 
 source $ZSH/oh-my-zsh.sh
 
