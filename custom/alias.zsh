@@ -1,6 +1,8 @@
 
 alias sa='alias | egrep -i'
+alias sh='history | egrep'
 alias vi="/usr/local/bin/vim"
+alias h='history | awk "{print \$2}" | sort | uniq -c |sort -rn | head -50'
 
 # ----------------------------------------------------------------------------
 # Quick edit
@@ -10,9 +12,9 @@ alias s='source ~/.zshrc'
 alias dot='cd ~/dotfiles/custom/ && vim && source ~/.zshrc'
 alias z='vim $HOME/.zshrc && source ~/.zshrc'
 alias v='/usr/bin/vim ~/.vimrc'
-alias k='vim /home/netsamir/dotfiles/oh-my-zsh/custom/key-bindings.zsh && source ~/.zshrc'
-alias a='vim /home/netsamir/dotfiles/oh-my-zsh/custom/alias.zsh && source ~/.zshrc'
-alias f='vim /home/netsamir/dotfiles/oh-my-zsh/custom/functions.zsh && source ~/.zshrc'
+alias k='vim /home/netsamir/dotfiles/custom/key-bindings.zsh && source ~/.zshrc'
+alias a='vim /home/netsamir/dotfiles/custom/alias.zsh && source ~/.zshrc'
+alias f='vim /home/netsamir/dotfiles/custom/functions.zsh && source ~/.zshrc'
 
 
 alias i='view ~/Documents/Vault/identity.txt'
@@ -100,7 +102,7 @@ alias -g NUL="> /dev/null 2>&1"
 alias -g pp="2>&1| pygmentize -l pytb"
 
 
-alias dud='du -d 1 -h'
+alias dud='du -d 1 -h | sort -n'
 alias duf='du -sh *'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
@@ -121,6 +123,18 @@ alias zxt='tar zxvf '
 alias xt='tar xvf'
 
 alias run="python -m http.server 8790"
+
+
+function c(){
+    count_path=$pwd
+    [ $# != 0 ] && count_path=$1
+    printf "In : ll $count_path | wc -l\n"
+    printf "Out: $(ll $count_path | wc -l)\n"
+}
+
+function gt(){
+    tar zcvf $1.tgz --remove-files $1
+}
 
 # ----------------------------------------------------------------------------
 # Expressvpn
