@@ -37,6 +37,10 @@ bindkey -s '[' 'cd -'
 # bindkey '^P' up-history
 # bindkey '^N' down-history
 
+# bindkey '^[[A' history-substring-search-up
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
 # bindkey '^h' backward-delete-char
 # bindkey '^w' backward-kill-word

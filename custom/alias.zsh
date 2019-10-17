@@ -60,7 +60,7 @@ alias rd=rmdir
 # ----------------------------------------------------------------------------
 #
 alias l='ls -lFrh'    #size,show type,human readable, by date
-alias ll='ls -lAFrth'   #long list,show almost all,show type,human readable
+alias lll='ls -lAFrth'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 alias ldot='ls -ld .*'
@@ -104,8 +104,14 @@ alias -g pp="2>&1| pygmentize -l pytb"
 
 alias dud='du -d 1 -h | sort -n'
 alias duf='du -sh *'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+function fd(){
+    find . -type d -name "*${1}*"
+
+}
+
+function ff(){
+    find . -type f -name "*${1}*"
+}
 
 #list whats inside packed file
 alias -s zip="unzip -l"
@@ -135,6 +141,71 @@ function c(){
 function gt(){
     tar zcvf $1.tgz --remove-files $1
 }
+
+function reload(){
+    for server in $(ls $HOME/Ansible/.vagrant/machines/); do
+        /usr/bin/vagrant reload $server
+    done
+}
+
+function ltx(){
+    filename=$(basename $1 .tex)
+    /usr/bin/latex $1
+    gvfs-open ${filename}.dvi
+}
+
+function c(){
+    count_path=$pwd
+    [ $# != 0 ] && count_path=$1
+    printf "In : ll $count_path | wc -l\n"
+    printf "Out: $(ll $count_path | wc -l)\n"
+}
+
+function ignore(){
+    echo $1 >> .gitignore
+    cat .gitignore
+}
+
+# Perl grep, because 'grep -P' is terrible. Lets you work with pipes or files.
+function prep(){ # [pattern] [filename unless STDOUT]
+    perl -nle 'print if /'"$1"'/i;' $2
+}
+
+
+# zsh is able to auto-do some kungfoo
+# depends on the SUFFIX :)
+if is-at-least 4.2.0; then
+  # open browser on urls
+  if [[ -n "$BROWSER" ]]; then
+    _browser_fts=(htm html de org net com at cx nl se dk)
+    for ft in $_browser_fts; do alias -s $ft=$BROWSER; done
+  fi
+
+  _editor_fts=(cpp cxx cc c hh h inl asc txt TXT tex)
+  for ft in $_editor_fts; do alias -s $ft=$EDITOR; done
+
+  if [[ -n "$XIVIEWER" ]]; then
+    _image_fts=(jpg jpeg png gif mng tiff tif xpm)
+    for ft in $_image_fts; do alias -s $ft=$XIVIEWER; done
+  fi
+
+  _media_fts=(ape avi flv m4a mkv mov mp3 mpeg mpg ogg ogm rm wav webm)
+  for ft in $_media_fts; do alias -s $ft=mplayer; done
+
+  #read documents
+  alias -s pdf=acroread
+  alias -s ps=gv
+  alias -s dvi=xdvi
+  alias -s chm=xchm
+  alias -s djvu=djview
+
+  #list whats inside packed file
+  alias -s zip="unzip -l"
+  alias -s rar="unrar l"
+  alias -s tar="tar tf"
+  alias -s tar.gz="echo "
+  alias -s ace="unace l"
+fi
 
 # ----------------------------------------------------------------------------
 # Expressvpn
@@ -167,4 +238,4 @@ alias ipy='/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi'
 # ----------------------------------------------------------------------------
 # Git
 # ----------------------------------------------------------------------------
-alias findgit='find ~/dotfiles -type f -exec egrep "git@git" {} \;'
+alias findgit='find ~/ -name ".git" -type f -exec egrep "git@git" {} \;'

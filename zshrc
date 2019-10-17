@@ -49,7 +49,7 @@ ZSH_CUSTOM=$HOME/dotfiles/custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(chucknorris catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract git-prompt fzf nmap pipenv rand-quote rsync sudo git)
+plugins=(catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract git-prompt history-substring-search nmap pipenv rand-quote rsync sudo git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,3 +97,5 @@ if [ -f '/home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/hom
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
