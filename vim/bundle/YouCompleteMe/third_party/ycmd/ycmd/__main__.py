@@ -1,4 +1,4 @@
-# Copyright (C) 2013 Google Inc.
+# Copyright (C) 2013-2019 ycmd contributors
 #
 # This file is part of ycmd.
 #
@@ -25,27 +25,28 @@ import sys
 import os
 
 sys.path.insert( 0, os.path.dirname( os.path.abspath( __file__ ) ) )
-from server_utils import SetUpPythonPath, CompatibleWithCurrentCore
+from server_utils import SetUpPythonPath
 SetUpPythonPath()
 
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
+import atexit
 import sys
 import logging
 import json
 import argparse
-import waitress
 import signal
 import os
 import base64
-from ycmd import user_options_store
-from ycmd import extra_conf_store
-from ycmd import utils
-from ycmd.watchdog_plugin import WatchdogPlugin
+
+from ycmd import extra_conf_store, user_options_store, utils
 from ycmd.hmac_plugin import HmacPlugin
-from ycmd.utils import ToBytes, ReadFile, OpenForStdHandle
+from ycmd.utils import ( ImportAndCheckCore,
+                         OpenForStdHandle,
+                         ReadFile,
+                         ToBytes )
+from ycmd.wsgi_server import StoppableWSGIServer
 
 
 def YcmCoreSanityCheck():
@@ -55,29 +56,31 @@ def YcmCoreSanityCheck():
 
 # We manually call sys.exit() on SIGTERM and SIGINT so that atexit handlers are
 # properly executed.
-def SetUpSignalHandler( stdout, stderr, keep_logfiles ):
+def SetUpSignalHandler():
   def SignalHandler( signum, frame ):
-    # We reset stderr & stdout, just in case something tries to use them
-    if stderr:
-      tmp = sys.stderr
-      sys.stderr = sys.__stderr__
-      tmp.close()
-    if stdout:
-      tmp = sys.stdout
-      sys.stdout = sys.__stdout__
-      tmp.close()
-
-    if not keep_logfiles:
-      if stderr:
-        utils.RemoveIfExists( stderr )
-      if stdout:
-        utils.RemoveIfExists( stdout )
-
     sys.exit()
 
   for sig in [ signal.SIGTERM,
                signal.SIGINT ]:
     signal.signal( sig, SignalHandler )
+
+
+def CleanUpLogfiles( stdout, stderr, keep_logfiles ):
+  # We reset stderr & stdout, just in case something tries to use them
+  if stderr:
+    tmp = sys.stderr
+    sys.stderr = sys.__stderr__
+    tmp.close()
+  if stdout:
+    tmp = sys.stdout
+    sys.stdout = sys.__stdout__
+    tmp.close()
+
+  if not keep_logfiles:
+    if stderr:
+      utils.RemoveIfExists( stderr )
+    if stdout:
+      utils.RemoveIfExists( stdout )
 
 
 def PossiblyDetachFromTerminal():
@@ -95,15 +98,18 @@ def ParseArguments():
   parser = argparse.ArgumentParser()
   # Not using 'localhost' on purpose; see #987 and #1130
   parser.add_argument( '--host', type = str, default = '127.0.0.1',
-                       help = 'server hostname')
+                       help = 'server hostname' )
   # Default of 0 will make the OS pick a free port for us
   parser.add_argument( '--port', type = int, default = 0,
-                       help = 'server port')
+                       help = 'server port' )
   parser.add_argument( '--log', type = str, default = 'info',
                        help = 'log level, one of '
                               '[debug|info|warning|error|critical]' )
   parser.add_argument( '--idle_suicide_seconds', type = int, default = 0,
-                       help = 'num idle seconds before server shuts down')
+                       help = 'num idle seconds before server shuts down' )
+  parser.add_argument( '--check_interval_seconds', type = int, default = 600,
+                       help = 'interval in seconds to check server '
+                              'inactivity and keep subservers alive' )
   parser.add_argument( '--options_file', type = str, required = True,
                        help = 'file with user options, in JSON format' )
   parser.add_argument( '--stdout', type = str, default = None,
@@ -157,26 +163,36 @@ def Main():
   YcmCoreSanityCheck()
   extra_conf_store.CallGlobalExtraConfYcmCorePreloadIfExists()
 
-  code = CompatibleWithCurrentCore()
+  code = ImportAndCheckCore()
   if code:
     sys.exit( code )
 
   PossiblyDetachFromTerminal()
 
-  # This can't be a top-level import because it transitively imports
+  # These can't be top-level imports because they transitively import
   # ycm_core which we want to be imported ONLY after extra conf
   # preload has executed.
   from ycmd import handlers
+  from ycmd.watchdog_plugin import WatchdogPlugin
   handlers.UpdateUserOptions( options )
   handlers.SetHmacSecret( hmac_secret )
-  SetUpSignalHandler( args.stdout, args.stderr, args.keep_logfiles )
-  handlers.app.install( WatchdogPlugin( args.idle_suicide_seconds ) )
+  handlers.KeepSubserversAlive( args.check_interval_seconds )
+  SetUpSignalHandler()
+  # Functions registered by the atexit module are called at program termination
+  # in last in, first out order.
+  atexit.register( CleanUpLogfiles, args.stdout,
+                                    args.stderr,
+                                    args.keep_logfiles )
+  atexit.register( handlers.ServerCleanup )
+  handlers.app.install( WatchdogPlugin( args.idle_suicide_seconds,
+                                        args.check_interval_seconds ) )
   handlers.app.install( HmacPlugin( hmac_secret ) )
   CloseStdin()
-  waitress.serve( handlers.app,
-                  host = args.host,
-                  port = args.port,
-                  threads = 30 )
+  handlers.wsgi_server = StoppableWSGIServer( handlers.app,
+                                              host = args.host,
+                                              port = args.port,
+                                              threads = 30 )
+  handlers.wsgi_server.Run()
 
 
 if __name__ == "__main__":

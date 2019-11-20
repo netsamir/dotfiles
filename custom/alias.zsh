@@ -1,4 +1,3 @@
-
 alias sa='alias | egrep -i'
 alias sh='history | egrep'
 alias vi="/usr/local/bin/vim"
@@ -239,3 +238,5 @@ alias ipy='/usr/bin/ipython --TerminalInteractiveShell.editing_mode=vi'
 # Git
 # ----------------------------------------------------------------------------
 alias findgit='find ~/ -name ".git" -type f -exec egrep "git@git" {} \;'
+
+alias swap='$HOME/local/bin/swap.py'

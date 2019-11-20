@@ -2,9 +2,11 @@ import errno
 import socket
 import unittest
 
+dummy_app = object()
+
 class TestWSGIServer(unittest.TestCase):
 
-    def _makeOne(self, application, host='127.0.0.1', port=0,
+    def _makeOne(self, application=dummy_app, host='127.0.0.1', port=0,
                  _dispatcher=None, adj=None, map=None, _start=True,
                  _sock=None, _server=None):
         from waitress.server import create_server
@@ -18,7 +20,7 @@ class TestWSGIServer(unittest.TestCase):
             _sock=_sock)
 
     def _makeOneWithMap(self, adj=None, _start=True, host='127.0.0.1',
-                        port=0, app=None):
+                        port=0, app=dummy_app):
         sock = DummySock()
         task_dispatcher = DummyTaskDispatcher()
         map = {}
@@ -32,13 +34,30 @@ class TestWSGIServer(unittest.TestCase):
             _start=_start,
         )
 
+    def _makeOneWithMulti(self, adj=None, _start=True,
+                          app=dummy_app, listen="127.0.0.1:0 127.0.0.1:0"):
+        sock = DummySock()
+        task_dispatcher = DummyTaskDispatcher()
+        map = {}
+        from waitress.server import create_server
+        return create_server(
+            app,
+            listen=listen,
+            map=map,
+            _dispatcher=task_dispatcher,
+            _start=_start,
+            _sock=sock)
+
+    def test_ctor_app_is_None(self):
+        self.assertRaises(ValueError, self._makeOneWithMap, app=None)
+
     def test_ctor_start_true(self):
         inst = self._makeOneWithMap(_start=True)
         self.assertEqual(inst.accepting, True)
         self.assertEqual(inst.socket.listened, 1024)
 
     def test_ctor_makes_dispatcher(self):
-        inst = self._makeOne(None, _start=False, map={})
+        inst = self._makeOne(_start=False, map={})
         self.assertEqual(inst.task_dispatcher.__class__.__name__,
                          'ThreadedTaskDispatcher')
 
@@ -66,8 +85,19 @@ class TestWSGIServer(unittest.TestCase):
         result = inst.get_server_name('0.0.0.0')
         self.assertEqual(result, 'localhost')
 
+    def test_get_server_multi(self):
+        inst = self._makeOneWithMulti()
+        self.assertEqual(inst.__class__.__name__, 'MultiSocketServer')
+
     def test_run(self):
         inst = self._makeOneWithMap(_start=False)
+        inst.asyncore = DummyAsyncore()
+        inst.task_dispatcher = DummyTaskDispatcher()
+        inst.run()
+        self.assertTrue(inst.task_dispatcher.was_shutdown)
+
+    def test_run_base_server(self):
+        inst = self._makeOneWithMulti(_start=False)
         inst.asyncore = DummyAsyncore()
         inst.task_dispatcher = DummyTaskDispatcher()
         inst.run()
@@ -198,7 +228,7 @@ if hasattr(socket, 'AF_UNIX'):
         def _makeOne(self, _start=True, _sock=None):
             from waitress.server import create_server
             return create_server(
-                None,
+                dummy_app,
                 map={},
                 _start=_start,
                 _sock=_sock,
@@ -235,6 +265,16 @@ if hasattr(socket, 'AF_UNIX'):
                 L,
                 [(inst, client, ('localhost', None), inst.adj)]
             )
+
+        def test_creates_new_sockinfo(self):
+            from waitress.server import UnixWSGIServer
+            inst = UnixWSGIServer(
+                dummy_app,
+                unix_socket=self.unix_socket,
+                unix_socket_perms='600'
+            )
+
+            self.assertEqual(inst.sockinfo[0], socket.AF_UNIX)
 
 class DummySock(object):
     accepted = False

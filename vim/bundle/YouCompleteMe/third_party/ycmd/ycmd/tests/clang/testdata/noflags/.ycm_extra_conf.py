@@ -1,6 +1,2 @@
-def FlagsForFile( filename ):
-  return {
-    'flags': [],
-    'do_cache': True
-  }
-
+def Settings( **kwargs ):
+  return { 'flags': [] }

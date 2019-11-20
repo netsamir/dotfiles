@@ -19,16 +19,16 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import functools
 import os
-import time
 
-from ycmd import handlers
-from ycmd.tests.test_utils import BuildRequest, ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( ClearCompletionsCache,
+                                    IgnoreExtraConfOutsideTestsFolder,
+                                    IsolatedApp,
+                                    SetUpApp )
 
 shared_app = None
 
@@ -36,30 +36,6 @@ shared_app = None
 def PathToTestFile( *args ):
   dir_of_current_script = os.path.dirname( os.path.abspath( __file__ ) )
   return os.path.join( dir_of_current_script, 'testdata', *args )
-
-
-def WaitUntilJediHTTPServerReady( app ):
-  retries = 100
-
-  while retries > 0:
-    result = app.get( '/ready', { 'subserver': 'python' } ).json
-    if result:
-      return
-
-    time.sleep( 0.2 )
-    retries = retries - 1
-
-  raise RuntimeError( "Timeout waiting for JediHTTP" )
-
-
-def StopJediHTTPServer( app ):
-  # We don't actually start a JediHTTP server on every test, so we just
-  # ignore errors when stopping the server
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ 'StopServer' ],
-                               filetype = 'python' ),
-                 expect_errors = True )
 
 
 def setUpPackage():
@@ -70,15 +46,6 @@ def setUpPackage():
   global shared_app
 
   shared_app = SetUpApp()
-  WaitUntilJediHTTPServerReady( shared_app )
-
-
-def tearDownPackage():
-  """Cleans up the tests using the SharedYcmd decorator in this package. It is
-  executed once after running all the tests in the package."""
-  global shared_app
-
-  StopJediHTTPServer( shared_app )
 
 
 def SharedYcmd( test ):
@@ -91,24 +58,33 @@ def SharedYcmd( test ):
   @functools.wraps( test )
   def Wrapper( *args, **kwargs ):
     ClearCompletionsCache()
-    return test( shared_app, *args, **kwargs )
+    with IgnoreExtraConfOutsideTestsFolder():
+      return test( shared_app, *args, **kwargs )
   return Wrapper
 
 
-def IsolatedYcmd( test ):
+def IsolatedYcmd( custom_options = {} ):
   """Defines a decorator to be attached to tests of this package. This decorator
   passes a unique ycmd application as a parameter. It should be used on tests
   that change the server state in a irreversible way (ex: a semantic subserver
   is stopped or restarted) or expect a clean state (ex: no semantic subserver
-  started, no .ycm_extra_conf.py loaded, etc).
+  started, no .ycm_extra_conf.py loaded, etc). Use the optional parameter
+  |custom_options| to give additional options and/or override the default ones.
 
-  Do NOT attach it to test generators but directly to the yielded tests."""
-  @functools.wraps( test )
-  def Wrapper( *args, **kwargs ):
-    old_server_state = handlers._server_state
+  Do NOT attach it to test generators but directly to the yielded tests.
 
-    try:
-      test( SetUpApp(), *args, **kwargs )
-    finally:
-      handlers._server_state = old_server_state
-  return Wrapper
+  Example usage:
+
+    from ycmd.tests.python import IsolatedYcmd
+
+    @IsolatedYcmd( { 'python_binary_path': '/some/path' } )
+    def CustomPythonBinaryPath_test( app ):
+      ...
+  """
+  def Decorator( test ):
+    @functools.wraps( test )
+    def Wrapper( *args, **kwargs ):
+      with IsolatedApp( custom_options ) as app:
+        test( app, *args, **kwargs )
+    return Wrapper
+  return Decorator

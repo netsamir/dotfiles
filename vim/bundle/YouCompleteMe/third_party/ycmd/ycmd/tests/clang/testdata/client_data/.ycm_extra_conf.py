@@ -1,5 +1,2 @@
-def FlagsForFile( filename, **kwargs ):
-  return {
-    'flags': kwargs['client_data']['flags'],
-    'do_cache': True
-  }
+def Settings( **kwargs ):
+  return { 'flags': kwargs[ 'client_data' ].get( 'flags', [] ) }

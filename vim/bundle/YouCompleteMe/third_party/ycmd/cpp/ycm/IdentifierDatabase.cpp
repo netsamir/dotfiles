@@ -1,4 +1,4 @@
-// Copyright (C) 2013 Google Inc.
+// Copyright (C) 2013-2018 ycmd contributors
 //
 // This file is part of ycmd.
 //
@@ -16,7 +16,6 @@
 // along with ycmd.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "IdentifierDatabase.h"
-#include "standard.h"
 
 #include "Candidate.h"
 #include "CandidateRepository.h"
@@ -24,14 +23,7 @@
 #include "Result.h"
 #include "Utils.h"
 
-#include <boost/thread/locks.hpp>
-#include <boost/unordered_set.hpp>
-#include <boost/algorithm/string.hpp>
-#include <boost/algorithm/cxx11/any_of.hpp>
-
-using boost::algorithm::any_of;
-using boost::algorithm::is_upper;
-
+#include <unordered_set>
 
 namespace YouCompleteMe {
 
@@ -41,14 +33,12 @@ IdentifierDatabase::IdentifierDatabase()
 
 
 void IdentifierDatabase::AddIdentifiers(
-  const FiletypeIdentifierMap &filetype_identifier_map ) {
-  boost::lock_guard< boost::mutex > locker( filetype_candidate_map_mutex_ );
+  FiletypeIdentifierMap&& filetype_identifier_map ) {
+  std::lock_guard< std::mutex > locker( filetype_candidate_map_mutex_ );
 
-  foreach ( const FiletypeIdentifierMap::value_type & filetype_and_map,
-            filetype_identifier_map ) {
-    foreach( const FilepathToIdentifiers::value_type & filepath_and_identifiers,
-             filetype_and_map.second ) {
-      AddIdentifiersNoLock( filepath_and_identifiers.second,
+  for ( auto&& filetype_and_map : filetype_identifier_map ) {
+    for ( auto&& filepath_and_identifiers : filetype_and_map.second ) {
+      AddIdentifiersNoLock( std::move( filepath_and_identifiers.second ),
                             filetype_and_map.first,
                             filepath_and_identifiers.first );
     }
@@ -57,63 +47,65 @@ void IdentifierDatabase::AddIdentifiers(
 
 
 void IdentifierDatabase::AddIdentifiers(
-  const std::vector< std::string > &new_candidates,
+  std::vector< std::string >&& new_candidates,
   const std::string &filetype,
   const std::string &filepath ) {
-  boost::lock_guard< boost::mutex > locker( filetype_candidate_map_mutex_ );
-  AddIdentifiersNoLock( new_candidates, filetype, filepath );
+  std::lock_guard< std::mutex > locker( filetype_candidate_map_mutex_ );
+  AddIdentifiersNoLock( std::move( new_candidates ), filetype, filepath );
 }
 
 
 void IdentifierDatabase::ClearCandidatesStoredForFile(
   const std::string &filetype,
   const std::string &filepath ) {
-  boost::lock_guard< boost::mutex > locker( filetype_candidate_map_mutex_ );
+  std::lock_guard< std::mutex > locker( filetype_candidate_map_mutex_ );
   GetCandidateSet( filetype, filepath ).clear();
 }
 
 
 void IdentifierDatabase::ResultsForQueryAndType(
-  const std::string &query,
+  std::string&& query,
   const std::string &filetype,
-  std::vector< Result > &results ) const {
+  std::vector< Result > &results,
+  const size_t max_results ) const {
   FiletypeCandidateMap::const_iterator it;
   {
-    boost::lock_guard< boost::mutex > locker( filetype_candidate_map_mutex_ );
+    std::lock_guard< std::mutex > locker( filetype_candidate_map_mutex_ );
     it = filetype_candidate_map_.find( filetype );
 
-    if ( it == filetype_candidate_map_.end() || query.empty() )
+    if ( it == filetype_candidate_map_.end() ) {
       return;
+    }
   }
-  Bitset query_bitset = LetterBitsetFromString( query );
-  bool query_has_uppercase_letters = any_of( query, is_upper() );
+  Word query_object( std::move( query ) );
 
-  boost::unordered_set< const Candidate * > seen_candidates;
+  std::unordered_set< const Candidate * > seen_candidates;
   seen_candidates.reserve( candidate_repository_.NumStoredCandidates() );
 
   {
-    boost::lock_guard< boost::mutex > locker( filetype_candidate_map_mutex_ );
-    foreach ( const FilepathToCandidates::value_type & path_and_candidates,
-              *it->second ) {
-      foreach ( const Candidate * candidate, *path_and_candidates.second ) {
-        if ( ContainsKey( seen_candidates, candidate ) )
+    std::lock_guard< std::mutex > locker( filetype_candidate_map_mutex_ );
+    for ( const auto& path_and_candidates : *it->second ) {
+      for ( const Candidate * candidate : *path_and_candidates.second ) {
+        if ( ContainsKey( seen_candidates, candidate ) ) {
           continue;
-        else
-          seen_candidates.insert( candidate );
+        }
+        seen_candidates.insert( candidate );
 
-        if ( !candidate->MatchesQueryBitset( query_bitset ) )
+        if ( candidate->IsEmpty() ||
+             !candidate->ContainsBytes( query_object ) ) {
           continue;
+        }
 
-        Result result = candidate->QueryMatchResult(
-                          query, query_has_uppercase_letters );
+        Result result = candidate->QueryMatchResult( query_object );
 
-        if ( result.IsSubsequence() )
+        if ( result.IsSubsequence() ) {
           results.push_back( result );
+        }
       }
     }
   }
 
-  std::sort( results.begin(), results.end() );
+  PartialSort( results, max_results );
 }
 
 
@@ -122,17 +114,19 @@ void IdentifierDatabase::ResultsForQueryAndType(
 std::set< const Candidate * > &IdentifierDatabase::GetCandidateSet(
   const std::string &filetype,
   const std::string &filepath ) {
-  boost::shared_ptr< FilepathToCandidates > &path_to_candidates =
+  std::shared_ptr< FilepathToCandidates > &path_to_candidates =
     filetype_candidate_map_[ filetype ];
 
-  if ( !path_to_candidates )
+  if ( !path_to_candidates ) {
     path_to_candidates.reset( new FilepathToCandidates() );
+  }
 
-  boost::shared_ptr< std::set< const Candidate * > > &candidates =
+  std::shared_ptr< std::set< const Candidate * > > &candidates =
     ( *path_to_candidates )[ filepath ];
 
-  if ( !candidates )
+  if ( !candidates ) {
     candidates.reset( new std::set< const Candidate * >() );
+  }
 
   return *candidates;
 }
@@ -141,14 +135,15 @@ std::set< const Candidate * > &IdentifierDatabase::GetCandidateSet(
 // WARNING: You need to hold the filetype_candidate_map_mutex_ before calling
 // this function and while using the returned set.
 void IdentifierDatabase::AddIdentifiersNoLock(
-  const std::vector< std::string > &new_candidates,
+  std::vector< std::string >&& new_candidates,
   const std::string &filetype,
   const std::string &filepath ) {
   std::set< const Candidate *> &candidates =
     GetCandidateSet( filetype, filepath );
 
   std::vector< const Candidate * > repository_candidates =
-    candidate_repository_.GetCandidatesForStrings( new_candidates );
+    candidate_repository_.GetCandidatesForStrings(
+      std::move( new_candidates ) );
 
   candidates.insert( repository_candidates.begin(),
                      repository_candidates.end() );

@@ -19,16 +19,18 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import ycm_core
 from ycmd.completers.cpp.clang_completer import ClangCompleter
+from ycmd.completers.cpp.clangd_completer import ( ShouldEnableClangdCompleter,
+                                                   ClangdCompleter )
 
 
 def GetCompleter( user_options ):
+  if ShouldEnableClangdCompleter( user_options ):
+    return ClangdCompleter( user_options )
   if ycm_core.HasClangSupport():
     return ClangCompleter( user_options )
-  else:
-    return None
+  return None

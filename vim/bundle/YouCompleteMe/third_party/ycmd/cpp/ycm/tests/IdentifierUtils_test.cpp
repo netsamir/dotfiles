@@ -29,6 +29,8 @@ namespace fs = boost::filesystem;
 using ::testing::ElementsAre;
 using ::testing::ContainerEq;
 using ::testing::WhenSorted;
+using ::testing::Pair;
+using ::testing::UnorderedElementsAre;
 
 
 TEST( IdentifierUtilsTest, ExtractIdentifiersFromTagsFileWorks ) {
@@ -36,23 +38,59 @@ TEST( IdentifierUtilsTest, ExtractIdentifiersFromTagsFileWorks ) {
   fs::path testfile = PathToTestFile( "basic.tags" );
   fs::path testfile_parent = testfile.parent_path();
 
-  FiletypeIdentifierMap expected;
-  expected[ "cpp" ][ ( testfile_parent / "foo" ).string() ]
-  .push_back( "i1" );
-  expected[ "cpp" ][ ( testfile_parent / "bar" ).string() ]
-  .push_back( "i1" );
-  expected[ "cpp" ][ ( testfile_parent / "foo" ).string() ]
-  .push_back( "foosy" );
-  expected[ "cpp" ][ ( testfile_parent / "bar" ).string() ]
-  .push_back( "fooaaa" );
+  EXPECT_THAT( ExtractIdentifiersFromTagsFile( testfile ),
+      UnorderedElementsAre(
+        Pair( "cpp", UnorderedElementsAre(
+                         Pair( ( testfile_parent / "foo" ).string(),
+                               ElementsAre( "i1", "foosy" ) ),
+                         Pair( ( testfile_parent / "bar" ).string(),
+                               ElementsAre( "i1", "fooaaa" ) ) ) ),
+        Pair( "fakelang", UnorderedElementsAre(
+                              Pair( ( root / "foo" ).string(),
+                                    ElementsAre( "zoro" ) ) ) ),
+        Pair( "cs", UnorderedElementsAre(
+                        Pair( ( root / "m_oo" ).string(),
+                              ElementsAre( "#bleh" ) ) ) ),
+        Pair( "foobar", UnorderedElementsAre(
+                            Pair( ( testfile_parent / "foo.bar" ).string(),
+                                  ElementsAre( "API", "DELETE" ) ) ) ),
+        Pair( "c", UnorderedElementsAre(
+                       Pair( ( root / "foo" / "zoo" ).string(),
+                             ElementsAre( "Floo::goo" ) ),
+                       Pair( ( root / "foo" / "goo maa" ).string(),
+                             ElementsAre( "!goo" ) ) ) ) ) );
+}
 
-  expected[ "c" ][ ( root / "foo" / "zoo" ).string() ].push_back( "Floo::goo" );
-  expected[ "c" ][ ( root / "foo" / "goo maa" ).string() ].push_back( "!goo" );
 
-  expected[ "cs" ][ ( root / "m_oo" ).string() ].push_back( "#bleh" );
+TEST( IdentifierUtilsTest, TagFileIsDirectory ) {
+  fs::path testfile = PathToTestFile( "directory.tags" );
 
   EXPECT_THAT( ExtractIdentifiersFromTagsFile( testfile ),
-               ContainerEq( expected ) );
+               ContainerEq( FiletypeIdentifierMap() ) );
+}
+
+
+TEST( IdentifierUtilsTest, TagFileIsEmpty ) {
+  fs::path testfile = PathToTestFile( "empty.tags" );
+
+  EXPECT_THAT( ExtractIdentifiersFromTagsFile( testfile ),
+               ContainerEq( FiletypeIdentifierMap() ) );
+}
+
+
+TEST( IdentifierUtilsTest, TagLanguageMissing ) {
+  fs::path testfile = PathToTestFile( "invalid_tag_file_format.tags" );
+
+  EXPECT_THAT( ExtractIdentifiersFromTagsFile( testfile ),
+               ContainerEq( FiletypeIdentifierMap() ) );
+}
+
+
+TEST( IdentifierUtilsTest, TagFileInvalidPath ) {
+  fs::path testfile = PathToTestFile( "invalid_path_to_tag_file.tags" );
+
+  EXPECT_THAT( ExtractIdentifiersFromTagsFile( testfile ),
+               ContainerEq( FiletypeIdentifierMap() ) );
 }
 
 } // namespace YouCompleteMe

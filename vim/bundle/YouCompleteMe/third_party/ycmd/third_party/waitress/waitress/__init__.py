@@ -10,8 +10,7 @@ def serve(app, **kw):
         logging.basicConfig()
     server = _server(app, **kw)
     if not _quiet: # pragma: no cover
-        print('serving on http://%s:%s' % (server.effective_host,
-                                           server.effective_port))
+        server.print_listen('Serving on http://{}:{}')
     if _profile: # pragma: no cover
         profile('server.run()', globals(), locals(), (), False)
     else:
@@ -33,7 +32,7 @@ def profile(cmd, globals, locals, sort_order, callers): # pragma: no cover
         stats = pstats.Stats(fn)
         stats.strip_dirs()
         # calls,time,cumulative and cumulative,calls,time are useful
-        stats.sort_stats(*sort_order or ('cumulative', 'calls', 'time'))
+        stats.sort_stats(*(sort_order or ('cumulative', 'calls', 'time')))
         if callers:
             stats.print_callers(.3)
         else:

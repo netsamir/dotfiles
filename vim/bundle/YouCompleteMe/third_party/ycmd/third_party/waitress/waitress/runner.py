@@ -42,8 +42,45 @@ Standard options:
         Hostname or IP address on which to listen, default is '0.0.0.0',
         which means "all IP addresses on this host".
 
+        Note: May not be used together with --listen
+
     --port=PORT
         TCP port on which to listen, default is '8080'
+
+        Note: May not be used together with --listen
+
+    --listen=ip:port
+        Tell waitress to listen on an ip port combination.
+
+        Example:
+
+            --listen=127.0.0.1:8080
+            --listen=[::1]:8080
+            --listen=*:8080
+
+        This option may be used multiple times to listen on multipe sockets.
+        A wildcard for the hostname is also supported and will bind to both
+        IPv4/IPv6 depending on whether they are enabled or disabled.
+
+    --[no-]ipv4
+        Toggle on/off IPv4 support.
+
+        Example:
+
+            --no-ipv4
+
+        This will disable IPv4 socket support. This affects wildcard matching
+        when generating the list of sockets.
+
+    --[no-]ipv6
+        Toggle on/off IPv6 support.
+
+        Example:
+
+            --no-ipv6
+
+        This will turn on IPv6 socket support. This affects wildcard matching
+        when generating a list of sockets.
 
     --unix-socket=PATH
         Path of Unix socket. If a socket path is specified, a Unix domain
@@ -171,6 +208,24 @@ def show_help(stream, name, error=None): # pragma: no cover
         print('Error: {0}\n'.format(error), file=stream)
     print(HELP.format(name), file=stream)
 
+def show_exception(stream):
+    exc_type, exc_value = sys.exc_info()[:2]
+    args = getattr(exc_value, 'args', None)
+    print(
+        (
+            'There was an exception ({0}) importing your module.\n'
+        ).format(
+            exc_type.__name__,
+        ),
+        file=stream
+    )
+    if args:
+        print('It had these arguments: ', file=stream)
+        for idx, arg in enumerate(args, start=1):
+            print('{0}. {1}\n'.format(idx, arg), file=stream)
+    else:
+        print('It had no arguments.', file=stream)
+
 def run(argv=sys.argv, _serve=serve):
     """Command line runner."""
     name = os.path.basename(argv[0])
@@ -193,6 +248,7 @@ def run(argv=sys.argv, _serve=serve):
         module, obj_name = match(args[0])
     except ValueError as exc:
         show_help(sys.stderr, name, str(exc))
+        show_exception(sys.stderr)
         return 1
 
     # Add the current directory onto sys.path
@@ -203,9 +259,11 @@ def run(argv=sys.argv, _serve=serve):
         app = resolve(module, obj_name)
     except ImportError:
         show_help(sys.stderr, name, "Bad module '{0}'".format(module))
+        show_exception(sys.stderr)
         return 1
     except AttributeError:
         show_help(sys.stderr, name, "Bad object name '{0}'".format(obj_name))
+        show_exception(sys.stderr)
         return 1
     if kw['call']:
         app = app()

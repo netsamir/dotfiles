@@ -12,7 +12,6 @@
 #
 ##############################################################################
 import os
-import sys
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -25,6 +24,7 @@ except IOError:
 docs_extras = [
     'Sphinx',
     'docutils',
+    'pylons-sphinx-themes >= 0.3',
 ]
 
 testing_extras = [
@@ -32,16 +32,13 @@ testing_extras = [
     'coverage',
 ]
 
-if sys.version_info[:2] == (2, 6):
-    testing_extras.append('unittest2')
-
 setup(
     name='waitress',
-    version='0.8.8',
+    version='1.1.0',
     author='Zope Foundation and Contributors',
     author_email='zope-dev@zope.org',
-    maintainer="Chris McDonough",
-    maintainer_email="chrism@plope.com",
+    maintainer="Pylons Project",
+    maintainer_email="pylons-discuss@googlegroups.com",
     description='Waitress WSGI server',
     long_description=README + '\n\n' + CHANGES,
     license='ZPL 2.1',
@@ -53,11 +50,12 @@ setup(
         'License :: OSI Approved :: Zope Public License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         'Natural Language :: English',
@@ -66,9 +64,6 @@ setup(
     ],
     url='https://github.com/Pylons/waitress',
     packages=find_packages(),
-    install_requires=[
-        'setuptools',
-    ],
     extras_require={
         'testing': testing_extras,
         'docs': docs_extras,

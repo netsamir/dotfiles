@@ -19,14 +19,15 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import functools
 import os
 
-from ycmd.tests.test_utils import ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( ClearCompletionsCache, IsolatedApp,
+                                    SetUpApp, StopCompleterServer,
+                                    WaitUntilCompleterServerReady )
 
 shared_app = None
 
@@ -44,6 +45,13 @@ def setUpPackage():
   global shared_app
 
   shared_app = SetUpApp()
+  WaitUntilCompleterServerReady( shared_app, 'typescript' )
+
+
+def tearDownPackage():
+  global shared_app
+
+  StopCompleterServer( shared_app, 'typescript' )
 
 
 def SharedYcmd( test ):
@@ -58,3 +66,23 @@ def SharedYcmd( test ):
     ClearCompletionsCache()
     return test( shared_app, *args, **kwargs )
   return Wrapper
+
+
+def IsolatedYcmd( custom_options = {} ):
+  """Defines a decorator to be attached to tests of this package. This decorator
+  passes a unique ycmd application as a parameter. It should be used on tests
+  that change the server state in a irreversible way (ex: a semantic subserver
+  is stopped or restarted) or expect a clean state (ex: no semantic subserver
+  started, no .ycm_extra_conf.py loaded, etc).
+
+  Do NOT attach it to test generators but directly to the yielded tests."""
+  def Decorator( test ):
+    @functools.wraps( test )
+    def Wrapper( *args, **kwargs ):
+      with IsolatedApp( custom_options ) as app:
+        try:
+          test( app, *args, **kwargs )
+        finally:
+          StopCompleterServer( app, 'typescript' )
+    return Wrapper
+  return Decorator

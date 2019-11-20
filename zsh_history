@@ -64,7 +64,6 @@
 : 1497128499:0;sudo update-alternatives --set vi  ~/local/bin/vim
 : 1497128662:0;cd .vim
 : 1497128770:0;inst CMake
-: 1497128841:0;ll 
 : 1497128849:0;ll cmake-3.9.0-rc2.tar.gz
 : 1497128854:0;tar xvf cmake-3.9.0-rc2.tar.gz
 : 1497128857:0;cd cmake-3.9.0-rc2
@@ -298,7 +297,6 @@
 : 1498369569:0;chromium-browser
 : 1498419973:0;cd backup
 : 1498419983:0;rm -rf backup
-: 1498419996:0;tar tvf backup.tar
 : 1498420221:0;tar -xvf backup.tar Mac
 : 1498453524:0;rm -f backup.tar 
 : 1498453554:0;rm backup2.tar
@@ -1808,7 +1806,6 @@ git push -u origin master
 : 1510943731:0;find . -name trash
 : 1510943754:0;cd Desktop
 : 1510943794:0;cd .cache/ll
-: 1510943797:0;cd .cache
 : 1510943912:0;md Trash
 : 1510944004:0;cd ../Downloads
 : 1510944095:0;echo $HOME
@@ -2610,7 +2607,6 @@ export LD_LIBRARY_PATH
 : 1516639273:0;rm invoice_netsamir.pdf
 : 1516639282:0;rm invoice_netsamir.aux invoice_netsamir.log
 : 1516640461:0;man latex
-: 1516825962:0;echo $SHELL
 : 1516827275:0;cd vim-pathogen
 : 1516827283:0;vi README.markdown
 : 1516827436:0;vim -v
@@ -2857,7 +2853,6 @@ sudo update-alternatives --set vi /usr/bin/vim
 : 1517061645:0;ll /bin/open
 : 1517062359:0;sudo -H pip3 install pyaml
 : 1517067994:0;vi de
-: 1517068084:0;rm .zcompdump*
 : 1517068210:0;cd Latex/invoices
 : 1517068213:0;cd ../invoices2
 : 1517068237:0;rm -rf .zcompdump*
@@ -3172,7 +3167,6 @@ sudo update-alternatives --set vi /usr/bin/vim
 : 1517847884:0;cd D3JS
 : 1517847920:0;mv DataViz/* D3JS
 : 1517847924:0;rm -rf DataViz
-: 1517847943:0;rm missfont.log
 : 1517848211:0;md Django
 : 1517848243:0;cd ../contact
 : 1517848274:0;mv * ../../Django
@@ -3195,7 +3189,6 @@ sudo update-alternatives --set vi /usr/bin/vim
 : 1517848663:0;cd Dillinger
 : 1517848673:0;rm -rf Dillinger
 : 1517848685:0;rm -f django-install-dir.link
-: 1517848728:0;cd fonts
 : 1517848732:0;cd simple-line-icons
 : 1517848771:0;cd Jquery_plugin
 : 1517848779:0;cd ../JS
@@ -5054,7 +5047,6 @@ git push -u origin master
 : 1525186563:0;grep collectstatic *
 : 1525186571:0;grep collectstatic -R *
 : 1525186583:0;vi staticfiles/management/commands/collectstatic.py
-: 1525186742:0;cd con
 : 1525186744:0;cd contrib
 : 1525186749:0;cd staticfiles
 : 1525186754:0;vi views.py
@@ -5217,326 +5209,11 @@ git push -u origin master
 : 1525516616:0;o logo.
 : 1525516619:0;o logo.pdf
 : 1525517287:0;git commit -am 'logo in pdf and header added'
-: 1525518702:0;o output.pdf
-: 1525518715:0;make
-: 1525518717:0;o output.pdf
-: 1525518755:0;make
-: 1525518756:0;o output.pdf
-: 1525518772:0;make
-: 1525518773:0;o output.pdf
-: 1525518783:0;make
-: 1525518784:0;o output.pdf
-: 1525518813:0;make
-: 1525518814:0;o output.pdf
-: 1525518856:0;make
-: 1525518857:0;o output.pdf
-: 1525518885:0;make
-: 1525518886:0;o output.pdf
-: 1525518896:0;make
-: 1525518898:0;o output.pdf
-: 1525518918:0;make
-: 1525518919:0;o output.pdf
-: 1525518955:0;make
-: 1525518956:0;o output.pdf
-: 1525519106:0;make
-: 1525519107:0;o output.pdf
-: 1525519128:0;make
-: 1525519129:0;o output.pdf
-: 1525519151:0;make
-: 1525519152:0;o output.pdf
-: 1525519195:0;make
-: 1525519196:0;o output.pdf
-: 1525519209:0;make
-: 1525519210:0;o output.pdf
-: 1525519242:0;make
-: 1525519243:0;o output.pdf
-: 1525519254:0;make
-: 1525519255:0;o output.pdf
-: 1525519264:0;make
-: 1525519265:0;o output.pdf
-: 1525519281:0;make
-: 1525519282:0;o output.pdf
-: 1525519301:0;make
-: 1525519302:0;o output.pdf
-: 1525519323:0;make
-: 1525519324:0;o output.pdf
-: 1525519430:0;make
-: 1525519431:0;o output.pdf
-: 1525523617:0;make
-: 1525523618:0;o output.pdf
-: 1525523656:0;make
-: 1525523657:0;o output.pdf
-: 1525523672:0;make
-: 1525523673:0;o output.pdf
-: 1525523743:0;make
-: 1525537229:0;o output.pdf
-: 1525537249:0;make
-: 1525537250:0;o output.pdf
-: 1525537494:0;make
-: 1525537496:0;o output.pdf
-: 1525537519:0;make
-: 1525537520:0;o output.pdf
-: 1525537540:0;make
-: 1525537542:0;o output.pdf
-: 1525537747:0;make
-: 1525537748:0;o output.pdf
-: 1525537824:0;make
-: 1525537825:0;o output.pdf
-: 1525537872:0;make
-: 1525537873:0;o output.pdf
-: 1525537894:0;make
-: 1525537895:0;o output.pdf
-: 1525537933:0;make
-: 1525537934:0;o output.pdf
-: 1525537946:0;make
-: 1525537948:0;o output.pdf
-: 1525537966:0;make
-: 1525537967:0;o output.pdf
-: 1525537989:0;make
-: 1525537990:0;o output.pdf
-: 1525538049:0;make
-: 1525538050:0;o output.pdf
-: 1525538141:0;make
-: 1525538142:0;o output.pdf
-: 1525538177:0;make
-: 1525538178:0;o output.pdf
-: 1525538190:0;make
-: 1525538191:0;o output.pdf
-: 1525538234:0;make
-: 1525538236:0;o output.pdf
-: 1525538255:0;make
-: 1525538256:0;o output.pdf
-: 1525538280:0;make
-: 1525538299:0;o output.pdf
-: 1525538304:0;make
-: 1525538307:0;o output.pdf
-: 1525538352:0;make
-: 1525538412:0;o output.pdf
-: 1525538473:0;make
-: 1525538474:0;o output.pdf
-: 1525538504:0;make
-: 1525538505:0;o output.pdf
-: 1525538532:0;make
-: 1525538534:0;o output.pdf
-: 1525538565:0;make
-: 1525538566:0;o output.pdf
-: 1525538606:0;make
-: 1525538607:0;o output.pdf
-: 1525538662:0;make
-: 1525538663:0;o output.pdf
-: 1525538676:0;make
-: 1525538678:0;o output.pdf
-: 1525538702:0;make
-: 1525538703:0;o output.pdf
-: 1525538711:0;make
-: 1525538712:0;o output.pdf
-: 1525538738:0;make
-: 1525538739:0;o output.pdf
-: 1525538765:0;make
-: 1525538766:0;o output.pdf
-: 1525538780:0;make
-: 1525538781:0;o output.pdf
-: 1525538791:0;make
-: 1525538792:0;o output.pdf
-: 1525538811:0;make
-: 1525538813:0;o output.pdf
-: 1525538820:0;make
-: 1525538821:0;o output.pdf
-: 1525538827:0;make
-: 1525538828:0;o output.pdf
-: 1525538840:0;make
-: 1525538841:0;o output.pdf
-: 1525538856:0;make
-: 1525538857:0;o output.pdf
-: 1525539085:0;make
-: 1525539086:0;o output.pdf
-: 1525539104:0;make
-: 1525539105:0;o output.pdf
-: 1525540364:0;make
-: 1525540366:0;o output.pdf
-: 1525540396:0;make
-: 1525540397:0;o output.pdf
-: 1525540424:0;make
-: 1525540426:0;o output.pdf
-: 1525540498:0;make
-: 1525540499:0;o output.pdf
-: 1525540539:0;make
-: 1525540540:0;o output.pdf
-: 1525540707:0;make
-: 1525540708:0;o output.pdf
-: 1525540768:0;make
-: 1525540769:0;o output.pdf
-: 1525540867:0;make
-: 1525540885:0;o output.pdf
-: 1525540908:0;make
-: 1525540909:0;o output.pdf
-: 1525581361:0;make
-: 1525581371:0;o output.pdf
-: 1525581912:0;make
-: 1525582192:0;clear
-: 1525582193:0;ll
-: 1525582209:0;make
-: 1525582213:0;o output.pdf
-: 1525582301:0;virtualbox
-: 1525583439:0;make
 : 1525583440:0;virtualbox
-: 1525583448:0;o output.pdf
-: 1525583482:0;make
-: 1525583484:0;o output.pdf
-: 1525583502:0;make
-: 1525583503:0;o output.pdf
-: 1525583523:0;make
-: 1525583524:0;o output.pdf
-: 1525596490:0;ll
-: 1525596555:0;tmux ls
 : 1525596560:0;tmux attach -t invoice
-: 1525596622:0;vi invoice.tex
-: 1525597782:0;make
-: 1525597915:0;o output.pdf
-: 1525597934:0;make
-: 1525597936:0;o output.pdf
-: 1525597946:0;make
-: 1525597948:0;o output.pdf
-: 1525597981:0;make
-: 1525597982:0;o output.pdf
-: 1525598121:0;make
-: 1525598122:0;o output.pdf
-: 1525598179:0;make
-: 1525598180:0;o output.pdf
-: 1525598251:0;make
-: 1525598252:0;o output.pdf
-: 1525598300:0;make
-: 1525598302:0;o output.pdf
-: 1525598567:0;make
-: 1525598569:0;o output.pdf
-: 1525598630:0;make
-: 1525598632:0;o output.pdf
-: 1525598657:0;make
-: 1525598658:0;o output.pdf
-: 1525598692:0;make
-: 1525598694:0;o output.pdf
-: 1525598707:0;make
-: 1525598708:0;o output.pdf
-: 1525598720:0;make
-: 1525598721:0;o output.pdf
-: 1525598732:0;make
-: 1525598733:0;o output.pdf
-: 1525598758:0;make
-: 1525598759:0;o output.pdf
-: 1525598813:0;make
-: 1525598814:0;o output.pdf
-: 1525598835:0;make
-: 1525598836:0;o output.pdf
-: 1525598880:0;make
-: 1525598881:0;o output.pdf
-: 1525598957:0;make
-: 1525598959:0;o output.pdf
-: 1525598970:0;make
-: 1525598971:0;o output.pdf
-: 1525599011:0;h x
-: 1525599056:0;make
 : 1525599058:0;h x
-: 1525599060:0;o output.pdf
-: 1525599099:0;make
-: 1525599101:0;o output.pdf
-: 1525599153:0;make
-: 1525599169:0;o output.pdf
-: 1525599186:0;make
-: 1525599187:0;o output.pdf
-: 1525599219:0;make
-: 1525599220:0;o output.pdf
-: 1525599235:0;make
-: 1525599246:0;o output.pdf
-: 1525599275:0;make
-: 1525599276:0;o output.pdf
-: 1525599295:0;make
-: 1525599296:0;o output.pdf
-: 1525599308:0;make
-: 1525599309:0;o output.pdf
-: 1525599323:0;make
-: 1525599325:0;o output.pdf
-: 1525599342:0;make
-: 1525599343:0;o output.pdf
-: 1525599355:0;make
-: 1525599357:0;o output.pdf
-: 1525599388:0;make
-: 1525599390:0;o output.pdf
-: 1525599419:0;make
-: 1525599420:0;o output.pdf
-: 1525599433:0;make
-: 1525599434:0;o output.pdf
-: 1525599482:0;make
-: 1525599484:0;o output.pdf
-: 1525599502:0;make
-: 1525599503:0;o output.pdf
-: 1525599548:0;make
-: 1525599549:0;o output.pdf
-: 1525599644:0;make
-: 1525599646:0;o output.pdf
-: 1525599667:0;make
-: 1525599668:0;o output.pdf
-: 1525599689:0;make
-: 1525599690:0;o output.pdf
-: 1525600120:0;expressvpn disconnect
-: 1525600420:0;make
-: 1525600498:0;o output.pdf
-: 1525601074:0;make
-: 1525601077:0;o output.pdf
-: 1525601099:0;make
-: 1525601101:0;o output.pdf
-: 1525601136:0;make
-: 1525601138:0;o output.pdf
-: 1525601240:0;make
-: 1525601242:0;o output.pdf
-: 1525601383:0;make
-: 1525601386:0;o output.pdf
-: 1525601400:0;make
-: 1525601428:0;o output.pdf
-: 1525601497:0;make
-: 1525601502:0;o output.pdf
-: 1525601618:0;make
-: 1525601626:0;o output.pdf
-: 1525601699:0;make
-: 1525601702:0;o output.pdf
-: 1525601789:0;make
-: 1525601790:0;o output.pdf
-: 1525601821:0;make
-: 1525601822:0;o output.pdf
-: 1525601862:0;make
-: 1525601865:0;o output.pdf
-: 1525601977:0;make
-: 1525601979:0;o output.pdf
-: 1525602401:0;make
-: 1525602403:0;o output.pdf
-: 1525602486:0;make
-: 1525602543:0;o output.pdf
-: 1525603573:0;make
-: 1525603590:0;o output.pdf
-: 1525603651:0;make
-: 1525603653:0;o output.pdf
-: 1525603944:0;make
-: 1525603948:0;o output.pdf
-: 1525626241:0;tmux ls
-: 1525626244:0;tmux new -s invoice
-: 1525626249:0;cd Webfactional
-: 1525626249:0;ll
 : 1525626253:0;cd ../InvoiceWebApp
-: 1525626254:0;ll
-: 1525626256:0;clear
 : 1525626347:0;cd InvoiceWebApp
-: 1525626348:0;ll
-: 1525626351:0;cd pandocFiles
-: 1525626352:0;l
-: 1525626355:0;make
-: 1525626359:0;o output.pdf
-: 1525626391:0;cd pandocFiles
-: 1525626391:0;ll
-: 1525626396:0;vi invoice.tex
-: 1525626440:0;make
-: 1525626527:0;o output.pdf
-: 1525626542:0;make
-: 1525626544:0;o output.pdf
-: 1525626563:0;make
 : 1525626564:0;o output.pdf
 : 1525626669:0;make
 : 1525626670:0;o output.pdf
@@ -10112,3 +9789,2403 @@ u
 : 1562706379:0;ll
 : 1562706381:0;clear
 : 1562706392:0;exit
+: 1562706544:0;exec /bin/bash
+: 1562706694:0;ll
+: 1562706697:0;vim
+: 1562706712:0;find / -name libtinfo.so.5
+: 1562706718:0;sudo -s
+: 1562706754:0;clear
+: 1562706768:0;exit
+: 1562706772:0;ll
+: 1562706774:0;vim
+: 1562706800:0;cat .zcompdump-turtle-5.6.2
+: 1562706803:0;clear
+: 1562706805:0;ll
+: 1562706814:0;cd .cache
+: 1562706815:0;ls
+: 1562706818:0;cd ..
+: 1562706819:0;clear
+: 1562706821:0;ll
+: 1562706845:0;rm expressvpn_2.0.0-1_amd64.deb
+: 1562706846:0;ll
+: 1562706856:0;cd snap
+: 1562706857:0;ls
+: 1562706859:0;cd ..
+: 1562706883:0;mv .bashrc-anaconda3.bak ~/Downloads
+: 1562706887:0;ll
+: 1562706906:0;cd .op
+: 1562706907:0;ll
+: 1562706910:0;cat config
+: 1562706919:0;cd ..
+: 1562706920:0;ll
+: 1562706931:0;cd .marks
+: 1562706932:0;ll
+: 1562706943:0;cd ..
+: 1562706947:0;rm .marks
+: 1562706954:0;rm -rf .marks
+: 1562706960:0;vim .zshrc
+: 1562706964:0;vi .zshrc
+: 1562706986:0;exec /bin/bash
+: 1562707003:0;ll
+: 1562707016:0;cat .Xresources
+: 1562707052:0;rm .Xresources
+: 1562707069:0;ln -s $HOME/dotfiles/Xresources .Xresources
+: 1562707070:0;ll
+: 1562707081:0;cat .ansible_galaxy
+: 1562707086:0;rm .ansible_galaxy
+: 1562707087:0;ll
+: 1562707106:0;cat .gitconfig
+: 1562707121:0;mv .gitconfig $HOME/dotfiles/gitconfig
+: 1562707133:0;ln -s $HOME/dotfiles/gitconfig .gitconfig
+: 1562707134:0;ll
+: 1562707148:0;cat missfont.log
+: 1562707152:0;rm missfont.log
+: 1562707153:0;ll
+: 1562707169:0;rm .zcompdump*
+: 1562707171:0;clear
+: 1562707173:0;ll
+: 1562707198:0;cat swiftapps
+: 1562707281:0;vim
+: 1562707299:0;chsh -s /bin/bash
+: 1562707306:0;sudo -s
+: 1562707707:0;exit
+: 1562707875:0;ll
+: 1562707886:0;clear
+: 1562707955:0;cat /usr/share/fonts/misc/fonts.alias
+: 1562707987:0;ll
+: 1562707989:0;exit
+: 1562708014:0;man rxvt-unicode
+: 1562708018:0;man rxvt
+: 1562708033:0;man urxvt
+: 1562708339:0;vim
+: 1562708415:0;ll
+: 1562708417:0;vim
+: 1562708419:0;clear
+: 1562708420:0;ll
+: 1562708427:0;exit
+: 1562708437:0;ll
+: 1562708442:0;exit
+: 1562708469:0;ll
+: 1562708470:0;vim
+: 1562708479:0;exit
+: 1563315565:0;vim .zshrc
+: 1563315596:0;ll
+: 1563315600:0;exit
+: 1563315688:0;clear
+: 1563315689:0;ll
+: 1563315695:0;cd dotfiles
+: 1563315696:0;ll
+: 1563315751:0;cd
+: 1563315762:0;cd Downloads
+: 1563315772:0;git clone https://github.com/powerline/fonts.git --depth=1
+: 1563315811:0;cd fonts
+: 1563315815:0;./install.sh
+: 1563315837:0;exit
+: 1563315916:0;cd ~/.config/
+: 1563315916:0;ll
+: 1563315980:0;mkdir -p fontconfig/conf.d
+: 1563315984:0;cd fontconfig/conf.d
+: 1563316005:0;cat > 50-enable-terminess-powerline.conf
+: 1563316724:0;fc-cache -vf
+: 1563316740:0;sudo -s
+: 1570596562:0;startx
+: 1570596768:0;ls -al
+: 1570601383:0;ll
+: 1570631515:0;ls
+: 1570631575:0;ll
+: 1570631614:0;cd Downloads
+: 1570631620:0;echo $SHELL
+: 1570631763:0;ll
+: 1570631779:0;ll .X*
+: 1570631786:0;history
+: 1570631944:0;ll
+: 1570631946:0;cd ..
+: 1570631947:0;l
+: 1570631952:0;ls -l .X*
+: 1570631981:0;fc-list
+: 1570632009:0;xrdb ~/.Xresources
+: 1570632020:0;exit
+: 1570632022:0;ll
+: 1570632046:0;cat .Xresources
+: 1570632239:0;cat Downloads/ll
+: 1570632240:0;ll
+: 1570632358:0;echo $TERM
+: 1570632405:0;vim .Xresources
+: 1570632483:0;urxvt
+: 1570632485:0;exit
+: 1570632502:0;urxvt --help | grep font
+: 1570632547:0;urxvt --help 2>&1 | grep font
+: 1570632634:0;ll
+: 1570632722:0;xrdb ~/.Xresources
+: 1570632726:0;ll
+: 1570632763:0;exit
+: 1570632769:0;ll
+: 1570632772:0;exit
+: 1570632775:0;xrdb ~/.Xresources
+: 1570632780:0;ll
+: 1570632786:0;exit
+: 1570632794:0;ll
+: 1570632839:0;tmux
+: 1570632867:0;su -
+: 1570633083:0;tmux
+: 1570634808:0;vim .tmux
+: 1570634815:0;vim .tmux.conf
+: 1570634866:0;ll
+: 1570634873:0;exit
+: 1570634956:0;su -
+: 1570646355:0;ll
+: 1570646371:0;cd dotfiles
+: 1570646372:0;ll
+: 1570646380:0;vim zshrc
+: 1570646413:0;ll
+: 1570646425:0;vim .xinitrc
+: 1570646454:0;find . -name "*.tar"
+: 1570646479:0;cd backups
+: 1570646480:0;ll
+: 1570646487:0;cd 2
+: 1570646487:0;ll
+: 1570646494:0;tar tvf backup.tar
+: 1570646497:0;cd ..
+: 1570646497:0;clear
+: 1570646515:0;cd
+: 1570646515:0;ll
+: 1570646676:0;ls
+: 1570646754:0;ll
+: 1570646788:0;cd Documents
+: 1570646789:0;ls
+: 1570647110:0;cd 
+: 1570647111:0;ll
+: 1570647117:0;cd local
+: 1570647119:0;mkdir local
+: 1570647121:0;cd local
+: 1570647133:0;mkdir share
+: 1570647138:0;cd share
+: 1570647313:0;ll
+: 1570647315:0;mkdir fonts
+: 1570647318:0;wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf\
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+: 1570647321:0;ll
+: 1570647328:0;mv PowerlineSymbols.otf fonts
+: 1570647345:0;mv 10-powerline-symbols.conf fonts
+: 1570647347:0;ll fonts
+: 1570647347:0;ll
+: 1570647359:0;xset q
+: 1570647427:0;fc-cache -vf ~/local/share/fonts
+: 1570647441:0;xset q
+: 1570647480:0;mv fonts/10-powerline-symbols.conf ~/.config/fontconfig/conf.d
+: 1570647490:0;exit
+: 1570647617:0;/x
+: 1570647620:0;x
+: 1570647624:0;sh xd
+: 1570647634:0;exit
+: 1570647651:0;xrdb ~/.Xresources
+: 1570647655:0;exit
+: 1570647692:0;startx
+: 1570647705:0;xrdb ~/.Xresources
+: 1570647717:0;exit
+: 1570647728:0;ll
+: 1570647736:0;vim .Xresources
+: 1570647751:0;xrdb ~/.Xresources
+: 1570647756:0;ll
+: 1570647760:0;xrdb ~/.Xresources
+: 1570647771:0;tmux new -s ninja
+: 1570647837:0;su -
+: 1570647920:0;ping www.google.be
+: 1570678970:0;ll
+: 1570679032:0;cat .profile
+: 1570679057:0;cd snap
+: 1570679058:0;ls
+: 1570679061:0;cd ..
+: 1570679063:0;clear
+: 1570679063:0;ll
+: 1570679070:0;cd Explore
+: 1570679070:0;ls
+: 1570679085:0;cd ..
+: 1570679128:0;cd .config
+: 1570679129:0;ls
+: 1570679164:0;ll
+: 1570679197:0;cd ..
+: 1570679198:0;ll
+: 1570679203:0;cd .i3
+: 1570679204:0;ll
+: 1570679208:0;cd i3
+: 1570679208:0;ls
+: 1570679210:0;cd con
+: 1570679221:0;ll
+: 1570679224:0;cd ..
+: 1570679224:0;ll
+: 1570679286:0;pwd
+: 1570679299:0;vim config
+: 1570679346:0;cd .i3
+: 1570679346:0;ll
+: 1570679353:0;mv i3 ~/Downloads
+: 1570680174:0;ll
+: 1570680177:0;cd ..
+: 1570680180:0;cd
+: 1570680186:0;cd Downloads
+: 1570680186:0;ls
+: 1570680569:0;ps -ef 
+: 1570680639:0;ps -ef  | grep -v chrome
+: 1570680653:0;urxvt
+: 1570680656:0;exit
+: 1570680955:0;cd
+: 1570680958:0;cd .screenlayout
+: 1570680959:0;ll
+: 1570680960:0;cat foo.sh
+: 1570681004:0;cat foo.sh ~/Downloads
+: 1570681010:0;cp foo.sh ~/Downloads
+: 1570681666:0;ll
+: 1570681667:0;cd ..
+: 1570681671:0;cd Pictures
+: 1570681671:0;ll
+: 1570682052:0;ps -ef | grep nitrogen
+: 1570685893:0;xprop
+: 1570687555:0;cd 
+: 1570687557:0;cd Downloads
+: 1570687557:0;ll
+: 1570687573:0;unzip Font-Awesome-master.zip
+: 1570687580:0;cd Font-Awesome-master
+: 1570687656:0;cd
+: 1570687657:0;clear
+: 1570687661:0;ll
+: 1570687663:0;cd .fonts
+: 1570687664:0;ll
+: 1570687669:0;cd .local
+: 1570687669:0;ll
+: 1570687674:0;cd bin
+: 1570687675:0;ll
+: 1570687680:0;cd ..
+: 1570687681:0;l
+: 1570687683:0;cd ..
+: 1570687695:0;cd .fonts
+: 1570687701:0;cd local
+: 1570687701:0;ll
+: 1570687706:0;cd share
+: 1570687707:0;ls
+: 1570687710:0;cd fonts
+: 1570687710:0;ll
+: 1570687783:0;sh xp
+: 1570687788:0;xprop
+: 1570688026:0;startx
+: 1570688052:0;xrdb ~/.Xauthority
+: 1570688064:0;ll
+: 1570688069:0;ll .Xauthority
+: 1570688072:0;cat .Xauthority
+: 1570688079:0;ll 
+: 1570688088:0;ll .X*
+: 1570688098:0;xrdb ~/.Xresources
+: 1570688101:0;exit
+: 1570688156:0;clear
+: 1570688157:0;ll
+: 1570688392:0;tmux ls
+: 1570688395:0;tmux new -s ninja
+: 1570688417:0;vim .i3/config
+: 1570688434:0;ll
+: 1570688584:0;vim .i3/config
+: 1570688847:0;ll
+: 1570695976:0;startx
+: 1570696000:0;xrdb ~/.Xresources
+: 1570696003:0;exit
+: 1570696073:0;tmux ls
+: 1570696078:0;tmux attach -t ninja
+: 1570696086:0;vim .tmux.conf
+: 1570696125:0;ll
+: 1570696405:0;exit
+: 1570696593:0;ll
+: 1570696597:0;vim .Xresources
+: 1570696698:0;xrdb ~/.Xresources
+: 1570696710:0;echo $TERM
+: 1570696899:0;cd ~/Downloads
+: 1570696899:0;ll
+: 1570696913:0;cat 'DOOMICIDE darkocean.txt'
+: 1570696920:0;ls -alrt
+: 1570697294:0;ll
+: 1570697297:0;cat nancy.txt
+: 1570697475:0;xrdb ~/.Xresources
+: 1570704626:0;su - 
+: 1570714447:0;cp /etc/i3blocks.conf ~/.i3
+: 1570716135:0;file /usr/libexec/i3blocks/volume
+: 1570716143:0;cat $!
+: 1570716151:0;cat /usr/libexec/i3blocks/volume
+: 1570716526:0;rofi-sensible-terminal
+: 1570716789:0;vim 
+: 1570716881:0;\
+
+: 1570716884:0;rofi -v
+: 1570716984:0;ll /usr/share/rofi/themes
+: 1570717028:0;vim /usr/bin/rofi-theme-selector
+: 1570717118:0;cd rofi
+: 1570717152:0;ll /usr/share/rofi/themes/Arc.rasi .
+: 1570717179:0;cp /usr/share/rofi/themes/Arc.rasi .
+: 1570717361:0;rm Arc.rasi
+: 1570717363:0;touch config
+: 1570717416:0;cat config
+: 1570717446:0;rofi-theme-selector
+: 1570718439:0;ifconfig -a
+: 1570718601:0;cat .profile
+: 1570718613:0;mv .profile dotfiles/profile
+: 1570718619:0;ln -s dotfiles/profile .profile
+: 1570718657:0;cat .viminfo
+: 1570718755:0;cd .gn
+: 1570718757:0;cd .gnome
+: 1570718759:0;cd apps
+: 1570718778:0;cd simple-line-icons
+: 1570718790:0;rm -rf fonts
+: 1570718809:0;cd Sofware
+: 1570718834:0;rm -rf *
+: 1570718885:0;mv anaconda3 ~/Downloads
+: 1570718895:0;clar
+: 1570721386:0;cd db
+: 1570721392:0;rm -rf data
+: 1570721452:0;cat zshrc_temp
+: 1570721459:0;cat .zshrc
+: 1570721468:0;gimp
+: 1570721488:0;ll .zshrc
+: 1570721494:0;rm zshrc_temp
+: 1570721597:0;vim .profile
+: 1570721678:0;cat > /home/netsamir/dotfiles/zshenv
+: 1570721803:0;ll .xinitrc
+: 1570721830:0;cd filezilla
+: 1570721891:0;rm -rf ibu libaccounts-glib evolution update-notifier yelp menus eog libreoffice enchant gedit .mon KeePass filezilla teamviewer xml Empathy parcellite goa-1.0 
+: 1570721915:0;rm monitors.xml\~
+: 1570721931:0;mv nautilus ~/Downloads
+: 1570722741:0;cd ../Bibliotheque
+: 1570722833:0;rofi -combi-modi window,drun -show combi -modi combi
+: 1570728681:0;rm -rf ibus .mono xm1
+: 1570728718:0;rm -rf user-dirs.locale chromium autostart user-dirs.dirs configstore inkscape 
+: 1570728722:0;cd totem
+: 1570728725:0;cat state.ini
+: 1570728733:0;rm -rf totem
+: 1570728745:0;rm -rf znt
+: 1570728752:0;rm Trolltech.conf
+: 1570728767:0;ccd fontconfig
+: 1570728771:0;cd fontconfig
+: 1570728774:0;cd conf.d
+: 1570728797:0;mv usr ~/Downloads
+: 1570728806:0;cd usr
+: 1570728818:0;python terminalcolors.py
+: 1570728909:0;vim index.html
+: 1570728971:0;mv .virtualenvs ~/Downloads
+: 1570728995:0;rm -rf .ansible
+: 1570729054:0;rm -rf SmartBear .conda .macromedia .adobe .recently-used .mon .sdb .expressvpn.conf 
+: 1570729074:0;mv .local ~/Downloads/local_20191010
+: 1570729090:0;mv .aws ~/Downloads/aws_20191010
+: 1570729298:0;rm .pam_environment
+: 1570729309:0;rm .mono
+: 1570729313:0;rm -rf .mono
+: 1570729322:0;rm -rf .sbd
+: 1570729331:0;rm -rf .jupyter
+: 1570729345:0;rm .netrc
+: 1570729350:0;rm .v8flags.6.1.534.50.700e52eba7e9e6d52fe50c215ae9b114.json
+: 1570729360:0;cat .yarnrc
+: 1570729369:0;rm .yarnrc
+: 1570729387:0;rm .weechat
+: 1570729392:0;rm -rf .weechat
+: 1570729622:0;lll
+: 1570729650:0;cat .sqlite_history
+: 1570729655:0;rm .sqlite_history
+: 1570729667:0;cd Explore
+: 1570729689:0;rmdir Explore
+: 1570729700:0;cd templates
+: 1570729702:0;cd wiki
+: 1570729783:0;rm -rf wiki
+: 1570729864:0;cd .invoice
+: 1570729868:0;cat invoice.dat
+: 1570729888:0;cd snap
+: 1570729890:0;cd vlc
+: 1570729913:0;rm -rf snap
+: 1570729943:0;rm -rf oh-my-zsh.1
+: 1570729949:0;cat toggletouchpad.sh
+: 1570729969:0;git commit -am 'adding all new files'
+: 1570729983:0;git remote -v
+: 1570730419:0;git pull origin master
+: 1570730548:0;git fetch origin master
+: 1570730582:0;git clone https://github.com/netsamir/dotfiles
+: 1570730587:0;cd dot
+: 1570730602:0;mv custom ~/dotfiles
+: 1570730618:0;git commit -am 'adding custom'
+: 1570771192:0;vim i3/config
+: 1570771226:0;vim i3/i3blocks.conf
+: 1570771270:0;git commit -am 'adding bandwitdh"
+: 1570771286:0;git commit -am 'adding bandwidth in iblocks"
+: 1570771290:0;git commit -am 'adding bandwidth in iblocks'
+: 1570771349:0;rm vimwiki
+: 1570771360:0;mv vimwiki ..
+: 1570771364:0;mv vimwiki_html ..
+: 1570771377:0;git commit -am 'remove vim wiki'
+: 1570771973:0;mv fonts fonts_backup
+: 1570771979:0;git clone https://github.com/powerline/fonts.git --depth=1
+: 1570772658:0;cd Downloads/fonts
+: 1570772674:0;m install.sh
+: 1570772928:0;vim ~/.xinitrc
+: 1570772974:0;shutdown -r now
+: 1570773288:0;vim .viminfo
+: 1570773406:0;vim .Xresources
+: 1570773531:0;cd .local
+: 1570773535:0;cd fonts
+: 1570773822:0;locale
+: 1570773862:0;fc-cache
+: 1570774063:0;fc-list
+: 1570774100:0;localectl set-locale LANG=en_AU.UTF-8
+: 1570774304:0;urxvt
+: 1570774320:0;xrdb ~/.Xresources
+: 1570774517:0;vim .zshenv
+: 1570775076:0;rm .vimwiki
+: 1570775080:0;rm .vimwiki_html
+: 1570775100:0;rm dotfiles/zshenv
+: 1570775176:0;cat > dotfiles/zprofile
+: 1570775197:0;ln -s /home/netsamir/dotfiles/zprofile .profile
+: 1570775204:0;ln -s /home/netsamir/dotfiles/zprofile .zprofile
+: 1570775289:0;mv /home/netsamir/dotfiles/zprofile /home/netsamir/dotfiles/zlogin
+: 1570775315:0;ln -ls /home/netsamir/dotfiles/zlogin .zlogin
+: 1570775323:0;ln -s /home/netsamir/dotfiles/zlogin .zlogin
+: 1570775563:0;cat .zlogin
+: 1570775830:0;mv /home/netsamir/dotfiles/zlogin zshenv
+: 1570775866:0;mv zshenv dotfiles/zshenv
+: 1570775885:0;ln -s /home/netsamir/dotfiles/zshenv .zshenv
+: 1570775935:0;rm .zshenv
+: 1570775945:0;rm /home/netsamir/dotfiles/zshenv
+: 1570776045:0;vim .zprofile
+: 1570776175:0;ll .zprofile
+: 1570776189:0;mv .zprofile dotfiles/zprofile
+: 1570776205:0;ln -s [38;5;18m$HOME[39m/dotfiles/zprofile .zprofile
+: 1570776220:0;git add zprofile
+: 1570776236:0;git commit 'fixing bug and enable startx at login'
+: 1570776244:0;git commit -am 'fixing bug and enable startx at login'
+: 1570776273:0;tmux new -s ninja 
+: 1570776300:0;tmux attach -t ninja
+: 1570776331:0;rm .zprofile
+: 1570776335:0;tmux new -s p
+: 1570776361:0;mv zprofile zlogin
+: 1570776379:0;ln -s [38;5;18m$HOME[39m/dotfiles/zlogin .zlogin
+: 1570776383:0;tmux new -s i
+: 1570776556:0;tmux attach -t i
+: 1570776575:0;vim .zlogin
+: 1570776623:0;rm .zlogin
+: 1570776636:0;vim .xinitrc
+: 1570776803:0;duplicity
+: 1570776808:0;duplicity --help
+: 1570781108:0;ll /dev/
+: 1570781215:0;lsusb
+: 1570781268:0;lsblk -o +fstype,label,uuid,partuuid
+: 1570782484:0;mkdir .duplicity
+: 1570782503:0;touch touch credentials
+: 1570782515:0;touch excludes
+: 1570782517:0;rm touch
+: 1570782553:0;cat > credentials
+: 1570782608:0;chmod 700 credentials
+: 1570782618:0;chmod 700 .duplicity
+: 1570782936:0;pip install PyDrive
+: 1570782988:0;pip free
+: 1570783033:0;pip install PyDrive --user
+: 1570783092:0;pip install pyasnl --user
+: 1570783135:0;pip install pyasnl[38;5;28;01m<0.5.0[39;00m --user
+: 1570783142:0;pip install [38;5;100mpyasnl=[39m[38;5;124m<0.5.0[39m --user
+: 1570783164:0;which pydrive
+: 1570783170:0;cd .local/bin
+: 1570783177:0;cd lib64
+: 1570783393:0;pip install pyasn1 --user
+: 1570783509:0;pip install '[38;5;100mpyasn1=[39m[38;5;124m=0.4.6'[39m --user
+: 1570783615:0;cd python3.6
+: 1570783618:0;cd site-packages
+: 1570783900:0;#[38;5;100mGOOGLE_DRIVE_SETTINGS=[39m[38;5;124m~/.duplicity/credentials[39m duplicity --exclude-filelist ~/.duplicity/excludes ~/ gdocs://[username]@gmail.com/duplicity\
+
+: 1570783963:0;man pydrive
+: 1570783967:0;man PyDrive
+: 1570784003:0;cat [38;5;28;01m>[39;00m dotfiles/pythonrc
+: 1570784016:0;ln -s /home/netsamir/dotfiles/pythonrc .pythonrc
+: 1570784948:0;file /usr/bin/duplicity
+: 1570784993:0;python2
+: 1570785009:0;cat /usr/bin/duplicity
+: 1570785025:0;vim /usr/bin/duplicity
+: 1570785072:0;duplicity --version
+: 1570785140:0;head duplicity
+: 1570785144:0;which duplicity
+: 1570785156:0;head $(which duplicity)
+: 1570785317:0;pip2 install pyasnl=[38;5;28;01m<0.5.0[39;00m --user
+: 1570785367:0;pip2 --freeze
+: 1570785372:0;pip2 freeze
+: 1570785489:0;duplicity --exclude-filelist ~/.duplicity/excludes ~/ gdocs://netsamir@gmail.com/duplicity\
+
+: 1570785512:0;[38;5;100mGOOGLE_DRIVE_SETTINGS=[39m[38;5;124m~/.duplicity/credentials[39m duplicity --exclude-filelist ~/.duplicity/excludes ~/ gdocs://netsamir@gmail.com/duplicity\
+
+: 1570787986:0;vim .i3/config
+: 1570799380:0;mkdir AS_Law_v3.0
+: 1570799386:0;cd AS_Law_v3.0
+: 1570799592:0;pyenv version
+: 1570799699:0;pip install --user pipenv
+: 1570799920:0;pip install --user ipython
+: 1570800000:0;pipenv --version 
+: 1570802357:0;python -m django --version
+: 1570802381:0;django-admin startproject as_law
+: 1570802486:0;cd as_law
+: 1570802524:0;git init
+: 1570802588:0;cat [38;5;28;01m>[39;00m .gitignore
+: 1570802683:0;git add .gitignore
+: 1570802697:0;git commit -am 'initial release'
+: 1570802801:0;git remote add origin https://github.com/netsamir/as_law_v3.0.git
+: 1570802806:0;git push origin master
+: 1570802827:0;git remote add origin git://github.com/netsamir/as_law_v3.0.git
+: 1570802836:0;git remote 
+: 1570802842:0;git remote --help
+: 1570802851:0;git remote remove origin
+: 1570802873:0;git remote add origin git@github.com:netsamir/as_law_v3.0.git
+: 1570802880:0;git push -u origin master
+: 1570804890:0;ps -ef | grep chrome
+: 1570804946:0;ps -ef | grep google
+: 1570804961:0;ps -ef | grep google | more
+: 1570804973:0;kill -9 22349
+: 1570808682:0;tar xvf google-cloud-sdk-266.0.0-linux-x86_64.tar.gz
+: 1570808690:0;./install.sh
+: 1570808773:0;mkdir bin
+: 1570808789:0;mv ~/Downloads/google-cloud-sdk 
+: 1570808791:0;mv ~/Downloads/google-cloud-sdk .
+: 1570808796:0;cd google-cloud-sdk
+: 1570808840:0;vim .zshrc
+: 1570808944:0;ll /home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc
+: 1570808957:0;ll ~/.zshrc
+: 1570808967:0;cat dotfiles/zshrc
+: 1570809016:0;cd Projects/AS_Law_v3.0
+: 1570809028:0;gcloud init
+: 1570809448:0;mkdir GoogleTest
+: 1570809467:0;git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+: 1570809541:0;cd python-docs-samples/
+: 1570809576:0;cd python-docs-samples/appengine/standard_python37/django
+: 1570809635:0;wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
+: 1570809662:0;chmod +x cloud_sql_proxy
+: 1570809818:0;gcloud config set project element83-0
+: 1570821788:0;#cloud_sql_proxy -instance="element83-0:europe-west1:polls-instance"
+: 1570821791:0;#./cloud_sql_proxy -instances="[YOUR_INSTANCE_CONNECTION_NAME]"=tcp:3306
+: 1570821810:0;cloud_sql_proxy -instance="element83-0:europe-west1:polls-instance"=tcp:3306
+: 1570821834:0;#cloud_sql_proxy -instances=""=tcp:3306
+: 1570821839:0;#cloud_sql_proxy -instance="element83-0:europe-west1:polls-instance"=tcp:3306
+: 1570821849:0;#cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance"=tcp:3306
+: 1570822013:0;cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance"=tcp:330
+: 1570822027:0;cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance"=tcp:3306
+: 1570822928:0;cd Projects/GoogleTest
+: 1570822930:0;cd python-docs-samples
+: 1570822959:0;#gcloud sql instances describe
+: 1570823097:0;cd /home/netsamir/Projects/GoogleTest/python-docs-samples/appengine/standard_python37/django
+: 1570823277:0;gcloud sql instances describe polls-instance
+: 1570823391:0;virtualenv --version
+: 1570823437:0;cd polls
+: 1570823440:0;vim models.py
+: 1570823451:0;vim apps.py
+: 1570823455:0;vim admin.py
+: 1570823479:0;cat apps.py
+: 1570823485:0;cat app.yaml
+: 1570823582:0;pipenv --python 3.7
+: 1570825886:0;pip3 install pipenv
+: 1570825923:0;sud0 pip3 install --upgrade pip
+: 1570825928:0;sudo pip3 install --upgrade pip
+: 1570825954:0;which pip3
+: 1570825958:0;pip3 -v
+: 1570826325:0;pipenv install psycopg2-binary
+: 1570826582:0;mv .local ~/Downloads/dot_local.20191011
+: 1570826611:0;pip3 install pipenv --user
+: 1570826635:0;cd django
+: 1570826904:0;rm Pipfile*
+: 1570826906:0;pipenv install "PyMySQL==0.9.3"
+: 1570828664:0;gcloud sql instances describe polls-instance1
+: 1570829363:0;cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance1"=tcp:3306
+: 1570829440:0;cat requirements.txt
+: 1570829513:0;pipenv check
+: 1570829556:0;pipenv clearn
+: 1570829660:0;cd .virtualenvs
+: 1570829672:0;cd django-WlgX0Yyf
+: 1570829682:0;cat .project
+: 1570829803:0;pipenv help
+: 1570829952:0;pipenv uninstall "PyMySQL==0.9.3"
+: 1570829963:0;pipenv clean
+: 1570830007:0;rm Pipfile Pipfile.lock
+: 1570830028:0;pipenv install "django==2.2.5"
+: 1570830057:0;pipenv uninstall PyMySQL
+: 1570830080:0;pipenv rm
+: 1570830085:0;pipenv --help
+: 1570830102:0;rm -rf requirements.txt
+: 1570830108:0;rm Pip*
+: 1570830182:0;pipenv install PyMySQL
+: 1570830309:0;pipenv install mysqlclient
+: 1570830356:0;pip3 freeze
+: 1570846695:0;mysqlclient -v
+: 1570847542:0;ll /usr/bin/python
+: 1570847552:0;/usr/bin/python
+: 1570847613:0;pip3 install ipython --user
+: 1570847955:0;which python
+: 1570848279:0;pipenv install Psycopg2
+: 1570848370:0;python 
+: 1570848630:0;# GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/ gdocs://netsamir@gmail.com/duplicity
+: 1570848797:0;\
+set bell-style none
+: 1570848842:0;# GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/Documdefault-soapui-workspace.xml gdocs://netsamir@gmail.com/duplicity
+: 1570848845:0;GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/Documdefault-soapui-workspace.xml gdocs://netsamir@gmail.com/duplicity
+: 1570848977:0;pip2 install PyDrive --user
+: 1570849035:0;pip2 install 'pyasn1==0.4.6' --user
+: 1570849067:0;GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/Documents/E83 gdocs://netsamir@gmail.com/duplicity
+: 1570849842:0;tar xvf psycopg2-2.8.3.tar.gz
+: 1570849845:0;cd psycopg2-2.8.3
+: 1570849857:0;python setup.py install --user
+: 1570849918:0;python setup.py build
+: 1570849926:0;vim README.rst
+: 1570850182:0;python3 -V
+: 1570852731:0;pip install psycopg2 --user
+: 1570858372:0;mv .local ~/Downloads/dot_local.20191012
+: 1570858395:0;pip -V
+: 1570858407:0;pip3 -V
+: 1570858516:0;python -V
+: 1570860761:0;rm Pipfile
+: 1570860764:0;rm Pipfile.lock
+: 1570860771:0;pipenv -V
+: 1570860776:0;pipenv -v
+: 1570860784:0;pipenv --version
+: 1570860789:0;which pipenv
+: 1570861213:0;pipenv --rm
+: 1570861232:0;rm -rf ~/.virtualenvs
+: 1570861236:0;pipenv install django
+: 1570861424:0;pipenv install pymsql
+: 1570861463:0;pipenv list
+: 1570861494:0;pipenv shell
+: 1570861495:0;source /home/netsamir/.virtualenvs/django-WlgX0Yyf/bin/activate
+: 1570864064:0;gcloud sql instances describe polls-instance2
+: 1570864905:0;vim polls/models.py
+: 1570865048:0;pipenv install psycopg2
+: 1570865067:0;pipenv graph
+: 1570865093:0;pipenv update
+: 1570865105:0;cat Pipfile
+: 1570865953:0;cp client-* ~/.ssh
+: 1570865959:0;cp server-ca.pem ~/.ssh
+: 1570866126:0;#  psql "sslmode=verify-ca sslrootcert=server-ca.pem \\
+      sslcert=client-cert.pem sslkey=client-key.pem \\
+      hostaddr=104.155.8.146 \\
+      port=5432 \\
+      user=postgres dbname=postgres"
+: 1570866135:0;cd .ssh
+: 1570866140:0;rm *pem
+: 1570866141:0;cd 
+: 1570866145:0;cd ~/Downloads
+: 1570866154:0;ls -altr
+: 1570866174:0;rm client-key.pem client-cert.pem rm server-ca.pem
+: 1570866197:0;mv client-key\ \(1\).pem client-key.pem
+: 1570866211:0;mv client-cert\ \(1\).pem client-cert.pem
+: 1570866220:0;mv server-ca\ \(1\).pem server-ca.pem
+: 1570866231:0;mv *.pem ~/.ssh
+: 1570866235:0;cd ~/.ssh
+: 1570866244:0;chmod 700 *.pem
+: 1570866398:0;psql "sslmode=verify-ca sslrootcert=~/.ssh/server-ca.pem \\
+      sslcert=~/.ssh/client-cert.pem sslkey=~/.ssh/client-key.pem \\
+      hostaddr=104.155.8.146 \\
+      port=5432 \\
+      user=postgres dbname=postgres"
+: 1570866556:0;cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance2"=tcp:330
+: 1570866697:0;which cloud_sql_proxy
+: 1570866707:0;vim $(which cloud_sql_proxy)
+: 1570866717:0;file $(which cloud_sql_proxy)
+: 1570867351:0;date
+: 1570864313:0;gcloud auth application-default logiN
+: 1570864374:0;gcloud auth application-default login
+: 1570864420:0;gcloud services enable sqladmin
+: 1570896259:0;cloud_sql_proxy -instances="element83-0:europe-west1:polls-instance2"=tcp:3306
+: 1570896285:0;python manage.py makemigrations
+: 1570896314:0;python manage.py makemigrations polls
+: 1570896342:0;python manage.py migrate
+: 1570896375:0;exiti
+: 1570896448:0;python manage.py createsuperuser
+: 1570896760:0;pip freeze
+: 1570896782:0;pip freeze > requirements.txt
+: 1570896824:0;vim mysite/settings.py
+: 1570896848:0;vim app.yaml
+: 1570896913:0;mv Pipfile* ..
+: 1570896921:0;gcloud app deploy
+: 1570897675:0;pip2 install pydrive --user
+: 1570897699:0;mkdir Duplicity
+: 1570898722:0;cp credentials credentials_netsamir_account
+: 1570898724:0;vim credentials
+: 1570900535:0;ll .duplicity
+: 1570900736:0;vim .duplicity/credentials
+: 1570901033:0;find . -name oogl
+: 1570901042:0;find . -name "*oogl*"
+: 1570901082:0;cd gcloud
+: 1570901096:0;cat application_default_credentials.json
+: 1570903941:0;mv application_default_credentials.json application_default_credentials_netsamir_account.json
+: 1570903955:0;GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/ gdocs://samir.sadek@element83.com.mt/duplicity
+: 1570904665:0;du -h /home/netsamir
+: 1570904797:0;du -h /home/netsamir | sort -n -r 
+: 1570904815:0;du -a /home/netsamir | sort -n -r 
+: 1570904850:0;du -a /home/netsamir | sort -n  
+: 1570905529:0;tmux new -s i3
+: 1570905541:0;vim .i3/i3blocks.conf
+: 1570905950:0;GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials duplicity --exclude-filelist ~/.duplicity/excludes ~/Documents/E83 gdocs://samir.sadek@element83.com.mt/duplicity
+: 1570906009:0;cat .i3/i3blocks.conf
+: 1570906028:0;ll /usr/libexec/i3blocks/
+: 1570906036:0;cd /usr/libexec/i3blocks/
+: 1570906039:0;cat disk
+: 1570906070:0;cat volume
+: 1570906080:0;cat memory
+: 1570906173:0;./cpu_usage
+: 1570906179:0;cat cpu_usage
+: 1570906559:0;disk
+: 1570906587:0;cat /usr/libexec/i3blocks/disk
+: 1570906618:0;~/.i3/
+: 1570906622:0;mkdir scripts
+: 1570906644:0;cp /usr/libexec/i3blocks/disk disk_usage
+: 1570906773:0;du -sh
+: 1570906787:0;du -s /home/netsamir
+: 1570906803:0;du -sm /home/netsamir
+: 1570906816:0;du -sh /home/netsamir
+: 1570906987:0;du -sk
+: 1570906993:0;du -sk /home/netsamir
+: 1570907010:0;du -skh /home/netsamir
+: 1570907298:0;ipython
+: 1570907429:0;cd ~/.i3/
+: 1571074708:0;tmux ls
+: 1571074727:0;mc
+: 1571074751:0;ghc
+: 1571074762:0;man zsh
+: 1571074775:0;cd Gcc
+: 1571074779:0;cat test_crash
+: 1571074784:0;cat test_crash.c
+: 1571074796:0;file core
+: 1571074800:0;rm core
+: 1571074804:0;gcc test_crash.c
+: 1571074813:0;cat a.out
+: 1571074815:0;rm a
+: 1571074818:0;rm a.out
+: 1571074892:0;open R-admin.pdf
+: 1571075127:0;cd backups
+: 1571075146:0;cd 2
+: 1571075168:0;tar -tvf backup.tar
+: 1571075202:0;sudo -i
+: 1571075250:0;rm -rf stage3-amd64-20190605T214501Z.tar.xz
+: 1571075294:0;cd Ansible
+: 1571075299:0;cd docs
+: 1571075308:0;vim vagrantfile
+: 1571075330:0;rmdir Learning
+: 1571075398:0;cd Hacking
+: 1571075400:0;cd malta
+: 1571075414:0;rm -rf Hacking
+: 1571075420:0;cd Apache
+: 1571075422:0;cat README.Debian
+: 1571075427:0;rm -rf Apache
+: 1571075433:0;cd Ba
+: 1571075435:0;cd Bash
+: 1571075446:0;cat on
+: 1571075524:0;cat check_eq.sh
+: 1571075532:0;cat sproject.sh
+: 1571075606:0;cat $$
+: 1571075610:0;file telnet-installer.cgi-RENAME-ME.bin
+: 1571075615:0;cat file telnet-installer.cgi-RENAME-ME.bin
+: 1571075651:0;rm -rf Bash
+: 1571075924:0;find . -name "*pdf*
+: 1571075926:0;find . -name "*pdf*"
+: 1571075956:0;cd Tags
+: 1571075984:0;cd BitCoin
+: 1571075990:0;cat seed.md
+: 1571075997:0;cat seed.txt
+: 1571076006:0;file seed.txt
+: 1571076020:0;vim seed.txt
+: 1571076031:0;rm -rf BitCoin
+: 1571076036:0;cd Bootstrap
+: 1571076061:0;cd Coconut
+: 1571076066:0;rm -rf Coconut
+: 1571076197:0;./run_server.sh
+: 1571076260:0;script/run_server.sh
+: 1571076265:0;./script/run_server.sh
+: 1571076281:0;./scripts/run_server.sh
+: 1571076379:0;cd DataViz
+: 1571076395:0;cd ../node_modules
+: 1571076435:0;cd Mapt
+: 1571076481:0;cat style-guide.ejs
+: 1571076519:0;rm -rf DataViz
+: 1571076537:0;cd Dillinger
+: 1571076544:0;rm -rf Dillinger
+: 1571076547:0;cd Django
+: 1571076558:0;cat backup_py_files.sh
+: 1571076569:0;cd imexmanager
+: 1571076576:0;cd manageaccounts
+: 1571076581:0;cat models.py
+: 1571076590:0;cd .d.
+: 1571076599:0;cd codingforentrepreneurs.com
+: 1571076607:0;cd tutorial
+: 1571076615:0;rm -rf Django
+: 1571076663:0;rm *.deb
+: 1571076841:0;ls -cz
+: 1571076845:0;ls -cs
+: 1571076860:0;ls -cst
+: 1571076873:0;ls -cht
+: 1571076877:0;ls -csht
+: 1571076905:0;du -s | sort -u
+: 1571076910:0;du -as | sort -u
+: 1571076914:0;du -as
+: 1571076932:0;du -ash
+: 1571076977:0;ls -d
+: 1571076999:0;history | grep du
+: 1571077059:0;rm -fr vim tmux anaconda3 
+: 1571077083:0;rm -rf anaconda3* Python-3.*
+: 1571077096:0;sudo -s
+: 1571077119:0;du -ha | sort -n
+: 1571077124:0;
+: 1571077170:0;du -s .
+: 1571077204:0;cd Flask
+: 1571077208:0;cd flaskr
+: 1571077214:0;rm -rf Flask
+: 1571077227:0;cd Git
+: 1571077231:0;rm -rf Git
+: 1571077257:0;cat Iceland
+: 1571077260:0;cd Iceland
+: 1571077268:0;exit
+: 1571077301:0;cd GoogleSuite
+: 1571077311:0;cat 'Screenshot from 2018-11-15 11-21-12.png'
+: 1571077324:0;rm -rf GoogleSuite
+: 1571077339:0;cd Harp/
+: 1571077344:0;cd Ha
+: 1571077367:0;cd Javascript
+: 1571077376:0;cd adamwdraper-Numeral-js-7487acb
+: 1571077392:0;cd Jquery
+: 1571077395:0;cd JQuery
+: 1571077407:0;cd Jquery_plugin
+: 1571077417:0;mv * ../JQuery
+: 1571077429:0;rm -rf Jquery_plugin
+: 1571077455:0;cat index.html
+: 1571077533:0;cd do
+: 1571077546:0;cd oh-my-zsh
+: 1571077554:0;cd custom
+: 1571077557:0;cd plugins
+: 1571077560:0;cd example
+: 1571077570:0;cd themes
+: 1571077593:0;vim dotfiles/custom
+: 1571077786:0;echo [38;5;18m$ZSH[39m
+: 1571077867:0;ll custom/
+: 1571077878:0;ll oh-my-zsh/custom
+: 1571077924:0;cp zshrc ~/Downloads/zshrc_backup_14102019
+: 1571078234:0;vim zshrc
+: 1571078611:0;cat profile
+: 1571078642:0;ccat profile
+: 1571078668:0;ccat /home/netsamir/Downloads/ci_uy.py /home/netsamir/Downloads/cscope_test.py /home/netsamir/Downloads/example.py /home/netsamir/Downloads/fabfile.py /home/netsamir/Downloads/get-pip.py 
+: 1571078995:0;copydir
+: 1571079027:0;copyfile inputrc
+: 1571079631:0;git add --all
+: 1571079638:0;git commit 
+: 1571079679:0;vim oh-my-zsh/plugins
+: 1571079737:0;ls *.jpg
+: 1571079740:0;cat amira.jpg
+: 1571079746:0;catimg amira.jpg
+: 1571080010:0;find . -name scripts
+: 1571080014:0;cd -
+: 1571080030:0;find . -name run
+: 1571080052:0;Ph\
+find . -name run*"
+: 1571080066:0;find . -name "*run*"
+: 1571080080:0;find . -name "*script**run*"
+: 1571080112:0;cd Gulp
+: 1571080129:0;cd Harp
+: 1571080135:0;cd Fonts
+: 1571080161:0;ls 
+: 1571080178:0;cat run_server.sh
+: 1571080250:0;cd JS
+: 1571080321:0;cat vue.min.js
+: 1571080373:0;zz
+: 1571080389:0;vim custom/alias.zsh
+: 1571080426:0;v
+: 1571080435:0;f
+: 1571080468:0;ldot
+: 1571080490:0;sh als
+: 1571080561:0;cd Latex
+: 1571080567:0;cd github
+: 1571080569:0;cd latex-template-collection
+: 1571080577:0;cd Art_de_la_guerre
+: 1571080589:0;cd local
+: 1571080591:0;cd bin
+: 1571080613:0;cd Mail
+: 1571080623:0;cat Sent
+: 1571080648:0;cd Markdown/
+: 1571080660:0;rm -rf Markdown
+: 1571080704:0;cd Music
+: 1571080729:0;mv Music Oana_Music
+: 1571080738:0;cd Odoo
+: 1571080746:0;rm -rf Odoo
+: 1571080750:0;cd Pandas
+: 1571080753:0;cd www.dataquest.io
+: 1571080755:0;cd blog
+: 1571080757:0;cd excel-and-pandas
+: 1571080761:0;cat scripts.py
+: 1571080767:0;rm -rf Pandas
+: 1571080778:0;cd External
+: 1571080781:0;cd ../Internal
+: 1571185175:0;sudo shutdown -h nowthreesomethreesome
+: 1571246717:0;./Pinegrow\ Web\ Designer
+: 1571246729:0;cd locales
+: 1571246738:0;rm -rf locales
+: 1571246751:0;sh inegrow
+: 1571246780:0;mv Pinegrow local/bin
+: 1571246788:0;cd local/bin
+: 1571246798:0;mv Pinegrow pinegrow
+: 1571246829:0;cd GoogleTest
+: 1571246860:0;rm -rf sniffer-0.3.5*
+: 1571246865:0;ls Writing_Awesome_Command-Line_Programs_in_Python
+: 1571246868:0;rm Writing_Awesome_Command-Line_Programs_in_Python
+: 1571246875:0;rmdir Writing_Awesome_Command-Line_Programs_in_Python
+: 1571246880:0;ls the-hacker-guide-to-python
+: 1571246891:0;mv the-hacker-guide-to-python ~/Bibliotheque
+: 1571246898:0;rm -rf the-hacker-guide-to-python
+: 1571246920:0;cat subprocess_test.py
+: 1571246938:0;cd St
+: 1571246944:0;acd -
+: 1571246988:0;ls Powerline
+: 1571246993:0;cd Powerline/powerline
+: 1571247011:0;rm -rf Powerline
+: 1571247024:0;mv How\ to\ Be\ More\ Effective\ with\ Functions\ â´\ PyCon\ 2015.pdf ~/Bibliotheque
+: 1571247130:0;rm *.mp3
+: 1571247148:0;rm MacFSEvents-0.7*
+: 1571247153:0;rm -rf MacFSEvents-0.7*
+: 1571247162:0;ls Jinja2
+: 1571247166:0;rm -rf Jinja2
+: 1571247176:0;ls StackOverflow
+: 1571247183:0;rm -rf StackOverflow
+: 1571247190:0;cat example_google.py
+: 1571247198:0;ll export
+: 1571247202:0;ll export/bin
+: 1571247221:0;rm -rf export
+: 1571247246:0;cd Design_Patterns
+: 1571247252:0;rm -rf Design_Patterns
+: 1571247256:0;ll Debt
+: 1571247329:0;cd inner_function
+: 1571247334:0;rm -rf inner_function
+: 1571247337:0;cd options
+: 1571247341:0;cat test_options.py
+: 1571247347:0;rm -rf options
+: 1571247353:0;cd Study
+: 1571247359:0;cat test.py
+: 1571247369:0;cat decorator_with_attr.py
+: 1571247382:0;rm -rf Study
+: 1571247387:0;cd REST
+: 1571247395:0;rmdir REST
+: 1571247414:0;mv Checkio ..
+: 1571247432:0;python cost_of_equity.py
+: 1571247438:0;vim cost_of_equity_functional.py
+: 1571247453:0;python cost_of_equity_functional.py
+: 1571247468:0;rm -rf __pycache__
+: 1571247486:0;vim .duplicity/excludes
+: 1571247500:0;cd Mercyl
+: 1571247505:0;cd src
+: 1571247515:0;python manage.py runserver
+: 1571248228:0;cd ~/Projects/AS_Law_v3.0
+: 1571248277:0;2
+: 1571248309:0;ll ~/Python/Mercyl
+: 1571248340:0;cd ~/Python/Mercyl/src
+: 1571248348:0;cd -
+: 1571248349:0;source /home/netsamir/.local/share/virtualenvs/AS_Law_v3.0-6eEjSdZi/bin/activate
+: 1571248657:0;mv Mercyl TransportSimulation
+: 1571248663:0;mv TransportSimulation ~/Projects
+: 1571248670:0;cd Turtle
+: 1571248678:0;pytho bataille.py
+: 1571248684:0;python bataille.py
+: 1571248698:0;mv Turtle ~/Projects
+: 1571248705:0;cd Damodaran
+: 1571248735:0;mv Damodaran DamodaranModel
+: 1571248742:0;mv DamodaranModel ~/Projects
+: 1571248775:0;cd Debt
+: 1571248783:0;vim script.py
+: 1571248803:0;mv Debt ~/Projects
+: 1571248808:0;cd Effective_Python
+: 1571248816:0;cat attrs.py
+: 1571248848:0;cd test
+: 1571248865:0;mkdir Learning
+: 1571248910:0;mv Python/Python_for_Data_Analysis Learning
+: 1571248924:0;rm -rf Python
+: 1571248935:0;cd ../R
+: 1571248949:0;mv R Learning
+: 1571248952:0;cd Regex
+: 1571248959:0;rm -rf Regex
+: 1571248967:0;cd SoapUI-Tutorials/
+: 1571248978:0;cd popular-apis
+: 1571249016:0;de ..
+: 1571249032:0;ll WSDL-WADL
+: 1571249049:0;cd WSDL-WADL
+: 1571249056:0;cat sample-service.wadl
+: 1571249071:0;rm -rf SoapUI-Tutorials
+: 1571249081:0;ls Sofware
+: 1571249093:0;cd StackExchange
+: 1571249101:0;rm -rf StackExchange
+: 1571249112:0;cat vimgolf.txt
+: 1571249136:0;cd Vim
+: 1571249149:0;rm -rf Vim
+: 1571249155:0;cd vimwiki
+: 1571249172:0;cd ../vimwiki_html
+: 1571249175:0;cd AS_Law
+: 1571249178:0;cd as_law_v4.0
+: 1571249210:0;rm -rf vimwiki_html
+: 1571249291:0;cd Wrapbootstrap
+: 1571249297:0;cabindkey -L
+: 1571249302:0;cat gdrive.cache
+: 1571249334:0;cd ~/.local
+: 1571249346:0;cd .cache/l
+: 1571249357:0;cd duplicity
+: 1571249361:0;ls -alrt
+: 1571249385:0;cd .duplicity
+: 1571249389:0;cat credentials
+: 1571249418:0;egrep 9gb1 *
+: 1571249423:0;egrep -R 9gb1 *
+: 1571249487:0;sh rm
+: 1571249495:0;sh mv
+: 1571249514:0;ls -al
+: 1571249611:0;cd .cache
+: 1571249635:0;file qt_compose_cache_little_endian_0f5ff549eb9e4912e90718e35d162aa5
+: 1571249648:0;cd thumbnails
+: 1571249651:0;tree
+: 1571249820:0;find . -name "*account*"
+: 1571249838:0;man find
+: 1571249895:0;find . -name "*account*" -exec grep -v Download {} \;
+: 1571249913:0;find . -name "*account*" -exec ls {} | grep -v Download \;
+: 1571249934:0;find . -name "*account*" -exec ls {} \; | grep -v Download 
+: 1571249993:0;find . -name "*account*netsamir*" -exec ls {} \; | grep -v Download 
+: 1571250001:0;find . -name "*netsamir*account*" -exec ls {} \; | grep -v Download 
+: 1571250012:0;cd .config/gcloud/
+: 1571250027:0;mv application_default_credentials_netsamir_account.json application_default_credentials.json
+: 1571250150:0;du -sh .
+: 1571250161:0;top
+: 1571250202:0;cd .config
+: 1571250220:0;cd ../.i3
+: 1571250230:0;cat disk_usage
+: 1571250250:0;cd .i3/scripts
+: 1571250349:0;cd dotfiles
+: 1571250371:0;which ipython
+: 1571250494:0;which vim
+: 1571250574:0;vim custom
+: 1571250609:0;source ~/.zshrc
+: 1571250612:0;s
+: 1571250992:0;df -h
+: 1571251026:0;df -h / 
+: 1571251292:0;chmod -s disk_usage
+: 1571251296:0;chmod -x disk_usage
+: 1571251353:0;echo [38;5;18m$PYTHONPATH[39m
+: 1571251416:0;python
+: 1571251431:0;man pythonpath
+: 1571251433:0;man python
+: 1571251538:0;PYTHONPATH='.'
+: 1571251555:0;unset PYTHONPATH
+: 1571251580:0;ipy
+: 1571252006:0;df -k
+: 1571252206:0;df -k 
+: 1571252263:0;df -h 
+: 1571252461:0;df -k | tail -1
+: 1571252477:0;df -h / | tail -1
+: 1571253077:0;vim disk_usage
+: 1571253083:0;python disk_usage
+: 1571253821:0;chmod +x disk_usage
+: 1571253823:0;./disk_usage
+: 1571254056:0;scripts/disk_usage.pyÂ¬
+: 1571254069:0;scripts/disk_usageÂ¬
+: 1571254072:0;scripts/disk_usage
+: 1571254109:0;ll /usr/libexec/i3blocks
+: 1571254150:0;ll /usr/libexec/i3blocks/disk
+: 1571254155:0;vim /usr/libexec/i3blocks/disk
+: 1571254166:0;/usr/libexec/i3blocks/disk
+: 1571254185:0;cp /usr/libexec/i3blocks/disk .
+: 1571254222:0;scripts/diskÂ¬
+: 1571254227:0;scripts/disk
+: 1571254237:0;wd
+: 1571254532:0;rm disk
+: 1571254535:0;git add disk_usage
+: 1571254554:0;git commit -am 'adding total backup'
+: 1571254588:0;z
+: 1571254793:0;git status
+: 1571255245:0;fg
+: 1571255403:0;cd Duplicity
+: 1571255416:0;mv Duplicity ..
+: 1571255421:0;cd Laferla
+: 1571255435:0;catimg Laferla_Insurance.jpeg
+: 1571255447:0;rm -rf Laferla
+: 1571255491:0;mv Valuation\ Class\ \(MBA\) ../Learning
+: 1571255501:0;cd Paypal
+: 1571255515:0;rm -rf Paypal
+: 1571255520:0;rm -rf Guernsey
+: 1571255544:0;cd ArabicPod
+: 1571255551:0;rm -rf ArabicPod
+: 1571255598:0;rm -rf Revolut
+: 1571255659:0;ll ..
+: 1571255688:0;rm -f CaseyResearch.tgz
+: 1571255734:0;rm -f Q\ Wealth\ Report.tgz
+: 1571255767:0;du -hs /
+: 1571255775:0;du -hs /home/netsamir
+: 1571255789:0;cd LambdaIt
+: 1571255791:0;cd Legal
+: 1571255810:0;sa tar
+: 1571255903:0;tar zcv LambdaIt.tgz ./LambdaIt
+: 1571255911:0;tar zcvf LambdaIt.tgz ./LambdaIt
+: 1571255918:0;rm -rf LambdaIt
+: 1571255948:0;cd ../Vault
+: 1571255964:0;cat ' x'
+: 1571256010:0;cd Investment
+: 1571256134:0;cd Itau
+: 1571256143:0;cd ../Contacts
+: 1571256292:0;mkdir Banking
+: 1571256331:0;mv Keytrade Adib Santander OCBC Itau ../Banking
+: 1571256346:0;mv ING.tar.gz ../Banking
+: 1571256360:0;mv BPA.tar.gz ../Banking
+: 1571256362:0;cd Bank\ Account
+: 1571256389:0;mv Bank\ Account ../Banking
+: 1571256412:0;mv Bank\ Account/Black\ Bank_account.docx .
+: 1571256420:0;rmdir Bank\ Account
+: 1571256444:0;rm -rf Santander
+: 1571256489:0;mv GoldMoney Banking
+: 1571256518:0;cd _closed
+: 1571256526:0;mv * ..
+: 1571256531:0;rmdir _closed
+: 1571256539:0;cd Vault
+: 1571256547:0;mv Contacts ..
+: 1571256556:0;mv Investment ..
+: 1571256570:0;mv CIMBank.tar.gz ../Banking
+: 1571256588:0;mv Keytrade.tar.gz ../Banking
+: 1571256591:0;cd ../Banking
+: 1571256605:0;tar tvf Keytrade.tar.gz
+: 1571256618:0;cd Documents/Banking
+: 1571256621:0;cd Keytrade
+: 1571256680:0;rm -rf Keytrade
+: 1571256729:0;cd Adib
+: 1571256753:0;tar cvfz Adib.tgz Adib
+: 1571256757:0;rm -rf Adib
+: 1571256761:0;ll Itau
+: 1571256771:0;cd Santander
+: 1571256788:0;tar cfvz OCBC.tgz OCBC
+: 1571256797:0;rm -rf OCBC
+: 1571256820:0;tar zcvf GoldMoney.tgz GoldMoney
+: 1571256825:0;rm -rf GoldMoney
+: 1571256854:0;tar zcvf Black\ Bank_account.tgz Black\ Bank_account.docx
+: 1571256866:0;rm -f Black\ Bank_account.docx
+: 1571256943:0;mv Health ../Learning
+: 1571256971:0;mv TaekwondoHakmi.tgz ../Projects
+: 1571256989:0;tar tvf Spanish.tgz
+: 1571257006:0;mv Spanish.tgz ../Learning
+: 1571257106:0;cd Lettres
+: 1571257132:0;cat ue.txt
+: 1571257148:0;cd Rent
+: 1571257189:0;cd Friends
+: 1571257213:0;mv ../Oana/* .
+: 1571257229:0;cd ../Oana
+: 1571257249:0;cd Oana
+: 1571257260:0;mv * ../Friends/Oana
+: 1571257265:0;rmdir Oana
+: 1571257288:0;mkdir Company
+: 1571257302:0;mv LambdaIt.tgz Company
+: 1571257313:0;mv Mercyl\ S.A. Company
+: 1571257319:0;mv Netsamir_Ind.tar.gz Company
+: 1571257373:0;tar tvf Netsamir_Ind.tar.gz
+: 1571257391:0;cd Gamut
+: 1571257393:0;cd Contracts
+: 1571257488:0;rm -rf Contacts
+: 1571257490:0;cd Budget
+: 1571257496:0;cd Payslip
+: 1571258007:0;cd Statements
+: 1571258020:0;mv * ../../Banking/Santander
+: 1571258025:0;rm -rf Statements
+: 1571258048:0;mv AccountStatement1510683522365.csv ../Banking/Santander
+: 1571258066:0;rm -rf Budget
+: 1571258383:0;cd Octopus
+: 1571258461:0;cd Campo\ Oana
+: 1571258615:0;cd Fischer
+: 1571258652:0;cd Company
+: 1571258710:0;cd Agency
+: 1571258718:0;mv Gamut ../Company
+: 1571258723:0;rmdir Agency
+: 1571258738:0;cd Assignment
+: 1571258791:0;cd CV
+: 1571258845:0;cd Officiels
+: 1571258878:0;cd Design
+: 1571259175:0;cd D3JS
+: 1571259288:0;cd node_modules
+: 1571259298:0;cat .gitignore
+: 1571259304:0;cd scripts
+: 1571259308:0;cd ../data
+: 1571259318:0;cd ../Mapt
+: 1571259320:0;cd Nick\ Zhu
+: 1571259375:0;mv Mapt ../Learning/Mapt_D3
+: 1571259381:0;cd static
+: 1571259391:0;cd sandpit
+: 1571259418:0;ls -a
+: 1571259459:0;ls -rl
+: 1571259462:0;ls -rcl
+: 1571259468:0;man
+: 1571259470:0;man ls
+: 1571259533:0;ls -lhr
+: 1571259544:0;sh du
+: 1571259610:0;cd Manifest
+: 1571260063:0;cd Annotations
+: 1571260075:0;cd ../Bye\ Bye\ Big\ Brother
+: 1571260270:0;cd Haskell
+: 1571260309:0;cd Checkio
+: 1571260386:0;vim
+: 1571260415:0;rm *.pdf
+: 1571260425:0;rm *.mp4
+: 1571260459:0;rm Private
+: 1571260466:0;rm Pop*
+: 1571260473:0;rm node-v7.0.0-linux-x64*
+: 1571260479:0;rm -rf node-v7.0.0-linux-x64*
+: 1571260494:0;rm thu* tor*
+: 1571260499:0;rm -rf thu* tor*
+: 1571260520:0;rm -rf tor-browser_en-US
+: 1571260530:0;rm ecryptfs
+: 1571260566:0;rm vim*
+: 1571260570:0;rm -rf vim*
+: 1571260599:0;cd Downloads
+: 1571260615:0;rm Anaconda3-4.4.0-Linux-x86_64.sh
+: 1571260632:0;ls -lFSsh
+: 1571260637:0;ls -1FSsh
+: 1571260672:0;lart
+: 1571260676:0;la
+: 1571260686:0;lr
+: 1571260695:0;lrt
+: 1571260701:0;lt
+: 1571260762:0;rm -rf dotfiles.tar firefox-57.0.tar.bz2 google-cloud-sdk-266.0.0-linux-x86_64.tar.gz expressvpn-linksyswrt1900acs-v1.0.1.img Font-Awesome-master* nw.pak bootstrap*
+: 1571260785:0;du -sh 
+: 1571260803:0;du -ah | sort -ut
+: 1571260807:0;sh sort
+: 1571260827:0;du -h . | sort -n 
+: 1571260865:0;du
+: 1571260875:0;du -ah
+: 1571260883:0;du -h . | sort -n -r
+: 1571260887:0;man du
+: 1571260912:0;du -hc
+: 1571260925:0;du -hc | sort -n
+: 1571260931:0;du -hc | sort -r
+: 1571260959:0;rm -fr cache_backup
+: 1571260971:0;du -c
+: 1571260980:0;du -ch
+: 1571261025:0;cd local_20191010
+: 1571261035:0;cd share
+: 1571261041:0;rm -rf Trash
+: 1571261084:0;du -hsc
+: 1571261095:0;ls -ld
+: 1571261102:0;cd Ma
+: 1571261105:0;cd Mac
+: 1571261107:0;cd Documents
+: 1571261112:0;cd Security
+: 1571261115:0;cd ../
+: 1571261120:0;unzip Mercyl.zip
+: 1571261128:0;rm -rf Mac
+: 1571261147:0;ls -l | grep ^d
+: 1571261158:0;rm -rf ExpressVPN
+: 1571261161:0;cd Me
+: 1571261164:0;cd Media
+: 1571261168:0;cd WhatsApp\ Images
+: 1571261191:0;rm -rf Malta
+: 1571261285:0;rm -rf Media
+: 1571261316:0;sa ls
+: 1571261319:0;sa du
+: 1571261340:0;dud | sort -n
+: 1571261460:0;ff "*zip*"
+: 1571261532:0;unzip -l tva-trim4.zip
+: 1571261892:0;git commit -am 'adding alias'
+: 1571262058:0;ff zip
+: 1571262110:0;man alias
+: 1571262174:0;fc -s
+: 1571262255:0;zip tva-trim4.zip
+: 1571262260:0;zip -s tva-trim4.zip
+: 1571262266:0;s tva-trim4.zip
+: 1571262281:0;c
+: 1571262419:0;dot
+: 1571262791:0;list tva-trim4.zip
+: 1571262814:0;pdf
+: 1571262909:0;findgit
+: 1571262999:0;find . -name ".git" 
+: 1571263174:0;clear
+: 1571263180:0;ls -lart
+: 1571263211:0;lS
+: 1571263242:0;cd Projects
+: 1571263259:0;mv ../Webfactional .
+: 1571263274:0;cd Webfactional
+: 1571263288:0;unzip -l highlight.zip
+: 1571263320:0;cd Images
+: 1571263329:0;cd Pinegrow
+: 1571263369:0;cd ../static
+: 1571263371:0;cd rammotors
+: 1571263374:0;cd css
+: 1571263383:0;celar
+: 1571263395:0;cd webapps
+: 1571263430:0;cd oauth2
+: 1571297162:0;startx
+: 1571297180:0;tmux new -s ninja
+: 1571297226:0;mkdir Economics
+: 1571297233:0;mkdir Finances
+: 1571297242:0;mkdir Computing
+: 1571297251:0;mkdir Health
+: 1571297265:0;mkdir Philosophy
+: 1571297287:0;ls *con*pdf
+: 1571297351:0;ls -cl
+: 1571297371:0;lc
+: 1571297373:0;ls -c
+: 1571297392:0;dud
+: 1571297414:0;mv The\ Muscle\ and\ Strength\ Training\ Pyramid\ v1.0.7.pdf Health
+: 1571297424:0;mv Nation,\ State\ and\ Economy.pdf Economic
+: 1571297433:0;mv Prices\ and\ Production.pdf Economic
+: 1571297444:0;mv Theory\ of\ Money\ and\ Credit\ -\ Mises.pdf Economic
+: 1571297498:0;rm *mp3
+: 1571297520:0;mv Essai-sur-la-nature-du-papier-monnaie-Guillermo-Subercaseaux.pdf Economic
+: 1571297530:0;mv Economic\ Principles.pdf Economics
+: 1571297588:0;mv De-la-Manipulation-de-la-monnaie-et-du-crÃ©dit.pdf Economic
+: 1571297626:0;mv L\'action\ humaine.epub Economic
+: 1571297641:0;rm money_huge.png
+: 1571297645:0;mv Money_Masters.pdf Economic
+: 1571297669:0;mkdir Novel
+: 1571297674:0;mv La_Revolte_Atlas_Ayn_Rand_2009.pdf Novel
+: 1571297685:0;rm MerkWhitePaper-ChinasLeadershipTransition.pdf
+: 1571297723:0;rm ADIBOTP.apk
+: 1571297735:0;mv prince.pdf Philosophy
+: 1571297781:0;mv Radford.pdf Economic
+: 1571297820:0;mv La-Loi.pdf Philosophy
+: 1571297829:0;rm societespectacle.doc
+: 1571297836:0;rm README.epub
+: 1571297843:0;mv Review\ of\ Austrian\ Economics,\ Volume\ 9.pdf Economic
+: 1571297854:0;mv War\ Collectivism.pdf Economic
+: 1571297889:0;mv mespm.pdf Economic
+: 1571297895:0;mv mysteryofbanking.pdf Economic
+: 1571297909:0;mv The\ Theory\ of\ Money\ and\ Credit\ -\ Von\ Mises.pdf Economics
+: 1571297950:0;mv ThÃ©orie-et-histoire.pdf Economic
+: 1571297986:0;mkdir Hitory
+: 1571297993:0;mv HISTORY\ Full\ PDF.PDF\ -\ user.pdf Hitory
+: 1571297997:0;mv Hitory History
+: 1571298007:0;mv Capital,\ Interest,\ and\ Rent\ Essays\ in\ the\ Theory\ of\ Distribution.epub Economic
+: 1571298022:0;cd Economics
+: 1571298033:0;ll Economic
+: 1571298043:0;rm Economic
+: 1571298062:0;mv Capital,\ Interest\ \&\ Rent\ -\ Frank\ A.\ Fetter.epub Economics
+: 1571298091:0;rm Manifest Tags Thumbnails Annotations
+: 1571298097:0;rm -rf Manifest Tags Thumbnails Annotations
+: 1571298109:0;rm conda-cheatsheet.pdf
+: 1571298113:0;cat ultimate.html
+: 1571298143:0;rm ultimate.html
+: 1571298152:0;mv Fascism\ versus\ Capitalism.pdf Economics
+: 1571298154:0;ll Economics
+: 1571298163:0;mv Study\ Guide\ to\ the\ Theory\ of\ Money\ and\ Credit.pdf Economics
+: 1571298195:0;rm ACloudRaining.pdf
+: 1571298206:0;mv Hazlitt00.pdf Economics
+: 1571298211:0;rm 158.pdf
+: 1571298289:0;mv CAPITALISM_Internet.pdf Economics
+: 1571298484:0;mv atlasshrugged.pdf Novel
+: 1571298489:0;mv FredLoew.pdf Economics
+: 1571298517:0;mv ethics.pdf Philosophy
+: 1571298534:0;mv 4Q2012_Global_Debt_Capital_Markets_Review.pdf Economics
+: 1571298539:0;mv America\'s\ gread\ depresion\ -\ Rothbard\ .pdf Economics
+: 1571298549:0;mv Mises\ -\ Mises\ on\ Money\ an\ Credit Economics
+: 1571298554:0;mv Mises\ -\ The\ Interwar\ Years Economics
+: 1571298586:0;mv Murray\ N.\ Rothbard Economics
+: 1571298637:0;md Psychology
+: 1571298644:0;mv Body\ Langage/ Psychology
+: 1571298655:0;rm Arbre_des_langues_semitiques2.svg
+: 1571298674:0;rm Dissertation.pdf
+: 1571298679:0;rm Mehrling_P_FESeminar_Sp12-02.pdf
+: 1571298710:0;rm Matplotlib.pdf
+: 1571298744:0;ls ep*
+: 1571298765:0;mv Lecture\ Eclaire Psychology
+: 1571298776:0;ls os*
+: 1571298837:0;mv Bye\ Bye\ Big\ Brother Philosophy
+: 1571298861:0;rm welcome.epub
+: 1571298865:0;rm WesternFront_Ch8.pdf
+: 1571298870:0;rm whyfp90.pdf
+: 1571298880:0;cd Python
+: 1571298895:0;cd .
+: 1571298905:0;mv Python Computing
+: 1571299051:0;cd Learning
+: 1571299070:0;rm -rf Python_for_Data_Analysis
+: 1571299107:0;rm example_google.py
+: 1571299117:0;rm Quick\ Start\ Guide\ -\ John\ Schember.epub
+: 1571299134:0;rm accu0*
+: 1571299141:0;mv denationalisation.pdf Economics
+: 1571299202:0;cd Learning/Health
+: 1571299227:0;mv Learning University
+: 1571299237:0;cd Perl
+: 1571299274:0;cd Pictures
+: 1571299282:0;ls -h
+: 1571299285:0;ls -lh
+: 1571299306:0;cd Mariage.photolibrary
+: 1571299363:0;rm -rf Mariage.photolibrary
+: 1571299385:0;ls Movies
+: 1571299389:0;rmdir Movies
+: 1571299419:0;cd Bibliotheque/Computing/Python
+: 1571299436:0;p
+: 1571299442:0;mv BeautifulCode.pdf /home/netsamir/Bibliotheque/Computing/Python
+: 1571299457:0;rm ep*
+: 1571299482:0;rm os*
+: 1571299492:0;cd Reference
+: 1571299529:0;rm -rf Reference
+: 1571299539:0;cd Presentation
+: 1571299546:0;rm -rf Presentation
+: 1571299554:0;rm -rf diveintopython-5.4
+: 1571299563:0;rm eu*
+: 1571299599:0;mv Super_Advanced_Python.pdf Computing/Python
+: 1571299629:0;rm accu04_Relearn_Python_alex.pdf
+: 1571299642:0;mv Py3Meta.pdf Computing/Python
+: 1571299662:0;mkdir Vim
+: 1571299670:0;mkdir Theory
+: 1571299673:0;mkdir Django
+: 1571299715:0;mv How\ to\ Be\ More\ Effective\ with\ Functions\ â´\ PyCon\ 2015.pdf Computing/Python
+: 1571299725:0;mv Two_scoops_of_django_1.8pdf Computing/Django
+: 1571299729:0;rm CommandLinePython.pdf
+: 1571299734:0;mkdir Git
+: 1571299742:0;mv progit-en.376.pdf Computing/Git
+: 1571299751:0;mkdir CSS
+: 1571299762:0;mv HTML5\ \&\ CSS3\ for\ the\ Real\ World\ -\ Alexis\ Goldstein,\ Louis\ Lazaris,\ Estelle\ W.epub Computing/CSS
+: 1571299778:0;mkdir JS
+: 1571299800:0;mv JavaScript_\ Novice\ to\ Ninja\ -\ Darren\ Jones.epub Computing/JS
+: 1571299819:0;mv ' Structure and Interpretation of Computer Programs.epub' Computing/Theory
+: 1571299840:0;mkdir R
+: 1571299846:0;mv rprogramming.epub Computing/R
+: 1571299852:0;mv django Computing/Django
+: 1571299867:0;mv django* Computing/Django
+: 1571299882:0;mv the-hacker-guide-to-python Computing/Python
+: 1571299904:0;mv Pure_CSS_Images_Cheat_Sheet.pdf Computing/CSS
+: 1571299938:0;mkdir Cheatsheet
+: 1571299950:0;ff cheat
+: 1571299960:0;mv css3-cheat-sheet.pdf ~/Cheatsheet
+: 1571299975:0;mv Computing/Django/django-1.5-cheatsheet.pdf ~/Cheatsheet
+: 1571299992:0;mv mapreduce-osdi04.pdf Computing/Theory
+: 1571300053:0;mv learnvimscriptthehardway.* Computing/Vim
+: 1571300074:0;cd Bibliotheque
+: 1571300093:0;mkdir HTML5
+: 1571300099:0;mv Jump\ Start\ HTML5\ -\ Tiffany\ B.\ Brown,\ Kerry\ Butters,\ Sandeep\ P.epub Computing/HTML5
+: 1571300109:0;rm gdd_pydp.pdf
+: 1571300118:0;mkdir Haskell
+: 1571300125:0;mv LearnYouAHaskell.pdf Computing/Haskell
+: 1571300132:0;mv 9781782175834-THINKING_IN_CSS.pdf Computing/CSS
+: 1571300144:0;rm Coplien\ Multi-Paradigm\ Design\ for\ C++.pdf
+: 1571300158:0;mv Vue.js-Cheat-Sheet.pdf ~/Cheatsheet
+: 1571300180:0;mv js* Computing/JS
+: 1571300184:0;rm OO\ for\ sys.epub
+: 1571300197:0;mkdir DesignPaterns
+: 1571300207:0;mv design-patterns-matrix.pdf Computing/DesignPaterns
+: 1571300248:0;mv htmlcss2.epub Computing/CSS
+: 1571300265:0;mkdir WebDesign
+: 1571300272:0;mv The\ Principles\ of\ Beautiful\ Web\ Design\ -\ Jason\ Beaird,\ James\ George.epub Computing/WebDesign
+: 1571300284:0;mv design3.epub Computing/WebDesign
+: 1571300302:0;mv Mastering\ CSS3\ Colors\ \[Video\].zip Computing/CSS
+: 1571300317:0;ls -l
+: 1571300323:0;lh
+: 1571300327:0;a
+: 1571300386:0;cd Computing/
+: 1571300446:0;cd
+: 1571300446:0;l
+: 1571300586:0;cd OAuth2
+: 1571300591:0;cd mercado_libre
+: 1571300596:0;cd coop
+: 1571300598:0;cd Authorization_Code
+: 1571300611:0;cat credentials.txt
+: 1571300640:0;rm OAuth2
+: 1571300645:0;rm -rf OAuth2
+: 1571300661:0;run
+: 1571300719:0;cd piet_mondrian
+: 1571300726:0;cat init.sh
+: 1571300735:0;cd public
+: 1571300755:0;cd Ex
+: 1571300757:0;cd sketch
+: 1571300777:0;cd CSS_Missing_Manual_David_McFarland
+: 1571300835:0;mv CSS_Missing_Manual_David_McFarland ~/Bibliotheque/Computing/CSS
+: 1571300844:0;cd code-challenge-2-build-a-calculator-with-css-grid
+: 1571300862:0;mv wsu-css-cheat-sheet.pdf ~/Cheatsheet
+: 1571300876:0;mv ~/Cheatsheet ~/Cheatsheets
+: 1571300889:0;cd e-books
+: 1571300894:0;rm -rf CSS_Missing_Manual_David_McFarland
+: 1571300899:0;rm -rf e-books
+: 1571300916:0;mv CSS-CHEAT-SHEET-p1.png ~/Cheatsheets
+: 1571300920:0;cd doc
+: 1571300926:0;vim css.md
+: 1571300941:0;rm -rf doc
+: 1571300944:0;cd img
+: 1571300960:0;mv CSS University
+: 1571300962:0;cd University
+: 1571300975:0;sl
+: 1571300987:0;cd Health
+: 1571300989:0;pwd
+: 1571301000:0;mv * ~/Bibliotheque/Health
+: 1571301044:0;mv Schedul\ Tipo\ Hebdo_Samir_SADEK_16072016.xlsx ~/University
+: 1571301057:0;rm -rf Health
+: 1571301059:0;cd CSS
+: 1571301066:0;cd ../Mapt_D3
+: 1571301087:0;cd Computing
+: 1571301095:0;mkdir D3JS
+: 1571301100:0;mv Nick\ Zhu ~/Bibliotheque/Computing/D3JS
+: 1571301107:0;rm -rf Mapt_D3
+: 1571301128:0;cd Python_for_Data_Analysis
+: 1571301165:0;mkdir DataAnalysis
+: 1571301178:0;mv Python_for_Data_Analysis ~/Bibliotheque/Computing/DataAnalysis
+: 1571301183:0;cd R
+: 1571301190:0;cd Coursera
+: 1571301217:0;mv rprogramming.epub rprogramming.mobi ~/Bibliotheque/Computing/R
+: 1571301221:0;ll R
+: 1571301266:0;mv Introduction\ to\ R* ~/Bibliotheque/Computing/R
+: 1571301305:0;mv *.pdf ~/Bibliotheque/Computing/R
+: 1571301317:0;rm rprogramming.epub
+: 1571301319:0;cd data
+: 1571301323:0;cd valuation1
+: 1571301338:0;file Linear\ Regression\ in\ R.R
+: 1571301341:0;cat Linear\ Regression\ in\ R.R
+: 1571301356:0;cd Valuation\ Class\ \(MBA\)
+: 1571301567:0;mv Valuation\ Class\ \(MBA\) ~/Bibliotheque/Finances
+: 1571301579:0;cd ..
+: 1571301586:0;cd Finances/Valuation\ Class\ \(MBA\)
+: 1571301587:0;ls
+: 1571301600:0;mv myValuation ~/University
+: 1571301613:0;ll
+: 1571301621:0;shutdown -h now
+: 1571301627:0;sudo shutdown -h now
+: 1571326703:0;startx
+: 1571326788:0;tmux new -s ninja
+: 1571326794:0;sudo -s
+: 1571326845:0;z
+: 1571327003:0;cd Downloads
+: 1571327006:0;git clone https://github.com/arcticicestudio/nord-dircolors.git
+: 1571327012:0;cd nord-dircolors
+: 1571327012:0;ll
+: 1571327014:0;cd src
+: 1571327015:0;ll
+: 1571327035:0;cp dir_colors ~/dotfiles/dircolors
+: 1571327055:0;ln -s ~/dotfiles/dircolors ~/.dircolors
+: 1571327057:0;ll
+: 1571327061:0;cd ..
+: 1571327064:0;l
+: 1571327069:0;cd ..
+: 1571327070:0;ll
+: 1571327162:0;ls
+: 1571327174:0;cd .
+: 1571327175:0;cd ..
+: 1571327176:0;ll
+: 1571327177:0;cd ..
+: 1571327180:0;rm -rf nord-dircolors
+: 1571327182:0;ll
+: 1571327185:0;
+: 1571327229:0;vim .fzf.zsh
+: 1571327249:0;emerge -av fuzzy
+: 1571327535:0;ll
+: 1571327543:0;catimg ups-1.jpeg
+: 1571327821:0;bindkey -L
+: 1571327823:0;catimg ups-1.jpeg
+: 1571327830:0;copybuffer
+: 1571328082:0;source ~/dotfiles/oh-my-zsh/plugins/history-substring-search/history-substring-search.zsh
+: 1571328273:0;mv ~/.fzf.zsh ~/Downloads
+: 1571328453:0;cd 
+: 1571328455:0;cd dotfiles
+: 1571328455:0;ls
+: 1571328461:0;cd custom
+: 1571328461:0;ls
+: 1571328463:0;cd plugins
+: 1571328463:0;ls
+: 1571328471:0;ll
+: 1571328476:0;cd zsh-history-substring-search
+: 1571328476:0;ls
+: 1571328522:0;cat -v
+: 1571328556:0;
+: 1571328560:0;cat -v
+: 1571328672:0;ll
+: 1571328677:0;source zsh-syntax-highlighting.zsh
+: 1571328693:0;source zsh-history-substring-search.zsh
+: 1571328719:0;cat -v
+: 1571328870:0;bindkey -M vicmd 'k' history-substring-search-up
+: 1571328930:0;lcd -
+: 1571329042:0;ll
+: 1571329138:0;vim 
+: 1571329235:0;cd
+: 1571329238:0;git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+: 1571329242:0;cd .fzf
+: 1571329243:0;ls
+: 1571329245:0;./install
+: 1571329361:0;ll
+: 1571329363:0;cd .fzf
+: 1571329364:0;ls
+: 1571329379:0;z
+: 1571329408:0;cd ..
+: 1571329409:0;ll
+: 1571329415:0;vim .fzf.zsh
+: 1571329430:0;cd ..
+: 1571329432:0;ll
+: 1571329449:0;mv .fzf dotfiles/fzf
+: 1571329456:0;ln -s dotfiles/fzf .fzf
+: 1571329462:0;dot
+: 1571329519:0;cd ..
+: 1571329522:0;cd 
+: 1571329523:0;cd Downloads
+: 1571329588:0;cd
+: 1571329600:0;cd dotfiles 
+: 1571329609:0;git commit -am 'adding all plugins'
+: 1571329612:0;git push origin master
+: 1571329637:0;vim custom
+: 1571329670:0;cd
+: 1571329670:0;ls
+: 1571329683:0;mv Gcc University
+: 1571329690:0;cd Latex
+: 1571329690:0;ls
+: 1571329695:0;cd Art_de_la_guerre
+: 1571329695:0;ls
+: 1571329697:0;ls -l
+: 1571329700:0;cd ..
+: 1571329704:0;mv Latex University
+: 1571329705:0;ll
+: 1571329711:0;cd D3JS
+: 1571329712:0;ll
+: 1571329714:0;cd ..
+: 1571329716:0;ll
+: 1571329721:0;mv D3JS University
+: 1571329726:0;cd Design
+: 1571329727:0;ll
+: 1571329748:0;cd ..
+: 1571329756:0;mv Design MercylDesign
+: 1571329760:0;mv MercylDesign Projects
+: 1571329766:0;mv Perl University
+: 1571329771:0;cd JQuery
+: 1571329772:0;ls
+: 1571329783:0;cd jquery
+: 1571329785:0;ll
+: 1571329787:0;cd ..
+: 1571329788:0;ll
+: 1571329790:0;cd ..
+: 1571329793:0;cd JQuery
+: 1571329793:0;ll
+: 1571329805:0;rm -rf Slider-revolution-5.2
+: 1571329822:0;rm -rf slider-revolution-5.4.0 
+: 1571329834:0;ll
+: 1571329845:0;cd jquery
+: 1571329846:0;ls
+: 1571329855:0;mv * ..
+: 1571329856:0;cd ..
+: 1571329859:0;rmdir jquery
+: 1571329860:0;cd QueryLoader2
+: 1571329861:0;ls
+: 1571329864:0;cd ..
+: 1571329865:0;clera
+: 1571329866:0;ll
+: 1571329872:0;mv * ../Sofware
+: 1571329874:0;cd ..
+: 1571329877:0;rmdir JQuery
+: 1571329878:0;l
+: 1571329884:0;cd JS
+: 1571329885:0;ls
+: 1571329893:0;cat module2.js
+: 1571329899:0;cd ..
+: 1571329903:0;rm -rf JS
+: 1571329904:0;ls
+: 1571329908:0;cd Fonts
+: 1571329908:0;ls
+: 1571329911:0;cd ..
+: 1571329916:0;mv Fonts Sofware
+: 1571329918:0;ll
+: 1571329924:0;cd Wrapbootstrap
+: 1571329925:0;ll
+: 1571329927:0;cd ..
+: 1571329931:0;mv Wrapbootstrap Sofware
+: 1571329932:0;ls
+: 1571329939:0;cd Javascript
+: 1571329940:0;ls
+: 1571329952:0;rm -rf adamwdraper-Numeral-js-7487acb
+: 1571329956:0;cd ..
+: 1571329960:0;cd Javascript
+: 1571329966:0;mv * ../Sofware
+: 1571329967:0;cd ..
+: 1571329969:0;rm -rf Javascript
+: 1571329971:0;l
+: 1571329975:0;cd Haskell
+: 1571329976:0;ll
+: 1571330011:0;cd ..
+: 1571330051:0;mv Haskell University
+: 1571330052:0;ls
+: 1571330054:0;cd Gulp
+: 1571330055:0;ls
+: 1571330065:0;cd ../
+: 1571330074:0;cd Gulp
+: 1571330077:0;cd mercyl_2017-v2.0
+: 1571330078:0;ls
+: 1571330154:0;cd
+: 1571330164:0;cd .i3
+: 1571330165:0;cd scripts
+: 1571330165:0;ls
+: 1571330169:0;python
+: 1571330175:0;ipy
+: 1571330270:0;ls
+: 1571330272:0;ipy
+: 1571330504:0;ll
+: 1571330509:0;cat disk_usage dii
+: 1571330518:0;cp disk_usage dii
+: 1571330521:0;vim dii
+: 1571330534:0;chmod -x dii
+: 1571330539:0;ipy
+: 1571330552:0;mv dii dii.py
+: 1571330554:0;ipy
+: 1571330569:0;rm dii.py
+: 1571330572:0;ll
+: 1571330577:0;mv disk_usage disk_usage.py
+: 1571330590:0;ll
+: 1571330592:0;cd ..
+: 1571330593:0;ll
+: 1571330596:0;vim i3blocks.conf
+: 1571330733:0;ipy
+: 1571330739:0;cd
+: 1571330767:0;cd dotfiles/i3 
+: 1571330769:0;ls
+: 1571330771:0;cd scripts
+: 1571330775:0;vim disk_usage.py
+: 1571330830:0;topas
+: 1571330833:0;top
+: 1571330870:0;git commit -am 'enhance disk_usage'
+: 1571330874:0;git push origin master
+: 1571330882:0;gst
+: 1571330886:0;git add -all
+: 1571330890:0;cd ..
+: 1571330902:0;sa add
+: 1571330905:0;gaa
+: 1571330921:0;sa push
+: 1571330939:0;gpoat
+: 1571330949:0;git push origin master
+: 1571330955:0;git status
+: 1571330968:0;cd
+: 1571330973:0;vim .gitignore_global
+: 1571330992:0;git status
+: 1571330995:0;vim .gitignore_global
+: 1571331052:0;git config --global core.excludesfile ~/.gitignore_global 
+: 1571331054:0;gst
+: 1571331116:0;ll
+: 1571331122:0;cd ..
+: 1571331122:0;ll
+: 1571331128:0;cd dotfiles/i3/scripts
+: 1571331128:0;ls
+: 1571331132:0;rm -rf __pycache__
+: 1571331134:0;cd ..
+: 1571331135:0;gst
+: 1571331153:0;git reset HEAD scripts/__pycache__/dii.cpython-36.pyc
+: 1571331156:0;gst
+: 1571331167:0;git commit -am 'adding disk usage'
+: 1571331171:0;git push origin master
+: 1571331208:0;ll
+: 1571331273:0;cd ..
+: 1571331274:0;clera
+: 1571331275:0;ll
+: 1571331277:0;cd ..
+: 1571331278:0;ll
+: 1571331287:0;cd Harp
+: 1571331288:0;ls
+: 1571331292:0;cd hb-element83
+: 1571331292:0;ls
+: 1571331296:0;cd ..
+: 1571331297:0;ll
+: 1571331298:0;cd ..
+: 1571331299:0;ll
+: 1571331305:0;mv Harp University
+: 1571331309:0;cd local
+: 1571331310:0;ls
+: 1571331313:0;cd bin
+: 1571331314:0;ls
+: 1571331316:0;cd ..
+: 1571331323:0;ll
+: 1571331331:0;mv Checkio University
+: 1571331333:0;ll
+: 1571331336:0;cd Bootstrap
+: 1571331337:0;ls
+: 1571331351:0;cd ..
+: 1571331367:0;mv Bootstrap Bibliotheque/Computing
+: 1571331371:0;cd University
+: 1571331376:0;mkdir Bootstrap
+: 1571331385:0;cd ../Bibliotheque/Computing/Bootstrap
+: 1571331385:0;ls
+: 1571331401:0;mv boot-bootstrap4-revolution ~/University/Bootstrap
+: 1571331412:0;cd boot
+: 1571331415:0;cd bootstrap
+: 1571331416:0;ls
+: 1571331439:0;cd ..
+: 1571331439:0;ll
+: 1571331447:0;mv bootstrap ~/Sofware
+: 1571331453:0;cd ExtendBoot
+: 1571331453:0;ls
+: 1571331458:0;cd ..
+: 1571331464:0;mv ExtendBoot ~/Sofware
+: 1571331467:0;cd FreeThemes
+: 1571331467:0;ls
+: 1571331469:0;cd ..
+: 1571331476:0;cd -
+: 1571331481:0;mv startbootstrap-creative-gh-pages.zip ~/Sofware
+: 1571331483:0;cd ..
+: 1571331487:0;rmdir FreeThemes
+: 1571331494:0;ll
+: 1571331499:0;cd e-books
+: 1571331500:0;ll
+: 1571331506:0;mv * ..
+: 1571331509:0;ll
+: 1571331510:0;cd ..
+: 1571331515:0;rm -rf e-books
+: 1571331517:0;ll
+: 1571331522:0;cd Booterator3.3.1
+: 1571331523:0;ll
+: 1571331527:0;cat README.md
+: 1571331542:0;ll
+: 1571331544:0;cd ..
+: 1571331544:0;ll
+: 1571331554:0;mv Booterator3.3.1 ~/Sofware
+: 1571331555:0;ll
+: 1571331559:0;cd ExtendBoot
+: 1571331560:0;ll
+: 1571331565:0;cd ..
+: 1571331572:0;mv ExtendBoot ~/Sofware
+: 1571331578:0;ll
+: 1571331581:0;rm -rf ExtendBoot
+: 1571331591:0;mv Oops,\ something\'s\ wrong...* ~/Sofware
+: 1571331592:0;ls
+: 1571331596:0;ll
+: 1571331597:0;cd ..
+: 1571331601:0;ll
+: 1571331614:0;mv Ansible University
+: 1571331617:0;cd University/Ansible
+: 1571331617:0;ls
+: 1571331623:0;cd gitlab.com
+: 1571331624:0;ll
+: 1571331627:0;cd ../Appl
+: 1571331628:0;ll
+: 1571331631:0;cd ..
+: 1571331632:0;clear
+: 1571331633:0;cd ..
+: 1571331633:0;ll
+: 1571331637:0;cd ..
+: 1571331638:0;ll
+: 1571331653:0;mkdir System
+: 1571331659:0;mv backups System
+: 1571331664:0;mv Duplicity System
+: 1571331681:0;mv soapui-settings.xml ~/Projects
+: 1571331688:0;mv default-soapui-workspace.xml ~/Projects
+: 1571331697:0;top
+: 1571332371:0;cd ..
+: 1571332372:0;ll
+: 1571332379:0;cd test
+: 1571332381:0;ll
+: 1571332385:0;cd ..
+: 1571332449:0;ll
+: 1571332456:0;mv Gulp University
+: 1571332474:0;mv gdrive.cache ~/Downloads
+: 1571332477:0;ll
+: 1571332481:0;cd Mail
+: 1571332482:0;ls
+: 1571332484:0;ll
+: 1571332488:0;cat Sent
+: 1571332495:0;cd ..
+: 1571332498:0;rm -rf Mail
+: 1571332500:0;ll
+: 1571332513:0;mv Oana_Music Music
+: 1571332514:0;ls
+: 1571332529:0;dud
+: 1571332557:0;du -ah
+: 1571332562:0;du -sh
+: 1571332574:0;sa du
+: 1571332579:0;duf
+: 1571332597:0;su -sh * | sort -n
+: 1571332599:0;cd -
+: 1571332606:0;du -sh * | sort -n
+: 1571332617:0;du -s * | sort -n
+: 1571332628:0;du -sh * | sort -n
+: 1571332649:0;cd Documents
+: 1571332662:0;du -sh 
+: 1571332667:0;du -sh  *
+: 1571332692:0;cd Assignment
+: 1571332694:0;ls
+: 1571332698:0;du -sh  *
+: 1571332770:0;cd ..
+: 1571332779:0;ll
+: 1571332795:0;cd Cheatsheets
+: 1571332796:0;ls
+: 1571332922:0;feh
+: 1571332941:0;display
+: 1571333180:0;feh
+: 1571333190:0;ll
+: 1571333205:0;feh css3-cheat-sheet.pdf
+: 1571333213:0;feh CSS-CHEAT-SHEET-p1.png
+: 1571333330:0;open CSS-CHEAT-SHEET-p1.png css3-cheat-sheet.pdf
+: 1571333409:0;cd
+: 1571333411:0;cd Bibliotheque
+: 1571333412:0;ls
+: 1571333413:0;cd Economics
+: 1571333415:0;l
+: 1571333573:0;ll
+: 1571333577:0;cd dotfiles/vim
+: 1571333578:0;ll
+: 1571333583:0;cd bundle
+: 1571333585:0;ls
+: 1571333647:0;ll
+: 1571333650:0;cd YouCompleteMe
+: 1571333651:0;ls
+: 1571333697:0;ndm
+: 1571333768:0;sudo -s
+: 1571333786:0;npm
+: 1571333794:0;ll
+: 1571334092:0;./install.py --ts-completer 
+: 1571334138:0;cd ..
+: 1571334143:0;cd 
+: 1571334148:0;cd Sofware
+: 1571334149:0;ll
+: 1571334171:0;git clone https://github.com/ycm-core/YouCompleteMe
+: 1571334189:0;cd YouCompleteMe
+: 1571334200:0;ll
+: 1571334210:0;./install.py --help
+: 1571334271:0;vim install.py
+: 1571334401:0;git submodule update --init --recursive
+: 1571334485:0;cd 
+: 1571334492:0;cd dotfiles/vim/bundle/YouCompleteMe
+: 1571334492:0;ll
+: 1571334494:0;cd ..
+: 1571334494:0;ll
+: 1571334501:0;mv YouCompleteMe YouCompleteMe.1
+: 1571334503:0;cd ..
+: 1571334504:0;ll
+: 1571334509:0;p
+: 1571334515:0;mv YouCompleteMe â´/home/netsamir/dotfiles/vim/bundle
+: 1571334521:0;mv YouCompleteMe /home/netsamir/dotfiles/vim/bundle
+: 1571334526:0;cd YouCompleteMe
+: 1571334567:0;./install.py --ts-completer 
+: 1571334581:0;cd ..
+: 1571334586:0;mv YouCompleteMe.1 ~/Downloads
+: 1571334612:0;aplay Vue.js-Cheat-Sheet.pdf
+: 1571334656:0;apvlv
+: 1571334671:0;apvlv Vue.js-Cheat-Sheet.pdf
+: 1571334692:0;ls
+: 1571335701:0;ll
+: 1571335730:0;cd dotfiles
+: 1571335731:0;ls
+: 1571335742:0;cat zshrc
+: 1571335760:0;ll
+: 1571335763:0;vim 
+: 1571335945:0;fzf --height 40% --reverse --preview 'file {}' --preview-window down:1
+: 1571335971:0;cd ~/Downloads
+: 1571335976:0;fd --type f | fzf
+: 1571335984:0;ls
+: 1571336010:0;git ls-tree
+: 1571336152:0;fzf-tmux
+: 1571336377:0;#fzf --height 40% --reverse --preview 'file {}' --preview-window down:1
+: 1571336409:0;mand fzf
+: 1571336413:0;man fzf
+: 1571336475:0;export FZF_DEFAULT_OPTS="--height 40% --reverse --preview 'file {}' --preview-window down:1"
+: 1571336491:0;export FZF_DEFAULT_OPTS="--height 80% --reverse --preview 'file {}' --preview-window down:1"
+: 1571336509:0;export FZF_DEFAULT_OPTS="--height 90% --reverse --preview 'file {}' --preview-window down:1"
+: 1571336752:0;cd ..
+: 1571336753:0;ll
+: 1571336829:0;cd University
+: 1571336830:0;ls
+: 1571336838:0;cd Gulp
+: 1571336839:0;ls
+: 1571336843:0;cd Remember
+: 1571336844:0;ll
+: 1571336898:0;npm
+: 1571336910:0;ll
+: 1571336914:0;cd dist
+: 1571336914:0;ls
+: 1571336916:0;cd vendor
+: 1571336917:0;ls
+: 1571336918:0;cd js
+: 1571336919:0;ls
+: 1571336920:0;cd ..
+: 1571336921:0;clear
+: 1571336922:0;ll
+: 1571336923:0;cd ..
+: 1571336923:0;ll
+: 1571336927:0;cd node_modules
+: 1571336928:0;ls
+: 1571336929:0;cd ..
+: 1571336930:0;clear
+: 1571336931:0;ll
+: 1571336952:0;ls
+: 1571336957:0;cat package.json
+: 1571336968:0;cd ..
+: 1571336969:0;ll
+: 1571336972:0;ls
+: 1571336976:0;cd LevelUpTuts
+: 1571336976:0;ls
+: 1571336980:0;cat README.md
+: 1571336984:0;gulp
+: 1571336992:0;cd ..
+: 1571336993:0;clear
+: 1571336994:0;ll
+: 1571336997:0;cd anaconstrap
+: 1571336997:0;ls
+: 1571337001:0;cat README.md
+: 1571337007:0;cat init.sh
+: 1571337018:0;ll
+: 1571337019:0;cd ..
+: 1571337025:0;ll
+: 1571337029:0;cd Bootstrap
+: 1571337030:0;ls
+: 1571337032:0;cd boot-bootstrap4-revolution
+: 1571337034:0;ls
+: 1571337039:0;cd ..
+: 1571337040:0;ll
+: 1571337041:0;cd ..
+: 1571337042:0;ll
+: 1571337053:0;cd Ha
+: 1571337056:0;cd Haskell
+: 1571337057:0;ls
+: 1571337061:0;cat pulse.hs
+: 1571337065:0;ghc
+: 1571337074:0;ghh
+: 1571337083:0;ghc --help
+: 1571337112:0;ll
+: 1571337121:0;ghc pulse.hs
+: 1571337127:0;cd ..
+: 1571337128:0;ll
+: 1571337132:0;cd CSS
+: 1571337134:0;ll
+: 1571337140:0;run
+: 1571337313:0;ll
+: 1571337314:0;cd code-challenge-2-build-a-calculator-with-css-grid
+: 1571337315:0;ll
+: 1571337318:0;cat README.md
+: 1571337323:0;cat init.sh
+: 1571337334:0;npm install
+: 1571337359:0;npm --help
+: 1571337372:0;npm help
+: 1571337374:0;ll
+: 1571337406:0;cat init.sh
+: 1571337410:0;ll
+: 1571337415:0;cd public
+: 1571337416:0;ls
+: 1571337425:0;cd ..
+: 1571337427:0;clear
+: 1571337428:0;cd ..
+: 1571337428:0;ll
+: 1571337431:0;cd ..
+: 1571337433:0;ll
+: 1571337436:0;cd Projects
+: 1571337437:0;ls
+: 1571337448:0;cd Invoices
+: 1571337450:0;ll
+: 1571337460:0;cat setup.py
+: 1571337468:0;ll
+: 1571337469:0;cd ..
+: 1571337470:0;ll
+: 1571337489:0;cd Webfactional
+: 1571337491:0;ll
+: 1571337493:0;cd webapps
+: 1571337494:0;ll
+: 1571337502:0;cd mercyl_2017
+: 1571337503:0;ll
+: 1571337507:0;cd ..
+: 1571337508:0;ll
+: 1571337514:0;cd ..
+: 1571337516:0;ll
+: 1571337520:0;cd ..
+: 1571337521:0;clear
+: 1571337522:0;ll
+: 1571337531:0;cd TransportSimulation
+: 1571337532:0;ll
+: 1571337534:0;cd src
+: 1571337535:0;ll
+: 1571337543:0;python manage.py runserver
+: 1571337585:0;django-admin --version
+: 1571337604:0;vim /usr/lib64/python3.6/site-packages/django/urls/conf.py
+: 1571337607:0;ll
+: 1571337617:0;python manage.py runserver
+: 1571337645:0;vim mercyl_com/urls.py
+: 1571337822:0;python manage.py runserver
+: 1571337869:0;ll
+: 1571337870:0;cd ..
+: 1571337871:0;ll
+: 1571337872:0;cd ..
+: 1571337873:0;ll
+: 1571337877:0;cd Debt
+: 1571337877:0;ls
+: 1571337889:0;cat numpy_test.py
+: 1571337896:0;cat wf
+: 1571337899:0;ll
+: 1571337903:0;run
+: 1571338021:0;cat index
+: 1571338024:0;cat index.html
+: 1571338026:0;ll
+: 1571338034:0;cat netsamir@web451
+: 1571338042:0;cat script.py
+: 1571338048:0;python script.py
+: 1571338050:0;ll
+: 1571338061:0;cd .
+: 1571338064:0;..
+: 1571338067:0;l
+: 1571338071:0;clear && ls -lFhs
+: 1571338089:0;dot
+: 1571338119:0;cd
+: 1571338123:0;cd Downloads
+: 1571338157:0;l
+: 1571338167:0;vim 
+: 1571338189:0;cd-tab
+: 1571338202:0;l
+: 1571338204:0;cd
+: 1571338205:0;ls
+: 1571338222:0;cd local
+: 1571338223:0;ls
+: 1571338224:0;cd bin
+: 1571338225:0;ls
+: 1571338230:0;cd usr/bin
+: 1571338230:0;ls
+: 1571338237:0;python terminalcolors.py
+: 1571338250:0;cp terminalcolors.py ~/local/bin
+: 1571338263:0;cat make_site
+: 1571338278:0;ll
+: 1571338290:0;cp colourant* ~/local/bin
+: 1571338296:0;cp make_site ~/local/bin
+: 1571338302:0;cd ..
+: 1571338303:0;ll
+: 1571338307:0;cd share
+: 1571338308:0;ls
+: 1571338310:0;cd ..
+: 1571338310:0;ll
+: 1571338314:0;tree
+: 1571338321:0;l
+: 1571338324:0;dud
+: 1571338333:0;cd ..
+: 1571338339:0;rm -rf local*
+: 1571338341:0;ls
+: 1571338346:0;cd mercyl_2017
+: 1571338347:0;ls
+: 1571338358:0;catimg banner-1-1.jpg
+: 1571338360:0;l
+: 1571338361:0;cd ..
+: 1571338362:0;ls
+: 1571338364:0;dud
+: 1571338372:0;cd Gulp
+: 1571338373:0;ls
+: 1571338374:0;cd mercyl_2017
+: 1571338376:0;ls
+: 1571338382:0;cd
+: 1571338384:0;ls
+: 1571338385:0;dud
+: 1571338417:0;ghci
+: 1571338430:0;l
+: 1571338434:0;cd ..
+: 1571338435:0;ls
+: 1571338436:0;cd ..
+: 1571338437:0;ll
+: 1571338439:0;dud
+: 1571338456:0;cd .vagrant.d
+: 1571338457:0;ls
+: 1571338463:0;cd ..
+: 1571338467:0;ll
+: 1571338470:0;ls
+: 1571338472:0;lll
+: 1571338480:0;cat .z
+: 1571338492:0;z Documents
+: 1571338499:0;ll
+: 1571338513:0;cd .i3
+: 1571338515:0;ls
+: 1571338520:0;vim i3blocks.conf
+: 1571338624:0;top
+: 1571338894:0;man nitrogen
+: 1571338979:0;cd
+: 1571338983:0;cd .config/nitrogen
+: 1571338983:0;ls
+: 1571338986:0;cat bg-saved.cfg
+: 1571339000:0;cat nitrogen.cfg
+: 1571339039:0;l
+: 1571339041:0;vim config
+: 1571339074:0;cd
+: 1571339078:0;vim .vimrc
+: 1571339236:0;cd Downloads
+: 1571339237:0;l
+: 1571339241:0;vim get-pip.py
+: 1571339322:0;ll
+: 1571339336:0;catimg Simone.jpg
+: 1571339344:0;ll
+: 1571339351:0;rm Iberia
+: 1571339355:0;rm -rf Iberia
+: 1571339382:0;rm -rf YouCompleteMe.1
+: 1571339395:0;rm *Bov*
+: 1571339409:0;rm BOV-mobile-1.jpeg.tgz
+: 1571339412:0;ll
+: 1571339422:0;cd Documents
+: 1571339422:0;ls
+: 1571339424:0;cd Assignment
+: 1571339425:0;ls
+: 1571339429:0;cd _closed
+: 1571339430:0;ll
+: 1571339445:0;for f in *; do echo [38;5;18m$f[39m; done ;
+: 1571339483:0;for f in *; do tar zcvf [38;5;136m${[39mf[38;5;136m}[39m.tgz [38;5;136m${[39mf[38;5;136m}[39m; done ;
+: 1571339521:0;ll
+: 1571339529:0;rm *.tgz
+: 1571339533:0;cd 20180115\ -\ Installation\ of\ gentoo
+: 1571339534:0;ls
+: 1571339536:0;l
+: 1571339551:0;rm *.iso
+: 1571339557:0;rm stage3-amd64-20180111T214502Z.tar.xz
+: 1571339558:0;ls
+: 1571339559:0;cd ..
+: 1571339561:0;ll
+: 1571339575:0;sa tar
+: 1571339601:0;for f in *; do tar zcvf [38;5;136m${[39mf[38;5;136m}[39m.tgz [38;5;136m${[39mf[38;5;136m}[39m && rm -rf [38;5;136m${[39mf[38;5;136m}[39m; done ;
+: 1571339603:0;ll
+: 1571339605:0;cd ..
+: 1571339607:0;ll
+: 1571339614:0;cd _closed
+: 1571339615:0;ll
+: 1571339617:0;mv * ..
+: 1571339618:0;cd ..
+: 1571339619:0;ll
+: 1571339637:0;mv *.tgz _closed
+: 1571339639:0;ll
+: 1571339655:0;cd _closed
+: 1571339656:0;ls
+: 1571339713:0;ll
+: 1571339716:0;rm -f nautilus
+: 1571339720:0;rm -rf nautilus
+: 1571339723:0;cd Oana
+: 1571339724:0;ls
+: 1571339726:0;cd source
+: 1571339726:0;ls
+: 1571339731:0;cd Oana
+: 1571339732:0;ls
+: 1571339740:0;cat urls.py
+: 1571339744:0;cd ..
+: 1571339745:0;ll
+: 1571339751:0;python manage.py runserver
+: 1571339763:0;ll
+: 1571339764:0;cd ..
+: 1571339770:0;rm  -rf Oana
+: 1571339771:0;ls
+: 1571339779:0;rm stage3-amd64-201906*
+: 1571339807:0;ll
+: 1571339808:0;cd ..
+: 1571339808:0;ll
+: 1571339810:0;cd ..
+: 1571339812:0;dud
+: 1571339821:0;cd Assignment
+: 1571339822:0;dud
+: 1571339831:0;cd 20170911\ -\ Vente\ Rav4
+: 1571339832:0;ls
+: 1571339834:0;cd Preuves_de_Vente
+: 1571339834:0;ls
+: 1571339896:0;ll
+: 1571339898:0;cd ..
+: 1571339899:0;ll
+: 1571339901:0;cat investigation.md
+: 1571339934:0;cd ..
+: 1571339935:0;ll
+: 1571339991:0;for f in $(ls * | grep -v _closed); do echo [38;5;18m$f[39m; done ;
+: 1571340000:0;ll
+: 1571340005:0;ls
+: 1571340015:0;ls | grep -v _closed
+: 1571340023:0;for f in $(ls | grep -v _closed); do echo [38;5;18m$f[39m; done ;
+: 1571340031:0;for f in $(ls | grep -v _closed); do echo [38;5;136m${[39mf[38;5;136m}[39m; done ;
+: 1571340038:0;for f in $(ls | grep -v _closed); do echo "[38;5;136m${[39mf[38;5;136m}[39m"; done ;
+: 1571340042:0;ll
+: 1571340055:0;ls *2
+: 1571340058:0;ls 2*
+: 1571340080:0;ll
+: 1571340083:0;cd 20180115\ -\ Installation\ of\ gentoo
+: 1571340084:0;ls
+: 1571340090:0;rm *.iso
+: 1571340097:0;rm *.tar.xz
+: 1571340098:0;ll
+: 1571340100:0;cd ..
+: 1571340101:0;ll
+: 1571340103:0;dud
+: 1571340117:0;cd 20180101\ -\ Gamut\ december\ payment
+: 1571340117:0;ls
+: 1571340127:0;open Monthly\ Timesheet\ -\ Samir\ Sadek\ \(December\ 2017\).pdf
+: 1571340130:0;ll
+: 1571340170:0;apvlv Monthly\ Timesheet\ -\ Samir\ Sadek\ \(December\ 2017\).pdf
+: 1571340198:0;ll
+: 1571340199:0;cd ..
+: 1571340200:0;ll
+: 1571340208:0;cd 20171124\ -\ Poder\ a\ Fransisco\ for\ Mercyl
+: 1571340208:0;ls
+: 1571340213:0;cd ..
+: 1571340239:0;for f in ls -d 2*; echo [38;5;18m$f[39m ; done ;
+: 1571340243:0;for f in ls -d 2*; do echo [38;5;18m$f[39m ; done ;
+: 1571340252:0;for f in ls 2*; do echo [38;5;18m$f[39m ; done ;
+: 1571340302:0;for f in ls 2*; do tar zcvf [38;5;136m${[39mf[38;5;136m}[39m.tgz [38;5;136m${[39mf[38;5;136m}[39m && rm -rf [38;5;136m${[39mf[38;5;136m}[39m; done ;
+: 1571340319:0;ls
+: 1571340329:0;rm -f ls.tgz
+: 1571340346:0;tar xvf 20170731\ -\ Mercyl\ vs\ Fernandez.tgz
+: 1571340350:0;ls
+: 1571340363:0;mv *tgz _closed
+: 1571340368:0;ll
+: 1571340379:0;cd ..
+: 1571340380:0;ll
+: 1571340392:0;cd ..
+: 1571340393:0;ll
+: 1571340397:0;cd Documents
+: 1571340398:0;ls
+: 1571340402:0;cd ..
+: 1571340403:0;ll
+: 1571340407:0;cd Documents
+: 1571340407:0;ls
+: 1571340417:0;cd Assignment
+: 1571340418:0;ls
+: 1571340420:0;cd _closed
+: 1571340421:0;ls
+: 1571340426:0;mv *.tgz ..
+: 1571340428:0;cd ..
+: 1571340436:0;rmdir _closed
+: 1571340456:0;ll
+: 1571340505:0;mv 20160605_Residency_in_Malta_application.tgz 20160605\ -\ Residency_in_Malta_application.tgz
+: 1571340507:0;ls
+: 1571340565:0;feh
+: 1571340573:0;ll
+: 1571340595:0;rm -rf 20170731\ -\ Mercyl\ vs\ Fernandez.tgz
+: 1571340598:0;ll
+: 1571340605:0;ls
+: 1571340607:0;cd ..
+: 1571340608:0;l
+: 1571340620:0;cd Campo\ Oana
+: 1571340621:0;ls
+: 1571340639:0;cd Accounting
+: 1571340640:0;ls
+: 1571340721:0;cd ..
+: 1571340722:0;l
+: 1571340728:0;clear && ls -lFhs
+: 1571340740:0;dot
+: 1571340850:0;cd
+: 1571340853:0;cd Downloads
+: 1571340853:0;ls
+: 1571340859:0;cat zsh_history_corrupt
+: 1571340907:0;vim zsh_history_corrupt
+: 1571340949:0;cd
+: 1571340951:0;ll
+: 1571340952:0;l
+: 1571340956:0;ls -l
+: 1571340958:0;lll
+: 1571340986:0;cp ~/.zsh_history zsh_history_backup
+: 1571341752:0;ll
+: 1571341755:0;cd University
+: 1571341755:0;ls
+: 1571341757:0;cd Gulp
+: 1571341758:0;ls
+: 1571341762:0;cd Remember
+: 1571341762:0;ls
+: 1571341798:0;npm install gulp -g
+: 1571341806:0;npm install
+: 1571341873:0;npm
+: 1571341933:0;ll
+: 1571341954:0;cd ..
+: 1571341954:0;ll
+: 1571341958:0;cd LevelUpTuts
+: 1571341958:0;ls
+: 1571341961:0;cat README.md
+: 1571341966:0;gulp
+: 1571341971:0;npm install
+: 1571341988:0;gulp
+: 1571341991:0;ll
+: 1571342018:0;cd Bibliotheque
+: 1571342018:0;ls
+: 1571342024:0;dud
+: 1571342029:0;cd Finances
+: 1571342029:0;ls
+: 1571342031:0;cd Valuation\ Class\ \(MBA\)
+: 1571342032:0;ls
+: 1571342035:0;dud
+: 1571342044:0;cd Video
+: 1571342044:0;ls
+: 1571342511:0;ll
+: 1571342526:0;chmod 660 Lesson\ 3\ -\ Discount\ Rates.m4v
+: 1571342527:0;l
+: 1571342532:0;cd ..
+: 1571342533:0;ll
+: 1571342537:0;cat Read
+: 1571342542:0;cat README.txt
+: 1571342546:0;ls
+: 1571342547:0;cd ..
+: 1571342548:0;ll
+: 1571342549:0;cd ..
+: 1571342550:0;ls
+: 1571342554:0;cd ..
+: 1571342555:0;ll
+: 1571342574:0;ls
+: 1571342576:0;cd Pictures
+: 1571342576:0;ls
+: 1571342580:0;cd Uruguay
+: 1571342581:0;ls
+: 1571343406:0;cd ..
+: 1571343407:0;cd
+: 1571343414:0;sudo shutdown -h now

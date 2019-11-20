@@ -19,15 +19,15 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import functools
 import os
 
-from ycmd import handlers
-from ycmd.tests.test_utils import ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( ClearCompletionsCache,
+                                    IsolatedApp,
+                                    SetUpApp )
 
 shared_app = None
 
@@ -44,7 +44,7 @@ def setUpPackage():
   subserver, should be done here."""
   global shared_app
 
-  shared_app = SetUpApp()
+  shared_app = SetUpApp( { 'use_clangd': 0 } )
 
 
 def SharedYcmd( test ):
@@ -61,20 +61,57 @@ def SharedYcmd( test ):
   return Wrapper
 
 
-def IsolatedYcmd( test ):
+def IsolatedYcmd( custom_options = {} ):
   """Defines a decorator to be attached to tests of this package. This decorator
   passes a unique ycmd application as a parameter. It should be used on tests
   that change the server state in a irreversible way (ex: a semantic subserver
   is stopped or restarted) or expect a clean state (ex: no semantic subserver
-  started, no .ycm_extra_conf.py loaded, etc).
+  started, no .ycm_extra_conf.py loaded, etc). Use the optional parameter
+  |custom_options| to give additional options and/or override the default ones.
 
-  Do NOT attach it to test generators but directly to the yielded tests."""
-  @functools.wraps( test )
-  def Wrapper( *args, **kwargs ):
-    old_server_state = handlers._server_state
+  Do NOT attach it to test generators but directly to the yielded tests.
 
-    try:
-      test( SetUpApp(), *args, **kwargs )
-    finally:
-      handlers._server_state = old_server_state
-  return Wrapper
+  Example usage:
+
+    from ycmd.tests.clang import IsolatedYcmd
+
+    @IsolatedYcmd( { 'auto_trigger': 0 } )
+    def CustomAutoTrigger_test( app ):
+      ...
+  """
+  def Decorator( test ):
+    @functools.wraps( test )
+    def Wrapper( *args, **kwargs ):
+      custom_options.update( { 'use_clangd': 0 } )
+      with IsolatedApp( custom_options ) as app:
+        test( app, *args, **kwargs )
+    return Wrapper
+  return Decorator
+
+
+# A mock of ycm_core.ClangCompleter with translation units still being parsed.
+class MockCoreClangCompleter( object ):
+
+  def GetDefinitionLocation( self, *args ):
+    pass
+
+  def GetDeclarationLocation( self, *args ):
+    pass
+
+  def GetDefinitionOrDeclarationLocation( self, *args ):
+    pass
+
+  def GetTypeAtLocation( self, *args ):
+    pass
+
+  def GetEnclosingFunctionAtLocation( self, *args ):
+    pass
+
+  def GetDocsForLocationInFile( self, *args ):
+    pass
+
+  def GetFixItsForLocationInFile( self, *args ):
+    pass
+
+  def UpdatingTranslationUnit( self, filename ):
+    return True

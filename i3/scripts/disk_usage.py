@@ -24,4 +24,4 @@ size_home = check_output(size_homecmd.split())
 size_fs = check_output(size_fscmd, shell=True)
 rv_home = size_home.split(b'\t', 1)[0]
 rv_fs = size_fs.rsplit(None, 2)[1]
-print(f"({rv_home.decode('utf8')}) {rv_fs.decode('utf8')}")
+print(f"{rv_home.decode('utf8')} {rv_fs.decode('utf8')}")

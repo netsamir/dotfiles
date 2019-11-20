@@ -18,11 +18,13 @@
 project( ycm_core_tests )
 cmake_minimum_required( VERSION 2.8 )
 
-# The gtest library triggers these warnings, so we turn them off; it's not up to
-# us to fix gtest warnings, it's up to upstream.
+# The gtest library triggers warnings, so we turn them off; it's not up to us to
+# fix gtest warnings, it's up to upstream.
 if ( COMPILER_IS_CLANG )
   set( CMAKE_CXX_FLAGS
-    "${CMAKE_CXX_FLAGS} -Wno-long-long -Wno-variadic-macros -Wno-missing-field-initializers -Wno-unused-private-field -Wno-c++98-compat" )
+    "${CMAKE_CXX_FLAGS} -Wno-long-long -Wno-variadic-macros -Wno-missing-field-initializers -Wno-unused-private-field" )
+elseif( MSVC )
+  add_definitions( /W0 )
 endif()
 
 
@@ -47,6 +49,7 @@ endif()
 
 include_directories(
   ${ycm_core_SOURCE_DIR}
+  ${ycm_core_SOURCE_DIR}/../whereami
   )
 
 include_directories(
@@ -112,9 +115,9 @@ target_link_libraries( ${PROJECT_NAME}
                        ${GMOCK_LIBRARIES} )
 
 if ( NOT CMAKE_GENERATOR_IS_XCODE )
-  # The test executable expects a "testdata" dir in its working directory. Why?
-  # Because there's NO reliable, cross-platform way of getting the directory in
-  # which the executable is located.
+  # There is no portable way of discovering the absolute path of the executable,
+  # but whereami library supports all OS's on which we run tests regularly plus
+  # some *BSD flavours on top of that.
   add_custom_target( copy_testdata
                      COMMAND cmake -E copy_directory
                      ${CMAKE_CURRENT_SOURCE_DIR}/testdata

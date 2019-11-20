@@ -5,7 +5,9 @@ export ZSH=/home/netsamir/dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="amuse"
+ZSH_THEME="samir_robbyrussel"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,11 +47,15 @@ HYPHEN_INSENSITIVE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/dotfiles/custom
 
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract git-prompt history-substring-search nmap pipenv rand-quote rsync sudo git)
+plugins=(catimg colorize colored-man-pages copybuffer copydir copyfile encode64 extract git history-substring-search nmap pipenv rand-quote rsync sudo)
+
+# Ensure that keybinding are taken into account
+set -o vi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,36 +72,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
-# ----------------------------------------------------------------------------
-# System
-# ----------------------------------------------------------------------------
-
-export DEFAULT_USER="netsamir"
-export MANPATH=/usr/local/man:$MANPATH
-export PERL5LIB=$HOME/local/lib64
-export PYTHONSTARTUP=~/.pythonrc
-
-# You may need to manually set your language environment
-
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-set -o vi
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
-
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-export PATH=$HOME/.local/bin:$HOME/local/bin:$PATH
-# Added for makevirtualenv under anaconda
-# export LD_LIBRARY_PATH=$HOME/local/anaconda3/lib:$LD_LIBRARY_PATH
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/netsamir/local/bin/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/netsamir/.local/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/home/netsamir/.local/bin/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/netsamir/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/netsamir/.local/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/netsamir/.local/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

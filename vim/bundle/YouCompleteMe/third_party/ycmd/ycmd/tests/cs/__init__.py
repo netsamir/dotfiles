@@ -19,64 +19,32 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 from contextlib import contextmanager
 import functools
 import os
+import sys
 import time
 
-from ycmd import handlers
-from ycmd.tests.test_utils import BuildRequest, ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( BuildRequest,
+                                    ClearCompletionsCache,
+                                    IgnoreExtraConfOutsideTestsFolder,
+                                    IsolatedApp,
+                                    SetUpApp,
+                                    # StartCompleterServer,
+                                    StopCompleterServer,
+                                    WaitUntilCompleterServerReady )
 
 shared_app = None
 shared_filepaths = []
+shared_log_indexes = {}
 
 
 def PathToTestFile( *args ):
   dir_of_current_script = os.path.dirname( os.path.abspath( __file__ ) )
   return os.path.join( dir_of_current_script, 'testdata', *args )
-
-
-def StartOmniSharpServer( app, filepath ):
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ "StartServer" ],
-                               filepath = filepath,
-                               filetype = 'cs' ) )
-
-
-def StopOmniSharpServer( app, filepath ):
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ 'StopServer' ],
-                               filepath = filepath,
-                               filetype = 'cs' ) )
-
-
-def WaitUntilOmniSharpServerReady( app, filepath ):
-  retries = 100
-  success = False
-
-  while retries > 0:
-    result = app.get( '/ready', { 'subserver': 'cs' } ).json
-    if result:
-      success = True
-      break
-    request = BuildRequest( completer_target = 'filetype_default',
-                            command_arguments = [ 'ServerIsRunning' ],
-                            filepath = filepath,
-                            filetype = 'cs' )
-    result = app.post_json( '/run_completer_command', request ).json
-    if not result:
-      raise RuntimeError( "OmniSharp failed during startup." )
-    time.sleep( 0.2 )
-    retries = retries - 1
-
-  if not success:
-    raise RuntimeError( "Timeout waiting for OmniSharpServer" )
 
 
 def setUpPackage():
@@ -87,9 +55,6 @@ def setUpPackage():
   global shared_app
 
   shared_app = SetUpApp()
-  shared_app.post_json(
-    '/ignore_extra_conf_file',
-    { 'filepath': PathToTestFile( '.ycm_extra_conf.py' ) } )
 
 
 def tearDownPackage():
@@ -98,18 +63,83 @@ def tearDownPackage():
   global shared_app, shared_filepaths
 
   for filepath in shared_filepaths:
-    StopOmniSharpServer( shared_app, filepath )
+    StopCompleterServer( shared_app, 'cs', filepath )
+
+
+def GetDebugInfo( app, filepath ):
+  """ TODO: refactor here and in clangd test to common util """
+  request_data = BuildRequest( filetype = 'cs', filepath = filepath )
+  return app.post_json( '/debug_info', request_data ).json
+
+
+def GetDiagnostics( app, filepath ):
+  contents, _ = ReadFile( filepath, 0 )
+
+  event_data = BuildRequest( filepath = filepath,
+                             event_name = 'FileReadyToParse',
+                             filetype = 'cs',
+                             contents = contents )
+
+  return app.post_json( '/event_notification', event_data ).json
+
+
+def ReadFile( filepath, fileposition ):
+  with open( filepath, encoding = 'utf8' ) as f:
+    if fileposition:
+      f.seek( fileposition )
+    return f.read(), f.tell()
+
+
+def WaitUntilCsCompleterIsReady( app, filepath ):
+  WaitUntilCompleterServerReady( app, 'cs' )
+  # Omnisharp isn't ready when it says it is, so wait until Omnisharp returns
+  # at least one diagnostic multiple times.
+  success_count = 0
+  for reraise_error in [ False ] * 39 + [ True ]:
+    try:
+      if len( GetDiagnostics( app, filepath ) ) == 0:
+        raise RuntimeError( "No diagnostic" )
+      success_count += 1
+      if success_count > 2:
+        break
+    except Exception:
+      success_count = 0
+      if reraise_error:
+        raise
+
+    time.sleep( .5 )
+  else:
+    raise RuntimeError( "Never was ready" )
 
 
 @contextmanager
 def WrapOmniSharpServer( app, filepath ):
   global shared_filepaths
+  global shared_log_indexes
 
   if filepath not in shared_filepaths:
-    StartOmniSharpServer( app, filepath )
+    # StartCompleterServer( app, 'cs', filepath )
+    GetDiagnostics( app, filepath )
     shared_filepaths.append( filepath )
-  WaitUntilOmniSharpServerReady( app, filepath )
-  yield
+    WaitUntilCsCompleterIsReady( app, filepath )
+
+  logfiles = []
+  response = GetDebugInfo( app, filepath )
+  for server in response[ 'completer' ][ 'servers' ]:
+    logfiles.extend( server[ 'logfiles' ] )
+
+  try:
+    yield
+  finally:
+    for logfile in logfiles:
+      if os.path.isfile( logfile ):
+        log_content, log_end_position = ReadFile(
+            logfile, shared_log_indexes.get( logfile, 0 ) )
+        shared_log_indexes[ logfile ] = log_end_position
+        sys.stdout.write( 'Logfile {0}:\n\n'.format( logfile ) )
+        sys.stdout.write( log_content )
+        sys.stdout.write( '\n' )
+
 
 
 def SharedYcmd( test ):
@@ -122,28 +152,41 @@ def SharedYcmd( test ):
   @functools.wraps( test )
   def Wrapper( *args, **kwargs ):
     ClearCompletionsCache()
-    return test( shared_app, *args, **kwargs )
+    with IgnoreExtraConfOutsideTestsFolder():
+      return test( shared_app, *args, **kwargs )
   return Wrapper
 
 
-def IsolatedYcmd( test ):
+def IsolatedYcmd( custom_options = {} ):
   """Defines a decorator to be attached to tests of this package. This decorator
   passes a unique ycmd application as a parameter. It should be used on tests
   that change the server state in a irreversible way (ex: a semantic subserver
   is stopped or restarted) or expect a clean state (ex: no semantic subserver
-  started, no .ycm_extra_conf.py loaded, etc).
+  started, no .ycm_extra_conf.py loaded, etc). Use the optional parameter
+  |custom_options| to give additional options and/or override the default ones.
 
-  Do NOT attach it to test generators but directly to the yielded tests."""
-  @functools.wraps( test )
-  def Wrapper( *args, **kwargs ):
-    old_server_state = handlers._server_state
+  Do NOT attach it to test generators but directly to the yielded tests.
 
-    try:
-      app = SetUpApp()
-      app.post_json(
-        '/ignore_extra_conf_file',
-        { 'filepath': PathToTestFile( '.ycm_extra_conf.py' ) } )
-      test( app, *args, **kwargs )
-    finally:
-      handlers._server_state = old_server_state
-  return Wrapper
+  Example usage:
+
+    from ycmd.tests.cs import IsolatedYcmd
+
+    @IsolatedYcmd( { 'server_keep_logfiles': 1 } )
+    def CustomServerKeepLogfiles_test( app ):
+      ...
+  """
+  def Decorator( test ):
+    @functools.wraps( test )
+    def Wrapper( *args, **kwargs ):
+      with IsolatedApp( custom_options ) as app:
+        # We are not wrapping test() in a try/finally block and calling
+        # StopCompleterServer() needs the correct filename to stop the
+        # specific server corresponding to the solution file.
+        #
+        # Leaving the file unspecified in StopCompleterServer() starts
+        # a new server only to shut it down right afterwards.
+        # Instead, we leave the server running and let tearDownPackage()
+        # stop all the running servers by running through all shared_filepaths.
+        test( app, *args, **kwargs )
+    return Wrapper
+  return Decorator

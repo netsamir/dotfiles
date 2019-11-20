@@ -19,28 +19,29 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
+from pprint import pformat
 import functools
 import os
+import time
 
-from ycmd.tests.test_utils import BuildRequest, ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( BuildRequest,
+                                    ClearCompletionsCache,
+                                    IgnoreExtraConfOutsideTestsFolder,
+                                    IsolatedApp,
+                                    SetUpApp,
+                                    StopCompleterServer,
+                                    WaitUntilCompleterServerReady )
 
 shared_app = None
 
 
 def PathToTestFile( *args ):
   dir_of_current_script = os.path.dirname( os.path.abspath( __file__ ) )
-  return os.path.join( dir_of_current_script, 'testdata', *args )
-
-
-def StopGoCodeServer( app ):
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ 'StopServer' ],
-                               filetype = 'go' ) )
+  # GOPLS doesn't work if any parent directory is named "testdata"
+  return os.path.join( dir_of_current_script, 'go_module', *args )
 
 
 def setUpPackage():
@@ -51,12 +52,23 @@ def setUpPackage():
   global shared_app
 
   shared_app = SetUpApp()
+  with IgnoreExtraConfOutsideTestsFolder():
+    StartGoCompleterServerInDirectory( shared_app, PathToTestFile() )
+
+
+def StartGoCompleterServerInDirectory( app, directory ):
+  app.post_json( '/event_notification',
+                 BuildRequest(
+                   filepath = os.path.join( directory, 'goto.go' ),
+                   event_name = 'FileReadyToParse',
+                   filetype = 'go' ) )
+  WaitUntilCompleterServerReady( app, 'go' )
 
 
 def tearDownPackage():
   global shared_app
 
-  StopGoCodeServer( shared_app )
+  StopCompleterServer( shared_app, 'go' )
 
 
 def SharedYcmd( test ):
@@ -71,3 +83,77 @@ def SharedYcmd( test ):
     ClearCompletionsCache()
     return test( shared_app, *args, **kwargs )
   return Wrapper
+
+
+def IsolatedYcmd( test ):
+  """Defines a decorator to be attached to tests of this package. This decorator
+  passes a unique ycmd application as a parameter. It should be used on tests
+  that change the server state in a irreversible way (ex: a semantic subserver
+  is stopped or restarted) or expect a clean state (ex: no semantic subserver
+  started, no .ycm_extra_conf.py loaded, etc).
+
+  Do NOT attach it to test generators but directly to the yielded tests."""
+  @functools.wraps( test )
+  def Wrapper( *args, **kwargs ):
+    with IsolatedApp() as app:
+      try:
+        test( app, *args, **kwargs )
+      finally:
+        StopCompleterServer( app, 'go' )
+  return Wrapper
+
+
+class PollForMessagesTimeoutException( Exception ):
+  pass
+
+
+def PollForMessages( app, request_data, timeout = 30 ):
+  expiration = time.time() + timeout
+  while True:
+    if time.time() > expiration:
+      raise PollForMessagesTimeoutException(
+        'Waited for diagnostics to be ready for {0} seconds, aborting.'.format(
+          timeout ) )
+
+    default_args = {
+      'filetype'  : 'java',
+      'line_num'  : 1,
+      'column_num': 1,
+    }
+    args = dict( default_args )
+    args.update( request_data )
+
+    response = app.post_json( '/receive_messages', BuildRequest( **args ) ).json
+
+    print( 'poll response: {0}'.format( pformat( response ) ) )
+
+    if isinstance( response, bool ):
+      if not response:
+        raise RuntimeError( 'The message poll was aborted by the server' )
+    elif isinstance( response, list ):
+      for message in response:
+        yield message
+    else:
+      raise AssertionError( 'Message poll response was wrong type: {0}'.format(
+        type( response ).__name__ ) )
+
+    time.sleep( 0.25 )
+
+
+def WaitForDiagnosticsToBeReady( app, filepath, contents, **kwargs ):
+  results = None
+  for tries in range( 0, 60 ):
+    event_data = BuildRequest( event_name = 'FileReadyToParse',
+                               contents = contents,
+                               filepath = filepath,
+                               filetype = 'go',
+                               **kwargs )
+
+    results = app.post_json( '/event_notification', event_data ).json
+
+    if results:
+      break
+
+    time.sleep( 0.5 )
+
+  return results

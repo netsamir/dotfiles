@@ -1,4 +1,4 @@
-# Copyright (C) 2016 ycmd contributors
+# Copyright (C) 2018 ycmd contributors
 #
 # This file is part of ycmd.
 #
@@ -19,19 +19,18 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
+from mock import patch
 import functools
 import os
-import time
 
-from ycmd import handlers
-from ycmd.tests.test_utils import BuildRequest, ClearCompletionsCache, SetUpApp
+from ycmd.tests.test_utils import ( ClearCompletionsCache, IsolatedApp,
+                                    SetUpApp, StopCompleterServer,
+                                    WaitUntilCompleterServerReady )
 
 shared_app = None
-shared_current_dir = None
 
 
 def PathToTestFile( *args ):
@@ -39,56 +38,23 @@ def PathToTestFile( *args ):
   return os.path.join( dir_of_current_script, 'testdata', *args )
 
 
-def WaitUntilTernServerReady( app ):
-  app.post_json( '/run_completer_command', BuildRequest(
-    command_arguments = [ 'StartServer' ],
-    completer_target = 'filetype_default',
-    filetype = 'javascript',
-    filepath = '/foo.js',
-    contents = '',
-    line_num = '1'
-  ) )
-
-  retries = 100
-  while retries > 0:
-    result = app.get( '/ready', { 'subserver': 'javascript' } ).json
-    if result:
-      return
-
-    time.sleep( 0.2 )
-    retries = retries - 1
-
-  raise RuntimeError( 'Timeout waiting for Tern.js server to be ready' )
-
-
-def StopTernServer( app ):
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ 'StopServer' ],
-                               filetype = 'javascript' ),
-                 expect_errors = True )
-
-
 def setUpPackage():
   """Initializes the ycmd server as a WebTest application that will be shared
   by all tests using the SharedYcmd decorator in this package. Additional
   configuration that is common to these tests, like starting a semantic
   subserver, should be done here."""
-  global shared_app, shared_current_dir
+  global shared_app
 
-  shared_app = SetUpApp()
-  shared_current_dir = os.getcwd()
-  os.chdir( PathToTestFile() )
-  WaitUntilTernServerReady( shared_app )
+  with patch( 'ycmd.completers.javascript.hook.'
+              'ShouldEnableTernCompleter', return_value = False ):
+    shared_app = SetUpApp()
+    WaitUntilCompleterServerReady( shared_app, 'javascript' )
 
 
 def tearDownPackage():
-  """Cleans up the tests using the SharedYcmd decorator in this package. It is
-  executed once after running all the tests in the package."""
-  global shared_app, shared_current_dir
+  global shared_app
 
-  StopTernServer( shared_app )
-  os.chdir( shared_current_dir )
+  StopCompleterServer( shared_app, 'javascript' )
 
 
 def SharedYcmd( test ):
@@ -115,16 +81,11 @@ def IsolatedYcmd( test ):
   Do NOT attach it to test generators but directly to the yielded tests."""
   @functools.wraps( test )
   def Wrapper( *args, **kwargs ):
-    old_server_state = handlers._server_state
-    old_current_dir = os.getcwd()
-
-    try:
-      os.chdir( PathToTestFile() )
-      app = SetUpApp()
-      WaitUntilTernServerReady( app )
-      test( app, *args, **kwargs )
-      StopTernServer( app )
-    finally:
-      os.chdir( old_current_dir )
-      handlers._server_state = old_server_state
+    with patch( 'ycmd.completers.javascript.hook.'
+                'ShouldEnableTernCompleter', return_value = False ):
+      with IsolatedApp() as app:
+        try:
+          test( app, *args, **kwargs )
+        finally:
+          StopCompleterServer( app, 'javascript' )
   return Wrapper

@@ -1,4 +1,4 @@
-# Copyright (C) 2016 ycmd contributors
+# Copyright (C) 2016-2019 ycmd contributors
 #
 # This file is part of ycmd.
 #
@@ -19,16 +19,19 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import functools
 import os
-import time
 
-from ycmd.tests.test_utils import BuildRequest, ClearCompletionsCache, SetUpApp
-from ycmd import handlers
+from ycmd.tests.test_utils import ( BuildRequest,
+                                    ClearCompletionsCache,
+                                    IgnoreExtraConfOutsideTestsFolder,
+                                    IsolatedApp,
+                                    SetUpApp,
+                                    StopCompleterServer,
+                                    WaitUntilCompleterServerReady )
 
 shared_app = None
 
@@ -36,28 +39,6 @@ shared_app = None
 def PathToTestFile( *args ):
   dir_of_current_script = os.path.dirname( os.path.abspath( __file__ ) )
   return os.path.join( dir_of_current_script, 'testdata', *args )
-
-
-def WaitUntilRacerdServerReady( app ):
-  retries = 100
-
-  while retries > 0:
-    result = app.get( '/ready', { 'subserver': 'rust' } ).json
-    if result:
-      return
-
-    time.sleep( 0.2 )
-    retries = retries - 1
-
-  raise RuntimeError( "Timeout waiting for JediHTTP" )
-
-
-def StopRacerdServer( app ):
-  app.post_json( '/run_completer_command',
-                 BuildRequest( completer_target = 'filetype_default',
-                               command_arguments = [ 'StopServer' ],
-                               filetype = 'rust' ),
-                 expect_errors = True )
 
 
 def setUpPackage():
@@ -68,8 +49,18 @@ def setUpPackage():
   global shared_app
 
   shared_app = SetUpApp()
+  with IgnoreExtraConfOutsideTestsFolder():
+    StartRustCompleterServerInDirectory( shared_app,
+                                         PathToTestFile( 'common', 'src' ) )
 
-  WaitUntilRacerdServerReady( shared_app )
+
+def StartRustCompleterServerInDirectory( app, directory ):
+  app.post_json( '/event_notification',
+                 BuildRequest(
+                   filepath = os.path.join( directory, 'main.rs' ),
+                   event_name = 'FileReadyToParse',
+                   filetype = 'rust' ) )
+  WaitUntilCompleterServerReady( app, 'rust' )
 
 
 def tearDownPackage():
@@ -77,7 +68,7 @@ def tearDownPackage():
   executed once after running all the tests in the package."""
   global shared_app
 
-  StopRacerdServer( shared_app )
+  StopCompleterServer( shared_app, 'rust' )
 
 
 def SharedYcmd( test ):
@@ -90,7 +81,8 @@ def SharedYcmd( test ):
   @functools.wraps( test )
   def Wrapper( *args, **kwargs ):
     ClearCompletionsCache()
-    return test( shared_app, *args, **kwargs )
+    with IgnoreExtraConfOutsideTestsFolder():
+      return test( shared_app, *args, **kwargs )
   return Wrapper
 
 
@@ -104,13 +96,9 @@ def IsolatedYcmd( test ):
   Do NOT attach it to test generators but directly to the yielded tests."""
   @functools.wraps( test )
   def Wrapper( *args, **kwargs ):
-    old_server_state = handlers._server_state
-
-    try:
-      app = SetUpApp()
-      WaitUntilRacerdServerReady( app )
-      test( app, *args, **kwargs )
-      StopRacerdServer( app )
-    finally:
-      handlers._server_state = old_server_state
+    with IsolatedApp() as app:
+      try:
+        test( app, *args, **kwargs )
+      finally:
+        StopCompleterServer( app, 'rust' )
   return Wrapper

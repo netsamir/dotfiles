@@ -1,6 +1,7 @@
 # coding: utf-8
 #
-# Copyright (C) 2013  Google Inc.
+# Copyright (C) 2013 Google Inc.
+#               2016 YouCompleteMe contributors
 #
 # This file is part of YouCompleteMe.
 #
@@ -21,21 +22,20 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
 import contextlib
 from nose.tools import eq_, ok_
 from mock import patch
 
-from ycm.test_utils import MockVimModule
+from ycm.tests.test_utils import MockVimModule
 vim_mock = MockVimModule()
 from ycm import base
 
 
 @contextlib.contextmanager
-def MockCurrentFiletypes( filetypes = [''] ):
+def MockCurrentFiletypes( filetypes = [ '' ] ):
   with patch( 'ycm.vimsupport.CurrentFiletypes', return_value = filetypes ):
     yield
 
@@ -56,76 +56,85 @@ def MockTextAfterCursor( text ):
 
 def AdjustCandidateInsertionText_Basic_test():
   with MockTextAfterCursor( 'bar' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar' ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': 'foobar' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_ParenInTextAfterCursor_test():
   with MockTextAfterCursor( 'bar(zoo' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar' ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': 'foobar' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_PlusInTextAfterCursor_test():
   with MockTextAfterCursor( 'bar+zoo' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar' ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': 'foobar' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_WhitespaceInTextAfterCursor_test():
   with MockTextAfterCursor( 'bar zoo' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar' ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': 'foobar' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_MoreThanWordMatchingAfterCursor_test():
   with MockTextAfterCursor( 'bar.h' ):
-    eq_( [ { 'abbr': 'foobar.h', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar.h' ] ) )
+    eq_( [ { 'word': 'foo',      'abbr': 'foobar.h' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar.h', 'abbr': '' } ] ) )
 
   with MockTextAfterCursor( 'bar(zoo' ):
-    eq_( [ { 'abbr': 'foobar(zoo', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText( [ 'foobar(zoo' ] ) )
+    eq_( [ { 'word': 'foo',        'abbr': 'foobar(zoo' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar(zoo', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_NotSuffix_test():
   with MockTextAfterCursor( 'bar' ):
-    eq_( [ { 'abbr': 'foofoo', 'word': 'foofoo' } ],
-         base.AdjustCandidateInsertionText( [ 'foofoo' ] ) )
+    eq_( [ { 'word': 'foofoo', 'abbr': 'foofoo' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foofoo', 'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_NothingAfterCursor_test():
   with MockTextAfterCursor( '' ):
-    eq_( [ 'foofoo',
-           'zobar' ],
-         base.AdjustCandidateInsertionText( [ 'foofoo',
-                                              'zobar' ] ) )
+    eq_( [ { 'word': 'foofoo', 'abbr': '' },
+           { 'word': 'zobar',  'abbr': '' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foofoo', 'abbr': '' },
+           { 'word': 'zobar',  'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_MultipleStrings_test():
   with MockTextAfterCursor( 'bar' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' },
-           { 'abbr': 'zobar', 'word': 'zo' },
-           { 'abbr': 'qbar', 'word': 'q' },
-           { 'abbr': 'bar', 'word': '' }, ],
-         base.AdjustCandidateInsertionText( [ 'foobar',
-                                              'zobar',
-                                              'qbar',
-                                              'bar' ] ) )
-
-
-def AdjustCandidateInsertionText_DictInput_test():
-  with MockTextAfterCursor( 'bar' ):
-    eq_( [ { 'abbr': 'foobar', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText(
-           [ { 'word': 'foobar' } ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': 'foobar' },
+           { 'word': 'zo',     'abbr': 'zobar' },
+           { 'word': 'q',      'abbr': 'qbar' },
+           { 'word': '',       'abbr': 'bar' }, ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '' },
+           { 'word': 'zobar',  'abbr': '' },
+           { 'word': 'qbar',   'abbr': '' },
+           { 'word': 'bar',    'abbr': '' } ] ) )
 
 
 def AdjustCandidateInsertionText_DontTouchAbbr_test():
   with MockTextAfterCursor( 'bar' ):
-    eq_( [ { 'abbr': '1234', 'word': 'foo' } ],
-         base.AdjustCandidateInsertionText(
-           [ { 'abbr': '1234', 'word': 'foobar' } ] ) )
+    eq_( [ { 'word': 'foo',    'abbr': '1234' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar', 'abbr': '1234' } ] ) )
+
+
+def AdjustCandidateInsertionText_NoAbbr_test():
+  with MockTextAfterCursor( 'bar' ):
+    eq_( [ { 'word': 'foo', 'abbr': 'foobar' } ],
+         base.AdjustCandidateInsertionText( [
+           { 'word': 'foobar' } ] ) )
 
 
 def OverlapLength_Basic_test():
@@ -180,7 +189,7 @@ def LastEnteredCharIsIdentifierChar_Basic_test():
 
 
 def LastEnteredCharIsIdentifierChar_FiletypeHtml_test():
-  with MockCurrentFiletypes( ['html'] ):
+  with MockCurrentFiletypes( [ 'html' ] ):
     with MockCurrentColumnAndLineContents( 3, 'ab-' ):
       ok_( base.LastEnteredCharIsIdentifierChar() )
 
@@ -211,6 +220,22 @@ def LastEnteredCharIsIdentifierChar_NotIdentChar_test():
       ok_( not base.LastEnteredCharIsIdentifierChar() )
 
 
+def LastEnteredCharIsIdentifierChar_Unicode_test():
+  with MockCurrentFiletypes():
+    # CurrentColumn returns a byte offset and character ø is 2 bytes length.
+    with MockCurrentColumnAndLineContents( 5, 'føo(' ):
+      ok_( not base.LastEnteredCharIsIdentifierChar() )
+
+    with MockCurrentColumnAndLineContents( 4, 'føo(' ):
+      ok_( base.LastEnteredCharIsIdentifierChar() )
+
+    with MockCurrentColumnAndLineContents( 3, 'føo(' ):
+      ok_( base.LastEnteredCharIsIdentifierChar() )
+
+    with MockCurrentColumnAndLineContents( 1, 'føo(' ):
+      ok_( base.LastEnteredCharIsIdentifierChar() )
+
+
 def CurrentIdentifierFinished_Basic_test():
   with MockCurrentFiletypes():
     with MockCurrentColumnAndLineContents( 3, 'ab;' ):
@@ -234,10 +259,13 @@ def CurrentIdentifierFinished_NothingBeforeColumn_test():
 def CurrentIdentifierFinished_InvalidColumn_test():
   with MockCurrentFiletypes():
     with MockCurrentColumnAndLineContents( 5, '' ):
-      ok_( not base.CurrentIdentifierFinished() )
+      ok_( base.CurrentIdentifierFinished() )
 
     with MockCurrentColumnAndLineContents( 5, 'abc' ):
       ok_( not base.CurrentIdentifierFinished() )
+
+    with MockCurrentColumnAndLineContents( 4, 'ab;' ):
+      ok_( base.CurrentIdentifierFinished() )
 
 
 def CurrentIdentifierFinished_InMiddleOfLine_test():
@@ -253,7 +281,7 @@ def CurrentIdentifierFinished_InMiddleOfLine_test():
 
 
 def CurrentIdentifierFinished_Html_test():
-  with MockCurrentFiletypes( ['html'] ):
+  with MockCurrentFiletypes( [ 'html' ] ):
     with MockCurrentColumnAndLineContents( 4, 'bar-zoo' ):
       ok_( not base.CurrentIdentifierFinished() )
 
@@ -268,3 +296,19 @@ def CurrentIdentifierFinished_WhitespaceOnly_test():
 
     with MockCurrentColumnAndLineContents( 3, '\t\t\t\t' ):
       ok_( base.CurrentIdentifierFinished() )
+
+
+def CurrentIdentifierFinished_Unicode_test():
+  with MockCurrentFiletypes():
+    # CurrentColumn returns a byte offset and character ø is 2 bytes length.
+    with MockCurrentColumnAndLineContents( 6, 'føo ' ):
+      ok_( base.CurrentIdentifierFinished() )
+
+    with MockCurrentColumnAndLineContents( 5, 'føo ' ):
+      ok_( base.CurrentIdentifierFinished() )
+
+    with MockCurrentColumnAndLineContents( 4, 'føo ' ):
+      ok_( not base.CurrentIdentifierFinished() )
+
+    with MockCurrentColumnAndLineContents( 3, 'føo ' ):
+      ok_( not base.CurrentIdentifierFinished() )

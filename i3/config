@@ -216,5 +216,6 @@ exec_always xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --o
 #
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec rofi -combi-modi drun -show combi -modi combi
+exec_always feh --bg-scale /home/netsamir/Pictures/Mangas/anime_wallpaper_vs.jpg
 
 exec --no-startup-id compton -f

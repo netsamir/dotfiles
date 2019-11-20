@@ -1,5 +1,4 @@
-# Copyright (C) 2013 Google Inc.
-#               2015 ycmd contributors
+# Copyright (C) 2013-2019 ycmd contributors
 #
 # This file is part of ycmd.
 #
@@ -21,24 +20,38 @@ from __future__ import unicode_literals
 from __future__ import print_function
 from __future__ import division
 from __future__ import absolute_import
-from future import standard_library
-from future.utils import iteritems
-standard_library.install_aliases()
+# Not installing aliases from python-future; it's unreliable and slow.
 from builtins import *  # noqa
 
-from future.utils import itervalues, PY2
-from hamcrest import contains_string, has_entry, has_entries, assert_that
+from future.utils import iteritems, PY2
+from hamcrest import ( assert_that,
+                       contains,
+                       contains_string,
+                       has_entries,
+                       has_entry,
+                       has_item )
 from mock import patch
+from pprint import pformat
 from webtest import TestApp
 import bottle
 import contextlib
 import nose
 import functools
+import os
+import tempfile
+import time
+import stat
+import shutil
+import json
 
-from ycmd import handlers, user_options_store
+from ycmd import extra_conf_store, handlers, user_options_store
 from ycmd.completers.completer import Completer
 from ycmd.responses import BuildCompletionData
-from ycmd.utils import OnMac, OnWindows, ToUnicode
+from ycmd.utils import ( GetCurrentDirectory,
+                         OnMac,
+                         OnWindows,
+                         ToUnicode,
+                         WaitUntilProcessIsTerminated )
 import ycm_core
 
 try:
@@ -46,18 +59,23 @@ try:
 except ImportError:
   from unittest2 import skipIf
 
+TESTS_DIR = os.path.abspath( os.path.dirname( __file__ ) )
+
 Py2Only = skipIf( not PY2, 'Python 2 only' )
 Py3Only = skipIf( PY2, 'Python 3 only' )
 WindowsOnly = skipIf( not OnWindows(), 'Windows only' )
 ClangOnly = skipIf( not ycm_core.HasClangSupport(),
                     'Only when Clang support available' )
 MacOnly = skipIf( not OnMac(), 'Mac only' )
+UnixOnly = skipIf( OnWindows(), 'Unix only' )
+NoWinPy2 = skipIf( OnWindows() and PY2, 'Disabled on Windows with Python 2' )
 
 
 def BuildRequest( **kwargs ):
   filepath = kwargs[ 'filepath' ] if 'filepath' in kwargs else '/foo'
   contents = kwargs[ 'contents' ] if 'contents' in kwargs else ''
   filetype = kwargs[ 'filetype' ] if 'filetype' in kwargs else 'foo'
+  filetypes = kwargs[ 'filetypes' ] if 'filetypes' in kwargs else [ filetype ]
 
   request = {
     'line_num': 1,
@@ -66,7 +84,7 @@ def BuildRequest( **kwargs ):
     'file_data': {
       filepath: {
         'contents': contents,
-        'filetypes': [ filetype ]
+        'filetypes': filetypes
       }
     }
   }
@@ -82,6 +100,12 @@ def BuildRequest( **kwargs ):
       request[ key ] = value
 
   return request
+
+
+def CombineRequest( request, data ):
+  kwargs = request.copy()
+  kwargs.update( data )
+  return BuildRequest( **kwargs )
 
 
 def ErrorMatcher( cls, msg = None ):
@@ -108,12 +132,6 @@ def CompletionEntryMatcher( insertion_text,
   return has_entries( match )
 
 
-def CompletionLocationMatcher( location_type, value ):
-  return has_entry( 'extra_data',
-                    has_entry( 'location',
-                               has_entry( location_type, value ) ) )
-
-
 def MessageMatcher( msg ):
   return has_entry( 'message', contains_string( msg ) )
 
@@ -123,6 +141,13 @@ def LocationMatcher( filepath, line_num, column_num ):
     'line_num': line_num,
     'column_num': column_num,
     'filepath': filepath
+  } )
+
+
+def RangeMatcher( filepath, start, end ):
+  return has_entries( {
+    'start': LocationMatcher( filepath, *start ),
+    'end': LocationMatcher( filepath, *end ),
   } )
 
 
@@ -136,6 +161,27 @@ def ChunkMatcher( replacement_text, start, end ):
   } )
 
 
+def LineColMatcher( line, col ):
+  return has_entries( {
+    'line_num': line,
+    'column_num': col
+  } )
+
+
+def CompleterProjectDirectoryMatcher( project_directory ):
+  return has_entry(
+    'completer',
+    has_entry( 'servers', contains(
+      has_entry( 'extras', has_item(
+        has_entries( {
+          'key': 'Project Directory',
+          'value': project_directory,
+        } )
+      ) )
+    ) )
+  )
+
+
 @contextlib.contextmanager
 def PatchCompleter( completer, filetype ):
   user_options = handlers._server_state._user_options
@@ -145,21 +191,95 @@ def PatchCompleter( completer, filetype ):
 
 
 @contextlib.contextmanager
-def UserOption( key, value ):
+def CurrentWorkingDirectory( path ):
+  old_cwd = GetCurrentDirectory()
+  os.chdir( path )
   try:
-    current_options = dict( user_options_store.GetAll() )
-    user_options = current_options.copy()
-    user_options.update( { key: value } )
-    handlers.UpdateUserOptions( user_options )
+    yield old_cwd
+  finally:
+    os.chdir( old_cwd )
+
+
+# The "exe" suffix is needed on Windows and not harmful on other platforms.
+@contextlib.contextmanager
+def TemporaryExecutable( extension = '.exe' ):
+  with tempfile.NamedTemporaryFile( prefix = 'Temp',
+                                    suffix = extension ) as executable:
+    os.chmod( executable.name, stat.S_IXUSR )
+    yield executable.name
+
+
+@contextlib.contextmanager
+def TemporarySymlink( source, link ):
+  os.symlink( source, link )
+  try:
     yield
   finally:
-    handlers.UpdateUserOptions( current_options )
+    os.remove( link )
 
 
-def SetUpApp():
+def SetUpApp( custom_options = {} ):
   bottle.debug( True )
-  handlers.SetServerStateToDefaults()
+  options = user_options_store.DefaultOptions()
+  options.update( custom_options )
+  handlers.UpdateUserOptions( options )
+  extra_conf_store.Reset()
   return TestApp( handlers.app )
+
+
+@contextlib.contextmanager
+def IgnoreExtraConfOutsideTestsFolder():
+  with patch( 'ycmd.utils.IsRootDirectory',
+              lambda path, parent: path in [ parent, TESTS_DIR ] ):
+    yield
+
+
+@contextlib.contextmanager
+def IsolatedApp( custom_options = {} ):
+  old_server_state = handlers._server_state
+  old_extra_conf_store_state = extra_conf_store.Get()
+  old_options = user_options_store.GetAll()
+  try:
+    with IgnoreExtraConfOutsideTestsFolder():
+      yield SetUpApp( custom_options )
+  finally:
+    handlers._server_state = old_server_state
+    extra_conf_store.Set( old_extra_conf_store_state )
+    user_options_store.SetAll( old_options )
+
+
+def StartCompleterServer( app, filetype, filepath = '/foo' ):
+  app.post_json( '/run_completer_command',
+                 BuildRequest( command_arguments = [ 'RestartServer' ],
+                               filetype = filetype,
+                               filepath = filepath ) )
+
+
+def StopCompleterServer( app, filetype, filepath = '/foo' ):
+  app.post_json( '/run_completer_command',
+                 BuildRequest( command_arguments = [ 'StopServer' ],
+                               filetype = filetype,
+                               filepath = filepath ),
+                 expect_errors = True )
+
+
+def WaitUntilCompleterServerReady( app, filetype, timeout = 30 ):
+  expiration = time.time() + timeout
+  while True:
+    if time.time() > expiration:
+      raise RuntimeError( 'Waited for the {0} subserver to be ready for '
+                          '{1} seconds, aborting.'.format( filetype, timeout ) )
+
+    if app.get( '/ready', { 'subserver': filetype } ).json:
+      return
+
+    time.sleep( 0.1 )
+
+
+def MockProcessTerminationTimingOut( handle, timeout = 5 ):
+  WaitUntilProcessIsTerminated( handle, timeout )
+  raise RuntimeError( 'Waited process to terminate for {0} seconds, '
+                      'aborting.'.format( timeout ) )
 
 
 def ClearCompletionsCache():
@@ -170,10 +290,8 @@ def ClearCompletionsCache():
   This function is used when sharing the application between tests so that
   no completions are cached by previous tests."""
   server_state = handlers._server_state
-  filetype_completers = server_state._filetype_completers
-  for completer in itervalues( filetype_completers ):
-    if completer:
-      completer._completions_cache.Invalidate()
+  for completer in server_state.GetLoadedFiletypeCompleters():
+    completer._completions_cache.Invalidate()
   general_completer = server_state.GetGeneralCompleter()
   for completer in general_completer._all_completers:
     completer._completions_cache.Invalidate()
@@ -239,3 +357,126 @@ def ExpectedFailure( reason, *exception_matchers ):
     return Wrapper
 
   return decorator
+
+
+@contextlib.contextmanager
+def TemporaryTestDir():
+  """Context manager to execute a test with a temporary workspace area. The
+  workspace is deleted upon completion of the test. This is useful particularly
+  for testing project detection (e.g. compilation databases, etc.), by ensuring
+  that the directory is empty and not affected by the user's filesystem."""
+  tmp_dir = tempfile.mkdtemp()
+  try:
+    yield tmp_dir
+  finally:
+    shutil.rmtree( tmp_dir )
+
+
+def WithRetry( test ):
+  """Decorator to be applied to tests that retries the test over and over
+  until it passes or |timeout| seconds have passed."""
+
+  if 'YCM_TEST_NO_RETRY' in os.environ:
+    return test
+
+  @functools.wraps( test )
+  def wrapper( *args, **kwargs ):
+    expiry = time.time() + 30
+    while True:
+      try:
+        test( *args, **kwargs )
+        return
+      except Exception as test_exception:
+        if time.time() > expiry:
+          raise
+        print( 'Test failed, retrying: {0}'.format( str( test_exception ) ) )
+        time.sleep( 0.25 )
+  return wrapper
+
+
+@contextlib.contextmanager
+def TemporaryClangProject( tmp_dir, compile_commands ):
+  """Context manager to create a compilation database in a directory and delete
+  it when the test completes. |tmp_dir| is the directory in which to create the
+  database file (typically used in conjunction with |TemporaryTestDir|) and
+  |compile_commands| is a python object representing the compilation database.
+
+  e.g.:
+    with TemporaryTestDir() as tmp_dir:
+      database = [
+        {
+          'directory': os.path.join( tmp_dir, dir ),
+          'command': compiler_invocation,
+          'file': os.path.join( tmp_dir, dir, filename )
+        },
+        ...
+      ]
+      with TemporaryClangProject( tmp_dir, database ):
+        <test here>
+
+  The context manager does not yield anything.
+  """
+  path = os.path.join( tmp_dir, 'compile_commands.json' )
+
+  with open( path, 'w' ) as f:
+    f.write( ToUnicode( json.dumps( compile_commands, indent=2 ) ) )
+
+  try:
+    yield
+  finally:
+    os.remove( path )
+
+
+def WaitForDiagnosticsToBeReady( app, filepath, contents, filetype, **kwargs ):
+  results = None
+  for tries in range( 0, 60 ):
+    event_data = BuildRequest( event_name = 'FileReadyToParse',
+                               contents = contents,
+                               filepath = filepath,
+                               filetype = filetype,
+                               **kwargs )
+
+    results = app.post_json( '/event_notification', event_data ).json
+
+    if results:
+      break
+
+    time.sleep( 0.5 )
+
+  return results
+
+
+class PollForMessagesTimeoutException( Exception ):
+  pass
+
+
+def PollForMessages( app, request_data, timeout = 60 ):
+  expiration = time.time() + timeout
+  while True:
+    if time.time() > expiration:
+      raise PollForMessagesTimeoutException(
+        'Waited for diagnostics to be ready for {0} seconds, aborting.'.format(
+          timeout ) )
+
+    default_args = {
+      'line_num'  : 1,
+      'column_num': 1,
+    }
+    args = dict( default_args )
+    args.update( request_data )
+
+    response = app.post_json( '/receive_messages', BuildRequest( **args ) ).json
+
+    print( 'poll response: {0}'.format( pformat( response ) ) )
+
+    if isinstance( response, bool ):
+      if not response:
+        raise RuntimeError( 'The message poll was aborted by the server' )
+    elif isinstance( response, list ):
+      for message in response:
+        yield message
+    else:
+      raise AssertionError( 'Message poll response was wrong type: {0}'.format(
+        type( response ).__name__ ) )
+
+    time.sleep( 0.25 )
